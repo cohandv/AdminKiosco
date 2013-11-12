@@ -61,7 +61,7 @@ namespace AdminKiosco.Web.Account
             }
 
             // Build the redirect url for OpenAuth verification
-            var redirectUrl = "~/Account/RegisterExternalLogin";
+            var redirectUrl = "~/Account/RegisterExternalLogin.aspx";
             var returnUrl = Request.QueryString["ReturnUrl"];
             if (!String.IsNullOrEmpty(returnUrl))
             {

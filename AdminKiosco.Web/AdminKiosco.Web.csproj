@@ -290,6 +290,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_LocalResources\Default.aspx.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Default.aspx.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_LocalResources\Default.aspx.es.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Default.aspx.es.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_LocalResources\Login.aspx.en.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -642,16 +652,21 @@
     <Content Include="App_LocalResources\Login.aspx.es.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Login.aspx.es.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\Default.aspx.resx">
       <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Default.aspx.Designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\Default.aspx.es.resx">
       <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Default.aspx.es.Designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <PropertyGroup>
