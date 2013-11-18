@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebApplication1
+namespace AdminKiosco.Web
 {
     public partial class Url_EditField : System.Web.DynamicData.FieldTemplateUserControl
     {

@@ -5,7 +5,7 @@ using System.Web.DynamicData;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebApplication1
+namespace AdminKiosco.Web
 {
     public partial class GridViewPager : System.Web.UI.UserControl
     {

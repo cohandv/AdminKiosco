@@ -1,3 +1,3 @@
-﻿<%@ Control Language="C#" CodeBehind="Children_Insert.ascx.cs" Inherits="WebApplication1.Children_InsertField" %>
+﻿<%@ Control Language="C#" CodeBehind="Children_Insert.ascx.cs" Inherits="AdminKiosco.Web.Children_InsertField" %>
 
 

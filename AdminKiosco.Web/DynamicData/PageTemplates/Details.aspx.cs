@@ -7,7 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.Expressions;
 
-namespace WebApplication1
+namespace AdminKiosco.Web
 {
     public partial class Details : System.Web.UI.Page
     {
@@ -34,5 +34,14 @@ namespace WebApplication1
             }
         }
 
+        protected void lnkEditBtn_Init(object sender, EventArgs e)
+        {
+            ((DynamicHyperLink)sender).Enabled = AdminKiosco.Web.Account.RoleHelper.CanEdit(table.DisplayName);
+        }
+
+        protected void lnkDeleteBtn_Init(object sender, EventArgs e)
+        {
+            ((LinkButton)sender).Enabled = AdminKiosco.Web.Account.RoleHelper.CanDelete(table.DisplayName);
+        }
     }
 }

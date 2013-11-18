@@ -28,7 +28,7 @@
         <h3>Funciones principales</h3>
         <ul>
             <li><a runat="server" href="~/">Home</a></li>
-            <li><a runat="server" href="~/">Administration</a></li>
+            <li><a runat="server" href="~/Administration.aspx">Administration</a></li>
             <li><a runat="server" href="~/">Billing</a></li>
             <li><a runat="server" href="~/">Reporting</a></li>
             <li><a runat="server" href="~/About">About</a></li>

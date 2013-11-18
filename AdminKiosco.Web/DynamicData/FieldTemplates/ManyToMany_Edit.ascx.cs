@@ -18,7 +18,7 @@ using System.Xml.Linq;
 using System.Web.DynamicData;
 using System.Collections.Generic;
 
-namespace WebApplication1
+namespace AdminKiosco.Web
 {
     public partial class ManyToMany_EditField : System.Web.DynamicData.FieldTemplateUserControl
     {

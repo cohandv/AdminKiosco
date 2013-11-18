@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" CodeBehind="Url.ascx.cs" Inherits="WebApplication1.UrlField" %>
+﻿<%@ Control Language="C#" CodeBehind="Url.ascx.cs" Inherits="AdminKiosco.Web.UrlField" %>
 
 <asp:HyperLink ID="HyperLinkUrl" runat="server" Text="<%# FieldValueString %>" Target="_blank" />
 

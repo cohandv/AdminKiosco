@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.master" CodeBehind="Details.aspx.cs" Inherits="WebApplication1.Details" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.master" CodeBehind="Details.aspx.cs" Inherits="AdminKiosco.Web.Details" %>
 
 
 <asp:Content ID="headContent" ContentPlaceHolderID="HeadContent" Runat="Server">
@@ -25,9 +25,9 @@
                         <asp:DynamicEntity runat="server" />
                         <tr class="td">
                             <td colspan="2">
-                                <asp:DynamicHyperLink runat="server" Action="Edit" Text="Edit" />
+                                <asp:DynamicHyperLink runat="server" Action="Edit" Text="Edit" ID="lnkEditBtn" OnInit="lnkEditBtn_Init"  />
                                 <asp:LinkButton runat="server" CommandName="Delete" Text="Delete"
-                                    OnClientClick='return confirm("Are you sure you want to delete this item?");' />
+                                    OnClientClick='return confirm("Are you sure you want to delete this item?");' OnInit="lnkDeleteBtn_Init" />
                             </td>
                         </tr>
                     </table>

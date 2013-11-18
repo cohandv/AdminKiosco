@@ -126,6 +126,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administration.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="About.aspx" />
     <Content Include="Account\Login.aspx" />
@@ -291,6 +292,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\RoleHelper.cs" />
+    <Compile Include="Administration.aspx.cs">
+      <DependentUpon>Administration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration.aspx.designer.cs">
+      <DependentUpon>Administration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

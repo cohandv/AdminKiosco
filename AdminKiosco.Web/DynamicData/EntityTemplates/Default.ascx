@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" CodeBehind="Default.ascx.cs" Inherits="WebApplication1.DefaultEntityTemplate" %>
+﻿<%@ Control Language="C#" CodeBehind="Default.ascx.cs" Inherits="AdminKiosco.Web.DefaultEntityTemplate" %>
 
 <asp:EntityTemplate runat="server" ID="EntityTemplate1">
     <ItemTemplate>

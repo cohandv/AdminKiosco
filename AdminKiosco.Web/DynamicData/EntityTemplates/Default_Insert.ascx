@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" CodeBehind="Default_Insert.ascx.cs" Inherits="WebApplication1.Default_InsertEntityTemplate" %>
+﻿<%@ Control Language="C#" CodeBehind="Default_Insert.ascx.cs" Inherits="AdminKiosco.Web.Default_InsertEntityTemplate" %>
 
 <%@ Reference Control="~/DynamicData/EntityTemplates/Default.ascx" %>
 

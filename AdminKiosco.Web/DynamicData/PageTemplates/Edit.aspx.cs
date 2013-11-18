@@ -7,7 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.Expressions;
 
-namespace WebApplication1
+namespace AdminKiosco.Web
 {
     public partial class Edit : System.Web.UI.Page
     {
