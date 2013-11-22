@@ -12,10 +12,20 @@ namespace AdminKiosco.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Puesto
+    public partial class Publicacion
     {
+        public Publicacion()
+        {
+            this.Promocion = new HashSet<Promocion>();
+        }
+    
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public string Ciudad { get; set; }
+        public int DistribuidorId { get; set; }
+        public int TipoPublicacionId { get; set; }
+    
+        public virtual Distribuidor Distribuidor { get; set; }
+        public virtual ICollection<Promocion> Promocion { get; set; }
+        public virtual TipoPublicacion TipoPublicacion { get; set; }
     }
 }

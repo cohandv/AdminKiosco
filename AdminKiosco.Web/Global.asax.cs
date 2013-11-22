@@ -63,7 +63,7 @@ namespace AdminKiosco.Web
                     return;
 
                 //Redirect HTTP errors to HttpError page
-                Server.Transfer("Error.aspx");
+                Server.Transfer("~/Error.aspx");
             }
 
             // For other kinds of errors give the user some information

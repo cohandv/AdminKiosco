@@ -61,6 +61,7 @@ namespace AdminKiosco.Web
             //    ViewName = "ListDetails",
             //    Model = DefaultModel
             //});
+
         }
     }
 }
