@@ -1,10 +1,14 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity.Infrastructure;
+using System.Linq;
 using System.Web;
 using System.Web.DynamicData;
 using System.Web.Routing;
 using Microsoft.AspNet.FriendlyUrls;
+
 
 namespace AdminKiosco.Web
 {
@@ -19,6 +23,9 @@ namespace AdminKiosco.Web
             }
         }
 
+        public static IEnumerable<MetaTable> PublicTables { get; set;}
+        public static string HiddenTables { get; set; } 
+    
         public static void RegisterRoutes(RouteCollection routes)
         {
             //                    IMPORTANT: DATA MODEL REGISTRATION 
@@ -47,6 +54,10 @@ namespace AdminKiosco.Web
                 Model = DefaultModel
             });
 
+            HiddenTables = ConfigurationManager.AppSettings["hiddenTables"];
+            
+
+
             // The following statements support combined-page mode, where the List, Detail, Insert, and
             // Update tasks are performed by using the same page. To enable this mode, uncomment the
             // following routes and comment out the route definition in the separate-page mode section above.
@@ -62,6 +73,23 @@ namespace AdminKiosco.Web
             //    Model = DefaultModel
             //});
 
+        }
+
+        public static IEnumerable<MetaTable> VisibleTables
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(RouteConfig.HiddenTables))
+                {
+                    return from v in DefaultModel.VisibleTables
+                           where !RouteConfig.HiddenTables.Contains(v.Name.ToString())
+                           select v;
+                }
+                else
+                {
+                    return new List<MetaTable>();
+                }
+            }
         }
     }
 }

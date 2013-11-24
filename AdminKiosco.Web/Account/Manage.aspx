@@ -43,7 +43,7 @@
                             ValidationGroup="SetPassword" />
                     </li>
                 </ol>
-                <asp:Button runat="server" Text="Set Password" ValidationGroup="SetPassword" OnClick="setPassword_Click" />
+                <asp:Button runat="server" Text="Password" ValidationGroup="SetPassword" OnClick="setPassword_Click" />
             </fieldset>
         </asp:PlaceHolder>
 
@@ -82,7 +82,7 @@
                                     ValidationGroup="ChangePassword" />
                             </li>
                         </ol>
-                        <asp:Button runat="server" CommandName="ChangePassword" Text="Change password" ValidationGroup="ChangePassword" />
+                        <asp:Button runat="server" CommandName="ChangePassword" Text="Cambiar password" ValidationGroup="ChangePassword" />
                     </fieldset>
                 </ChangePasswordTemplate>
             </asp:ChangePassword>
@@ -111,7 +111,7 @@
                     <td><%#: Item.ProviderUserName %></td>
                     <td><%#: ConvertToDisplayDateTime(Item.LastUsedUtc) %></td>
                     <td>
-                        <asp:Button runat="server" Text="Remove" CommandName="Delete" CausesValidation="false" 
+                        <asp:Button runat="server" Text="Eliminar" CommandName="Delete" CausesValidation="false" 
                             ToolTip='<%# "Remove this " + Item.ProviderDisplayName + " login from your account" %>'
                             Visible="<%# CanRemoveExternalLogins %>" />
                     </td>

@@ -19,7 +19,7 @@
         <ContentTemplate>
             <div class="DD">
                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" EnableClientScript="true"
-                    HeaderText="List of validation errors" CssClass="DDValidator" />
+                    HeaderText="Lista de errores" CssClass="DDValidator" />
                 <asp:DynamicValidator runat="server" ID="GridViewValidator" ControlToValidate="GridView1" Display="None" CssClass="DDValidator" />
                 <asp:DynamicValidator runat="server" ID="FormViewValidator" ControlToValidate="FormView1" Display="None" CssClass="DDValidator" />
 
@@ -46,7 +46,7 @@
                     <asp:GridViewPager runat="server" />
                 </PagerTemplate>
                 <EmptyDataTemplate>
-                    There are currently no items in this table.
+                    Actualmente no hay registros.
                 </EmptyDataTemplate>
             </asp:GridView>
 
@@ -69,9 +69,9 @@
                         <asp:DynamicEntity runat="server" />
                         <tr class="td">
                             <td colspan="2">
-                                <asp:LinkButton runat="server" CommandName="Edit" Text="Edit" />
-                                <asp:LinkButton runat="server" CommandName="Delete" Text="Delete"
-                                    OnClientClick='return confirm("Are you sure you want to delete this item?");' />
+                                <asp:LinkButton runat="server" CommandName="Edit" Text="Editar" />
+                                <asp:LinkButton runat="server" CommandName="Delete" Text="Borrar"
+                                    OnClientClick='return confirm("Esta seguro de borrar el elemento?");' />
                                 <asp:LinkButton runat="server" CommandName="New" Text="New" />
                             </td>
                         </tr>
@@ -80,8 +80,8 @@
                         <asp:DynamicEntity runat="server" Mode="Edit" />
                         <tr class="td">
                             <td colspan="2">
-                                <asp:LinkButton runat="server" CommandName="Update" Text="Update" />
-                                <asp:LinkButton runat="server" CommandName="Cancel" Text="Cancel" CausesValidation="false" />
+                                <asp:LinkButton runat="server" CommandName="Update" Text="Actualizar" />
+                                <asp:LinkButton runat="server" CommandName="Cancel" Text="Cancelar" CausesValidation="false" />
                             </td>
                         </tr>
                     </EditItemTemplate>
@@ -89,8 +89,8 @@
                         <asp:DynamicEntity runat="server" Mode="Insert" />
                         <tr class="td">
                             <td colspan="2">
-                                <asp:LinkButton runat="server" CommandName="Insert" Text="Insert" />
-                                <asp:LinkButton runat="server" CommandName="Cancel" Text="Cancel" CausesValidation="false" />
+                                <asp:LinkButton runat="server" CommandName="Insert" Text="Agregar" />
+                                <asp:LinkButton runat="server" CommandName="Cancel" Text="Cancelar" CausesValidation="false" />
                             </td>
                         </tr>
                     </InsertItemTemplate>

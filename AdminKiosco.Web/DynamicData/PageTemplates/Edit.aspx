@@ -11,12 +11,12 @@
         </DataControls>
     </asp:DynamicDataManager>
 
-    <h2 class="DDSubHeader">Edit entry from table <%= table.DisplayName %></h2>
+    <h2 class="DDSubHeader">Editar registro de <%= table.DisplayName %></h2>
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <asp:ValidationSummary ID="ValidationSummary1" runat="server" EnableClientScript="true"
-                HeaderText="List of validation errors" CssClass="DDValidator" />
+                HeaderText="Lista de errores" CssClass="DDValidator" />
             <asp:DynamicValidator runat="server" ID="DetailsViewValidator" ControlToValidate="FormView1" Display="None" CssClass="DDValidator" />
 
             <asp:FormView runat="server" ID="FormView1" DataSourceID="DetailsDataSource" DefaultMode="Edit"
@@ -26,14 +26,14 @@
                         <asp:DynamicEntity runat="server" Mode="Edit" />
                         <tr class="td">
                             <td colspan="2">
-                                <asp:LinkButton runat="server" CommandName="Update" Text="Update" />
-                                <asp:LinkButton runat="server" CommandName="Cancel" Text="Cancel" CausesValidation="false" />
+                                <asp:LinkButton runat="server" CommandName="Update" Text="Actualizar" />
+                                <asp:LinkButton runat="server" CommandName="Cancel" Text="Cancelar" CausesValidation="false" />
                             </td>
                         </tr>
                     </table>
                 </EditItemTemplate>
                 <EmptyDataTemplate>
-                    <div class="DDNoItem">No such item.</div>
+                    <div class="DDNoItem">No existe el elemento.</div>
                 </EmptyDataTemplate>
             </asp:FormView>
 

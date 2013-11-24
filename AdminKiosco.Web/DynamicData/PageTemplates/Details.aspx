@@ -11,12 +11,12 @@
         </DataControls>
     </asp:DynamicDataManager>
 
-    <h2 class="DDSubHeader">Entry from table <%= table.DisplayName %></h2>
+    <h2 class="DDSubHeader">Detalle de <%= table.DisplayName %></h2>
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <asp:ValidationSummary ID="ValidationSummary1" runat="server" EnableClientScript="true"
-                HeaderText="List of validation errors" CssClass="DDValidator" />
+                HeaderText="Lista de errores" CssClass="DDValidator" />
             <asp:DynamicValidator runat="server" ID="DetailsViewValidator" ControlToValidate="FormView1" Display="None" CssClass="DDValidator" />
 
             <asp:FormView runat="server" ID="FormView1" DataSourceID="DetailsDataSource" OnItemDeleted="FormView1_ItemDeleted" RenderOuterTable="false">
@@ -25,15 +25,15 @@
                         <asp:DynamicEntity runat="server" />
                         <tr class="td">
                             <td colspan="2">
-                                <asp:DynamicHyperLink runat="server" Action="Edit" Text="Edit" ID="lnkEditBtn" OnInit="lnkEditBtn_Init"  />
-                                <asp:LinkButton runat="server" CommandName="Delete" Text="Delete"
-                                    OnClientClick='return confirm("Are you sure you want to delete this item?");' OnInit="lnkDeleteBtn_Init" />
+                                <asp:DynamicHyperLink runat="server" Action="Edit" Text="Editar" ID="lnkEditBtn" OnInit="lnkEditBtn_Init"  />
+                                <asp:LinkButton runat="server" CommandName="Delete" Text="Borrar"
+                                    OnClientClick='return confirm("Esta seguro de borrar este elemento?");' OnInit="lnkDeleteBtn_Init" />
                             </td>
                         </tr>
                     </table>
                 </ItemTemplate>
                 <EmptyDataTemplate>
-                    <div class="DDNoItem">No such item.</div>
+                    <div class="DDNoItem">No existe el elemento.</div>
                 </EmptyDataTemplate>
             </asp:FormView>
 
@@ -46,7 +46,7 @@
             <br />
 
             <div class="DDBottomHyperLink">
-                <asp:DynamicHyperLink ID="ListHyperLink" runat="server" Action="List">Show all items</asp:DynamicHyperLink>
+                <asp:DynamicHyperLink ID="ListHyperLink" runat="server" Action="List">Mostrar todos los elementos</asp:DynamicHyperLink>
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>

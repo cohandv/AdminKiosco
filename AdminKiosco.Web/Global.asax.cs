@@ -30,6 +30,11 @@ namespace AdminKiosco.Web
             });
         }
 
+        //void Application_BeginRequest(object sender, EventArgs e)
+        //{
+        //    if (Request.AppRelativeCurrentExecutionFilePath == "~/")
+        //        HttpContext.Current.RewritePath("~/default.aspx");
+        //}
         void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup

@@ -5,28 +5,28 @@
         <div class="content-wrapper">
             <hgroup class="title">
                 <h1><%: Title %>.</h1>
-                <h2>Principal Functions</h2>
+                <h2>Funciones principales</h2>
             </hgroup>
         </div>
     </section>
 </asp:Content>
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <h3>We suggest the following:</h3>
+    <h3>Opciones comunes:</h3>
     <ol class="round">
         <li class="one">
-            <h5>Administration</h5>
-            Basic funcions:
-            <a href="~/Pages/Bla.aspx">Add a Product…</a>
+            <h5>Administracion</h5>
+            Funciones principales:
+            <a href="~/Pages/Bla.aspx">Agregar un producto…</a>
         </li>
         <li class="two">
-            <h5>Billing</h5>
-            Create a Billing
-            <a href="~/Pages/Bla.aspx">View older billings</a>
-            <a href="~/Pages/Bla.aspx">Create a billing</a>
+            <h5>Facturacion</h5>
+            Crear una facturación
+            <a href="~/Pages/Bla.aspx">Revisar facturaciones anteriores</a>
+            <a href="~/Pages/Bla.aspx">Crear una facturacion</a>
         </li>
         <li class="three">
             <h5>Reporting</h5>
-            Create and view reports
+            Visualizar reportes
             <a href="~/Report/Report1.aspx">Report 1</a>
         </li>
     </ol>

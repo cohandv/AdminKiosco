@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq.Mapping;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,8 +12,7 @@ namespace AdminKiosco.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            System.Collections.IList visibleTables = RouteConfig.DefaultModel.VisibleTables;
-            Menu1.DataSource = visibleTables;
+            Menu1.DataSource = RouteConfig.VisibleTables;
             Menu1.DataBind();
         }
     }
