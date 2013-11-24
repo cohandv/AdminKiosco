@@ -42,5 +42,14 @@ namespace AdminKiosco.Web
             }
         }
 
+        protected void lnkEditBtn_Init(object sender, EventArgs e)
+        {
+            ((DynamicHyperLink)sender).Enabled = AdminKiosco.Web.Account.RoleHelper.CanEdit(table.DisplayName);
+        }
+
+        protected void lnkDeleteBtn_Init(object sender, EventArgs e)
+        {
+            ((LinkButton)sender).Enabled = AdminKiosco.Web.Account.RoleHelper.CanDelete(table.DisplayName);
+        }
     }
 }

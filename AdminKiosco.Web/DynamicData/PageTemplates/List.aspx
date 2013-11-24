@@ -36,8 +36,8 @@
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:DynamicHyperLink runat="server" Action="Edit" Text="Editar"
-                            />&nbsp;<asp:LinkButton runat="server" CommandName="Delete" Text="Borrar"
+                            <asp:DynamicHyperLink runat="server" Action="Edit" Text="Editar" OnInit="lnkEditBtn_Init" 
+                            />&nbsp;<asp:LinkButton runat="server" CommandName="Delete" Text="Borrar"  OnInit="lnkDeleteBtn_Init" 
                                 OnClientClick='return confirm("Esta seguro de borrar el elemento?");'
                             />&nbsp;<asp:DynamicHyperLink runat="server" Text="Detalles" />
                         </ItemTemplate>

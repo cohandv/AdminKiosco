@@ -21,8 +21,8 @@ namespace AdminKiosco.Web
         {
             ScriptManager.ScriptResourceMapping.AddDefinition("jquery", new ScriptResourceDefinition
             {
-                Path = "~/Scripts/jquery-1.8.2.min.js",
-                DebugPath = "~/Scripts/jquery-1.8.2.js",
+                Path = "~/Scripts/jquery-1.8.24.min.js",
+                DebugPath = "~/Scripts/jquery-1.8.24.js",
                 CdnPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js",
                 CdnDebugPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.js",
                 CdnSupportsSecureConnection = true,

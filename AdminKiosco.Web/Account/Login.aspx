@@ -6,7 +6,7 @@
         <h1><%: Title %>.</h1>
     </hgroup>
     <section id="loginForm">
-        <h2>Use a local account to log in.</h2>
+        <h2>Use una cuenta local para entrar.</h2>
         <asp:Login runat="server" ViewStateMode="Disabled" RenderOuterTable="false">
             <LayoutTemplate>
                 <p class="validation-summary-errors">
@@ -41,7 +41,7 @@
     </section>
 
     <section id="socialLoginForm">
-        <h2>Use another service to log in.</h2>
+        <h2>Use otro servicio para entrar.</h2>
         <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />
     </section>
 </asp:Content>
