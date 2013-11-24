@@ -581,7 +581,7 @@
           <EntitySet Name="aspnet_SchemaVersions" EntityType="PaperModel.aspnet_SchemaVersions" />
           <EntitySet Name="aspnet_Users" EntityType="PaperModel.aspnet_Users" />
           <EntitySet Name="aspnet_WebEvent_Events" EntityType="PaperModel.aspnet_WebEvent_Events" />
-          <EntitySet Name="Cliente" EntityType="PaperModel.Cliente" />
+          <EntitySet Name="Clientes" EntityType="PaperModel.Cliente" />
           <EntitySet Name="Distribuidor" EntityType="PaperModel.Distribuidor" />
           <EntitySet Name="Kiosco" EntityType="PaperModel.Kiosco" />
           <EntitySet Name="Precio" EntityType="PaperModel.Precio" />
@@ -630,10 +630,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Cliente_Kiosco" Association="PaperModel.FK_Cliente_Kiosco">
             <End Role="Kiosco" EntitySet="Kiosco" />
-            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Cliente" EntitySet="Clientes" />
           </AssociationSet>
           <AssociationSet Name="FK_Subscripcion_Cliente" Association="PaperModel.FK_Subscripcion_Cliente">
-            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Cliente" EntitySet="Clientes" />
             <End Role="Subscripcion" EntitySet="Subscripcion" />
           </AssociationSet>
           <AssociationSet Name="FK_Publicacion_Distribuidor" Association="PaperModel.FK_Publicacion_Distribuidor">
@@ -1031,7 +1031,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Cliente_Kiosco">
-          <End Type="PaperModel.Kiosco" Role="Kiosco" Multiplicity="1" />
+          <End Type="PaperModel.Kiosco" Role="Kiosco" Multiplicity="1" >
+          </End>
           <End Type="PaperModel.Cliente" Role="Cliente" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Kiosco">
@@ -1272,7 +1273,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Cliente">
+          <EntitySetMapping Name="Clientes">
             <EntityTypeMapping TypeName="PaperModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
                 <ScalarProperty Name="KioscoId" ColumnName="KioscoId" />

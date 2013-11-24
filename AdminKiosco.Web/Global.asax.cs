@@ -71,20 +71,14 @@ namespace AdminKiosco.Web
                 Server.Transfer("~/Error.aspx");
             }
 
-            // For other kinds of errors give the user some information
-            // but stay on the default page
-            Response.Write("<h2>Global Page Error</h2>\n");
-            Response.Write(
-                "<p>" + exc.Message + "</p>\n");
-            Response.Write("Return to the <a href='Default.aspx'>" +
-                "Default Page</a>\n");
-
             // Log the exception and notify system operators
             //TODO IMPLEMENT SECURITY IN DATABASE!
             EventLog.WriteEntry("Application", exc.Message + System.Environment.NewLine + exc.StackTrace);
 
             // Clear the error from the server
             Server.ClearError();
+
+            Server.Transfer("~/Error.aspx");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Log in" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="AdminKiosco.Web.Account.Login" %>
+﻿<%@ Page Title="Entrar" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="AdminKiosco.Web.Account.Login" %>
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
@@ -13,7 +13,7 @@
                     <asp:Literal runat="server" ID="FailureText" />
                 </p>
                 <fieldset>
-                    <legend>Log in Form</legend>
+                    <legend>Formulario de autenticacion</legend>
                     <ol>
                         <li>
                             <asp:Label runat="server" AssociatedControlID="UserName">User name</asp:Label>

@@ -15,11 +15,11 @@
 
         <asp:PlaceHolder runat="server" ID="setPassword" Visible="false">
             <p>
-                You do not have a local password for this site. Add a local
-                password so you can log in without an external login.
+                No es necesario que tengas un usuario local, ya que
+                puedes usar una cuenta externa!
             </p>
             <fieldset>
-                <legend>Set Password Form</legend>
+                <legend>Formulario para guardar clave</legend>
                 <ol>
                     <li>
                         <asp:Label runat="server" AssociatedControlID="password">Password</asp:Label>

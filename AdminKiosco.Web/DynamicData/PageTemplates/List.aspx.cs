@@ -68,5 +68,10 @@ namespace AdminKiosco.Web
             ((LinkButton)sender).Enabled = AdminKiosco.Web.Account.RoleHelper.CanDelete(table.DisplayName);
         }
 
+        protected void OnDelete_Click(object sender, EventArgs e)
+        {
+            //Como carajo valido la tabla que estoy borrando!
+        }
+
     }
 }

@@ -38,7 +38,7 @@
                         <ItemTemplate>
                             <asp:DynamicHyperLink runat="server" Action="Edit" Text="Editar" OnInit="lnkEditBtn_Init" 
                             />&nbsp;<asp:LinkButton runat="server" CommandName="Delete" Text="Borrar"  OnInit="lnkDeleteBtn_Init" 
-                                OnClientClick='return confirm("Esta seguro de borrar el elemento?");'
+                                OnClientClick='return confirm("Esta seguro de borrar el elemento?");' OnClick="OnDelete_Click"
                             />&nbsp;<asp:DynamicHyperLink runat="server" Text="Detalles" />
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -53,7 +53,7 @@
                 </EmptyDataTemplate>
             </asp:GridView>
 
-            <asp:EntityDataSource ID="GridDataSource" runat="server" EnableDelete="true" />
+            <asp:EntityDataSource ID="GridDataSource" runat="server" EnableDelete="true"  />
             
             <asp:QueryExtender TargetControlID="GridDataSource" ID="GridQueryExtender" runat="server">
                 <asp:DynamicFilterExpression ControlID="FilterRepeater" />
