@@ -20,7 +20,7 @@ namespace AdminKiosco.Entities
         }
     
         public int Id { get; set; }
-        public decimal Precio1 { get; set; }
+        public double Precio1 { get; set; }
         public System.DateTime Desde { get; set; }
         public System.DateTime Hasta { get; set; }
     

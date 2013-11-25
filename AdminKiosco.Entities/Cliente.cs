@@ -22,8 +22,12 @@ namespace AdminKiosco.Entities
         public int Id { get; set; }
         public string Nombre { get; set; }
         public int KioscoId { get; set; }
+        public string Domicilio { get; set; }
+        public System.DateTime FechaAlta { get; set; }
+        public int PerdiodicidadId { get; set; }
     
         public virtual Kiosco Kiosco { get; set; }
+        public virtual Periodicidad Periodicidad { get; set; }
         public virtual ICollection<Subscripcion> Subscripcion { get; set; }
     }
 }

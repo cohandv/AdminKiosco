@@ -15,7 +15,7 @@ namespace AdminKiosco.Entities
             if ((entity as Kiosco) != null)
             {
                 Kiosco deleteItem = entity as Kiosco;
-                var hayCliente = entities.Clientes.Where(e => e.KioscoId.Equals(deleteItem.Id)).FirstOrDefault();
+                var hayCliente = entities.Cliente.Where(e => e.KioscoId.Equals(deleteItem.Id)).FirstOrDefault();
                 return hayCliente != null;
             }
 
@@ -61,6 +61,13 @@ namespace AdminKiosco.Entities
                 return haySuscripcion != null;
             }
 
+            if ((entity as Periodicidad) != null)
+            {
+                Periodicidad deleteItem = entity as Periodicidad;
+                var hayCliente = entities.Cliente.Where(e => e.PerdiodicidadId.Equals(deleteItem.Id)).FirstOrDefault();
+                var hayPublicacion = entities.Publicacion.Where(e => e.PeriodicidadId.Equals(deleteItem.Id)).FirstOrDefault();
+                return hayCliente != null || hayPublicacion != null;
+            }
 
             //Default => try to delete item
             return true;

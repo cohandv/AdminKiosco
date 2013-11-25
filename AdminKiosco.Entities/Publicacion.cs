@@ -23,8 +23,19 @@ namespace AdminKiosco.Entities
         public string Nombre { get; set; }
         public int DistribuidorId { get; set; }
         public int TipoPublicacionId { get; set; }
+        public string CodigoBarras { get; set; }
+        public double Costo { get; set; }
+        public int PeriodicidadId { get; set; }
+        public Nullable<bool> Lunes { get; set; }
+        public Nullable<bool> Martes { get; set; }
+        public Nullable<bool> Miercoles { get; set; }
+        public Nullable<bool> Jueves { get; set; }
+        public Nullable<bool> Viermes { get; set; }
+        public Nullable<bool> Sabado { get; set; }
+        public Nullable<bool> Domingo { get; set; }
     
         public virtual Distribuidor Distribuidor { get; set; }
+        public virtual Periodicidad Periodicidad { get; set; }
         public virtual ICollection<Promocion> Promocion { get; set; }
         public virtual TipoPublicacion TipoPublicacion { get; set; }
     }

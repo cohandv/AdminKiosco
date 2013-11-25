@@ -35,9 +35,11 @@ namespace AdminKiosco.Entities
         public DbSet<aspnet_SchemaVersions> aspnet_SchemaVersions { get; set; }
         public DbSet<aspnet_Users> aspnet_Users { get; set; }
         public DbSet<aspnet_WebEvent_Events> aspnet_WebEvent_Events { get; set; }
-        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Distribuidor> Distribuidor { get; set; }
+        public DbSet<Feriado> Feriado { get; set; }
         public DbSet<Kiosco> Kiosco { get; set; }
+        public DbSet<Periodicidad> Periodicidad { get; set; }
         public DbSet<Precio> Precio { get; set; }
         public DbSet<Promocion> Promocion { get; set; }
         public DbSet<Publicacion> Publicacion { get; set; }

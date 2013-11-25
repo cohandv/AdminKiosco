@@ -82,6 +82,9 @@
     <Compile Include="Distribuidor.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Feriado.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="ForeignKeyValidation.cs" />
     <Compile Include="Kiosco.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -100,6 +103,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Periodicidad.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Precio.cs">
       <DependentUpon>Model.tt</DependentUpon>

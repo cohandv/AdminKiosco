@@ -4,28 +4,30 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="339d1fc3a2794a4daeea44236235a552" Name="Diagram1" ZoomLevel="54">
-        <EntityTypeShape EntityType="PaperModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="7.875" />
-        <EntityTypeShape EntityType="PaperModel.aspnet_Membership" Width="1.5" PointX="7.5" PointY="5.875" />
-        <EntityTypeShape EntityType="PaperModel.aspnet_Paths" Width="1.5" PointX="3" PointY="15.75" />
-        <EntityTypeShape EntityType="PaperModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="19.125" />
-        <EntityTypeShape EntityType="PaperModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="7.5" PointY="12.25" />
-        <EntityTypeShape EntityType="PaperModel.aspnet_Profile" Width="1.5" PointX="7.5" PointY="2.375" />
-        <EntityTypeShape EntityType="PaperModel.aspnet_Roles" Width="1.5" PointX="3" PointY="6.375" />
-        <EntityTypeShape EntityType="PaperModel.aspnet_SchemaVersions" Width="1.5" PointX="9.75" PointY="10.75" />
-        <EntityTypeShape EntityType="PaperModel.aspnet_Users" Width="1.5" PointX="5.25" PointY="6.75" />
-        <EntityTypeShape EntityType="PaperModel.aspnet_WebEvent_Events" Width="1.5" PointX="11.75" PointY="11.75" />
-        <EntityTypeShape EntityType="PaperModel.Cliente" Width="1.5" PointX="14.25" PointY="8.125" />
-        <EntityTypeShape EntityType="PaperModel.Distribuidor" Width="1.5" PointX="9.75" PointY="1.375" />
-        <EntityTypeShape EntityType="PaperModel.Kiosco" Width="1.5" PointX="12" PointY="8.375" />
-        <EntityTypeShape EntityType="PaperModel.Precio" Width="1.5" PointX="12" PointY="5.125" />
-        <EntityTypeShape EntityType="PaperModel.Promocion" Width="1.5" PointX="14.25" PointY="1" />
-        <EntityTypeShape EntityType="PaperModel.Publicacion" Width="1.5" PointX="12" PointY="1" />
-        <EntityTypeShape EntityType="PaperModel.RoleAction" Width="1.5" PointX="0.75" PointY="11.75" />
-        <EntityTypeShape EntityType="PaperModel.Subscripcion" Width="1.5" PointX="16.5" PointY="1" />
-        <EntityTypeShape EntityType="PaperModel.TipoPublicacion" Width="1.5" PointX="9.75" PointY="5.375" />
-        <EntityTypeShape EntityType="PaperModel.UsersOpenAuthAccounts" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="PaperModel.UsersOpenAuthData" Width="1.5" PointX="0.75" PointY="1.25" />
+      <Diagram DiagramId="339d1fc3a2794a4daeea44236235a552" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="PaperModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="PaperModel.aspnet_Membership" Width="1.5" PointX="7.5" PointY="6.75" />
+        <EntityTypeShape EntityType="PaperModel.aspnet_Paths" Width="1.5" PointX="3" PointY="16.5" />
+        <EntityTypeShape EntityType="PaperModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="20" />
+        <EntityTypeShape EntityType="PaperModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="7.5" PointY="13" />
+        <EntityTypeShape EntityType="PaperModel.aspnet_Profile" Width="1.5" PointX="7.5" PointY="3.125" />
+        <EntityTypeShape EntityType="PaperModel.aspnet_Roles" Width="1.5" PointX="3" PointY="7.25" />
+        <EntityTypeShape EntityType="PaperModel.aspnet_SchemaVersions" Width="1.5" PointX="9.75" PointY="11.5" />
+        <EntityTypeShape EntityType="PaperModel.aspnet_Users" Width="1.5" PointX="5.25" PointY="7.625" />
+        <EntityTypeShape EntityType="PaperModel.aspnet_WebEvent_Events" Width="1.5" PointX="11.75" PointY="12.5" />
+        <EntityTypeShape EntityType="PaperModel.Cliente" Width="1.5" PointX="15" PointY="4.625" />
+        <EntityTypeShape EntityType="PaperModel.Distribuidor" Width="1.5" PointX="9.75" PointY="2" />
+        <EntityTypeShape EntityType="PaperModel.Feriado" Width="1.5" PointX="0.75" PointY="12.5" />
+        <EntityTypeShape EntityType="PaperModel.Kiosco" Width="1.5" PointX="12.75" PointY="9.25" />
+        <EntityTypeShape EntityType="PaperModel.Periodicidad" Width="1.5" PointX="9.75" PointY="5" />
+        <EntityTypeShape EntityType="PaperModel.Precio" Width="1.5" PointX="12" PointY="0.75" />
+        <EntityTypeShape EntityType="PaperModel.Promocion" Width="1.5" PointX="14.25" PointY="0.875" />
+        <EntityTypeShape EntityType="PaperModel.Publicacion" Width="1.5" PointX="12" PointY="3.75" />
+        <EntityTypeShape EntityType="PaperModel.RoleAction" Width="1.5" PointX="2.75" PointY="12.5" />
+        <EntityTypeShape EntityType="PaperModel.Subscripcion" Width="1.5" PointX="17.25" PointY="4.75" />
+        <EntityTypeShape EntityType="PaperModel.TipoPublicacion" Width="1.5" PointX="9.75" PointY="8.375" />
+        <EntityTypeShape EntityType="PaperModel.UsersOpenAuthAccounts" Width="1.5" PointX="3" PointY="1.75" />
+        <EntityTypeShape EntityType="PaperModel.UsersOpenAuthData" Width="1.5" PointX="0.75" PointY="2" />
         <AssociationConnector Association="PaperModel.FK__aspnet_Me__Appli__51300E55" />
         <AssociationConnector Association="PaperModel.FK__aspnet_Pa__Appli__0697FACD" />
         <AssociationConnector Association="PaperModel.FK__aspnet_Ro__Appli__719CDDE7" />
@@ -36,8 +38,10 @@
         <AssociationConnector Association="PaperModel.FK__aspnet_Pe__UserI__14E61A24" />
         <AssociationConnector Association="PaperModel.FK__aspnet_Pr__UserI__671F4F74" />
         <AssociationConnector Association="PaperModel.FK_Cliente_Kiosco" />
+        <AssociationConnector Association="PaperModel.FK_Cliente_Periodicidad" />
         <AssociationConnector Association="PaperModel.FK_Subscripcion_Cliente" />
         <AssociationConnector Association="PaperModel.FK_Publicacion_Distribuidor" />
+        <AssociationConnector Association="PaperModel.FK_Publicacion_Periodicidad" />
         <AssociationConnector Association="PaperModel.FK_Promocion_Precio" />
         <AssociationConnector Association="PaperModel.FK_Promocion_Publicacion" />
         <AssociationConnector Association="PaperModel.FK_Subscripcion_Promocion" />
