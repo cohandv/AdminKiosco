@@ -34,7 +34,7 @@ namespace AdminKiosco.Web
                 DropDownList1.Items.Add(new ListItem("All", String.Empty));
                 if (!Column.IsRequired)
                 {
-                    DropDownList1.Items.Add(new ListItem("[Not Set]", NullValueString));
+                    DropDownList1.Items.Add(new ListItem("[No seteado]", NullValueString));
                 }
                 DropDownList1.Items.Add(new ListItem("True", Boolean.TrueString));
                 DropDownList1.Items.Add(new ListItem("False", Boolean.FalseString));

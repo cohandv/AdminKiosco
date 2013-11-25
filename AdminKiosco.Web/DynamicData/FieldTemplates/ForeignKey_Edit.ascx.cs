@@ -16,7 +16,7 @@ namespace AdminKiosco.Web
             {
                 if (Mode == DataBoundControlMode.Insert || !Column.IsRequired)
                 {
-                    DropDownList1.Items.Add(new ListItem("[Not Set]", ""));
+                    DropDownList1.Items.Add(new ListItem("[No seteado]", ""));
                 }
                 PopulateListControl(DropDownList1);
             }

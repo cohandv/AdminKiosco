@@ -28,7 +28,7 @@ namespace AdminKiosco.Web
             {
                 if (!Column.IsRequired)
                 {
-                    DropDownList1.Items.Add(new ListItem("[Not Set]", NullValueString));
+                    DropDownList1.Items.Add(new ListItem("[No seteado]", NullValueString));
                 }
                 PopulateListControl(DropDownList1);
                 // Set the initial value if there is one
