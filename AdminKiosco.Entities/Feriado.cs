@@ -18,7 +18,7 @@ namespace AdminKiosco.Entities
         public string Nombre { get; set; }
         public Nullable<System.DateTime> Fecha { get; set; }
         public Nullable<int> Mes { get; set; }
-        public Nullable<int> Anio { get; set; }
+        public Nullable<int> Dia { get; set; }
         public Nullable<bool> Repetible { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace AdminKiosco.Web.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            RegisterHyperLink.NavigateUrl = "Register";
+            RegisterHyperLink.NavigateUrl = "Register.aspx";
             OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
 
             var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);

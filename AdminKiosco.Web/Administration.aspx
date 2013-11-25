@@ -26,9 +26,9 @@
     <aside>
         <h3>Administración de Usuarios</h3>
         <ul>
-            <li><a runat="server" href="~/Usuarios/List.aspx">Usuarios</a></li>
-            <li><a runat="server" href="~/Roles/List.aspx">Roles</a></li>
-            <li><a runat="server" href="~/Permisos/List.aspx">Permisos</a></li>
+            <li><a runat="server" href="~/aspnet_Users/List.aspx">Usuarios</a></li>
+            <li><a runat="server" href="~/aspnet_Roles/List.aspx">Roles</a></li>
+            <li><a runat="server" href="~/RoleAction/List.aspx">Permisos</a></li>
         </ul>
     </aside>
 </asp:Content>

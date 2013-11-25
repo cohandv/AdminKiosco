@@ -916,7 +916,7 @@
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Fecha" Type="DateTime" Precision="3" />
           <Property Name="Mes" Type="Int32" />
-          <Property Name="Anio" Type="Int32" />
+          <Property Name="Dia" Type="Int32" />
           <Property Name="Repetible" Type="Boolean" />
         </EntityType>
         <EntityType Name="Kiosco">
@@ -1436,7 +1436,7 @@
             <EntityTypeMapping TypeName="PaperModel.Feriado">
               <MappingFragment StoreEntitySet="Feriado">
                 <ScalarProperty Name="Repetible" ColumnName="Repetible" />
-                <ScalarProperty Name="Anio" ColumnName="Anio" />
+                <ScalarProperty Name="Dia" ColumnName="Anio" />
                 <ScalarProperty Name="Mes" ColumnName="Mes" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />

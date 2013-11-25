@@ -16,7 +16,7 @@
                     <legend>Formulario de autenticacion</legend>
                     <ol>
                         <li>
-                            <asp:Label runat="server" AssociatedControlID="UserName">User name</asp:Label>
+                            <asp:Label runat="server" AssociatedControlID="UserName">Usuario</asp:Label>
                             <asp:TextBox runat="server" ID="UserName" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName" CssClass="field-validation-error" ErrorMessage="The user name field is required." />
                         </li>
@@ -27,7 +27,7 @@
                         </li>
                         <li>
                             <asp:CheckBox runat="server" ID="RememberMe" />
-                            <asp:Label runat="server" AssociatedControlID="RememberMe" CssClass="checkbox">Remember me?</asp:Label>
+                            <asp:Label runat="server" AssociatedControlID="RememberMe" CssClass="checkbox">Recordar?</asp:Label>
                         </li>
                     </ol>
                     <asp:Button runat="server" CommandName="Login" Text="Entrar" />
@@ -35,8 +35,8 @@
             </LayoutTemplate>
         </asp:Login>
         <p>
-            <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Register</asp:HyperLink>
-            if you don't have an account.
+            <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled" NavigateUrl="~/Account/Register.aspx">Registrarse</asp:HyperLink>
+            Si no tiene una cuenta.
         </p>
     </section>
 

@@ -1,9 +1,9 @@
-﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="AdminKiosco.Web.Account.Register" %>
+﻿<%@ Page Title="Registrarse" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="AdminKiosco.Web.Account.Register" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">
         <h1><%: Title %>.</h1>
-        <h2>Use the form below to create a new account.</h2>
+        <h2>Use este formulario para tener un usuario en el sistema</h2>
     </hgroup>
 
     <asp:CreateUserWizard runat="server" ID="RegisterUser" ViewStateMode="Disabled" OnCreatedUser="RegisterUser_CreatedUser">
@@ -15,7 +15,7 @@
             <asp:CreateUserWizardStep runat="server" ID="RegisterUserWizardStep">
                 <ContentTemplate>
                     <p class="message-info">
-                        Passwords are required to be a minimum of <%: Membership.MinRequiredPasswordLength %> characters in length.
+                        La password debe tener un minimo de <%: Membership.MinRequiredPasswordLength %> caracteres de longitud.
                     </p>
 
                     <p class="validation-summary-errors">
@@ -23,33 +23,33 @@
                     </p>
 
                     <fieldset>
-                        <legend>Registration Form</legend>
+                        <legend>Formulario de registración</legend>
                         <ol>
                             <li>
-                                <asp:Label runat="server" AssociatedControlID="UserName">User name</asp:Label>
+                                <asp:Label runat="server" AssociatedControlID="UserName">Usuario</asp:Label>
                                 <asp:TextBox runat="server" ID="UserName" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName"
-                                    CssClass="field-validation-error" ErrorMessage="The user name field is required." />
+                                    CssClass="field-validation-error" ErrorMessage="El usuario es requerido." />
                             </li>
                             <li>
-                                <asp:Label runat="server" AssociatedControlID="Email">Email address</asp:Label>
+                                <asp:Label runat="server" AssociatedControlID="Email">Email</asp:Label>
                                 <asp:TextBox runat="server" ID="Email" TextMode="Email" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
-                                    CssClass="field-validation-error" ErrorMessage="The email address field is required." />
+                                    CssClass="field-validation-error" ErrorMessage="El email es requerido." />
                             </li>
                             <li>
                                 <asp:Label runat="server" AssociatedControlID="Password">Password</asp:Label>
                                 <asp:TextBox runat="server" ID="Password" TextMode="Password" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Password"
-                                    CssClass="field-validation-error" ErrorMessage="The password field is required." />
+                                    CssClass="field-validation-error" ErrorMessage="La password es requerida." />
                             </li>
                             <li>
-                                <asp:Label runat="server" AssociatedControlID="ConfirmPassword">Confirm password</asp:Label>
+                                <asp:Label runat="server" AssociatedControlID="ConfirmPassword">Confirmar password</asp:Label>
                                 <asp:TextBox runat="server" ID="ConfirmPassword" TextMode="Password" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="ConfirmPassword"
-                                     CssClass="field-validation-error" Display="Dynamic" ErrorMessage="The confirm password field is required." />
+                                     CssClass="field-validation-error" Display="Dynamic" ErrorMessage="La password de confirmación es requerida." />
                                 <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
-                                     CssClass="field-validation-error" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
+                                     CssClass="field-validation-error" Display="Dynamic" ErrorMessage="Las passwords no coinciden." />
                             </li>
                         </ol>
                         <asp:Button runat="server" CommandName="MoveNext" Text="Registrar" />
