@@ -50,7 +50,7 @@
                 </EmptyDataTemplate>
             </asp:GridView>
 
-            <asp:EntityDataSource ID="GridDataSource" runat="server" EnableDelete="true" EnableUpdate="true" />
+            <asp:EntityDataSource ID="GridDataSource" runat="server" EnableDelete="false" EnableUpdate="true" />
             
             <asp:QueryExtender ID="GridQueryExtender" TargetControlID="GridDataSource" runat="server">
                 <asp:DynamicFilterExpression ControlID="FilterRepeater" />

@@ -82,6 +82,7 @@
     <Compile Include="Distribuidor.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ForeignKeyValidation.cs" />
     <Compile Include="Kiosco.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

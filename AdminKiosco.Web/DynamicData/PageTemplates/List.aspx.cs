@@ -6,6 +6,7 @@ using System.Web.Routing;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.Expressions;
+using AdminKiosco.Entities;
 
 namespace AdminKiosco.Web
 {
@@ -68,10 +69,14 @@ namespace AdminKiosco.Web
             ((LinkButton)sender).Enabled = AdminKiosco.Web.Account.RoleHelper.CanDelete(table.DisplayName);
         }
 
-        protected void OnDelete_Click(object sender, EventArgs e)
+        protected void GridDataSource_Deleting(object sender, EntityDataSourceChangingEventArgs e)
         {
-            //Como carajo valido la tabla que estoy borrando!
+            e.Cancel = ForeignKeyValidation.Validate(e.Entity);
+            if (e.Cancel)
+            {
+                Response.Write("<script>alert('No se puede borrar el objeto, existen dependencias');</script>");
+            }
+            return;
         }
-
     }
 }
