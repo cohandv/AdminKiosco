@@ -52,28 +52,40 @@ namespace AdminKiosco.Web
 
         void Application_Error(object sender, EventArgs e)
         {
-            // Code that runs when an unhandled error occurs
+            try
+            {
+                if (!EventLog.Exists("AdminKiosco"))
+                    EventLog.CreateEventSource("AdminKiosco", "AdminKiosco");
+            }
+            catch { }
 
             // Get the exception object.
             Exception exc = Server.GetLastError();
 
-            // Handle HTTP errors
-            if (exc.GetType() == typeof(HttpException))
+            if (exc != null)
             {
-                // The Complete Error Handling Example generates
-                // some errors using URLs with "NoCatch" in them;
-                // ignore these here to simulate what would happen
-                // if a global.asax handler were not implemented.
-                if (exc.Message.Contains("NoCatch") || exc.Message.Contains("maxUrlLength"))
-                    return;
+                // Handle HTTP errors
+                if (exc.GetType() == typeof(HttpException))
+                {
+                    // The Complete Error Handling Example generates
+                    // some errors using URLs with "NoCatch" in them;
+                    // ignore these here to simulate what would happen
+                    // if a global.asax handler were not implemented.
+                    if (exc.Message.Contains("NoCatch") || exc.Message.Contains("maxUrlLength"))
+                        return;
 
-                //Redirect HTTP errors to HttpError page
-                Server.Transfer("~/Error.aspx");
+                    //Redirect HTTP errors to HttpError page
+                    Server.Transfer("~/Error.aspx");
+                }
+
+                // Log the exception and notify system operators
+                //TODO IMPLEMENT SECURITY IN DATABASE!
+                EventLog.WriteEntry("Application", exc.Message + System.Environment.NewLine + exc.StackTrace);
             }
-
-            // Log the exception and notify system operators
-            //TODO IMPLEMENT SECURITY IN DATABASE!
-            EventLog.WriteEntry("Application", exc.Message + System.Environment.NewLine + exc.StackTrace);
+            else
+            {
+                EventLog.WriteEntry("Application", "Error capturado en Global.Asax sin excepcion asociada");
+            }
 
             // Clear the error from the server
             Server.ClearError();

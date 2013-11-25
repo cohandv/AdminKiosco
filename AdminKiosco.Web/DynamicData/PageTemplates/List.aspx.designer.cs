@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AdminKiosco.Web
-{
-
-
-    public partial class List
-    {
-
+namespace AdminKiosco.Web {
+    
+    
+    public partial class List {
+        
         /// <summary>
         /// DynamicDataManager1 control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace AdminKiosco.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.DynamicData.DynamicDataManager DynamicDataManager1;
-
+        
         /// <summary>
         /// UpdatePanel1 control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace AdminKiosco.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-
+        
         /// <summary>
         /// ValidationSummary1 control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace AdminKiosco.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
-
+        
         /// <summary>
         /// GridViewValidator control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace AdminKiosco.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.DynamicData.DynamicValidator GridViewValidator;
-
+        
         /// <summary>
         /// FilterRepeater control.
         /// </summary>
@@ -58,7 +56,25 @@ namespace AdminKiosco.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.DynamicData.QueryableFilterRepeater FilterRepeater;
-
+        
+        /// <summary>
+        /// TextBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label TextBox1;
+        
+        /// <summary>
+        /// NombreFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox NombreFilter;
+        
         /// <summary>
         /// GridView1 control.
         /// </summary>
@@ -67,7 +83,7 @@ namespace AdminKiosco.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
-
+        
         /// <summary>
         /// GridDataSource control.
         /// </summary>
@@ -76,7 +92,7 @@ namespace AdminKiosco.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.EntityDataSource GridDataSource;
-
+        
         /// <summary>
         /// GridQueryExtender control.
         /// </summary>
@@ -85,7 +101,7 @@ namespace AdminKiosco.Web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.QueryExtender GridQueryExtender;
-
+        
         /// <summary>
         /// InsertHyperLink control.
         /// </summary>

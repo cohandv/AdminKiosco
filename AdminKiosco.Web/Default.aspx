@@ -4,7 +4,6 @@
     <section class="featured">
         <div class="content-wrapper">
             <hgroup class="title">
-                <h1><%: Title %>.</h1>
                 <h2>Funciones principales</h2>
             </hgroup>
         </div>
@@ -16,7 +15,8 @@
         <li class="one">
             <h5>Administracion</h5>
             Funciones principales:
-            <a href="~/Pages/Bla.aspx">Agregar un producto…</a>
+            <a href="~/Cliente/Insert.aspx">Agregar un cliente…</a>
+            <a href="~/Subscripcion/Insert.aspx">Agregar una suscripcion…</a>
         </li>
         <li class="two">
             <h5>Facturacion</h5>

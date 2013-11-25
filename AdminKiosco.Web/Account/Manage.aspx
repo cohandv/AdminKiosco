@@ -121,6 +121,6 @@
         </asp:ListView>
 
         <h3>Agregar un login externo</h3>
-        <uc:OpenAuthProviders runat="server" ReturnUrl="~/Account/Manage" />
+        <uc:OpenAuthProviders runat="server" ReturnUrl="~/Account/Manage.aspx" />
     </section>
 </asp:Content>

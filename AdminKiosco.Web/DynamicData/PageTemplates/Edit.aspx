@@ -4,14 +4,23 @@
 <asp:Content ID="headContent" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
 
+
+<asp:Content runat="server" ID="FeaturedContent" ContentPlaceHolderID="FeaturedContent">
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h2>Editar registro de <%= table.DisplayName %></h2>
+            </hgroup>
+        </div>
+    </section>
+</asp:Content>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <asp:DynamicDataManager ID="DynamicDataManager1" runat="server" AutoLoadForeignKeys="true">
         <DataControls>
             <asp:DataControlReference ControlID="FormView1" />
         </DataControls>
     </asp:DynamicDataManager>
-
-    <h2 class="DDSubHeader">Editar registro de <%= table.DisplayName %></h2>
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>

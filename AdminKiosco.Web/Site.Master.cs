@@ -69,5 +69,10 @@ namespace AdminKiosco.Web
         {
 
         }
+
+        protected void LoggingOut(object sender, LoginCancelEventArgs e)
+        {
+            FormsAuthentication.SignOut();
+        }
     }
 }

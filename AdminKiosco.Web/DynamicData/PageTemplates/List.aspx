@@ -5,14 +5,23 @@
 <asp:Content ID="headContent" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
 
+<asp:Content runat="server" ID="FeaturedContent" ContentPlaceHolderID="FeaturedContent">
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h2><%= table.DisplayName %></h2>
+            </hgroup>
+        </div>
+    </section>
+</asp:Content>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <asp:DynamicDataManager ID="DynamicDataManager1" runat="server" AutoLoadForeignKeys="true">
         <DataControls>
             <asp:DataControlReference ControlID="GridView1" />
         </DataControls>
     </asp:DynamicDataManager>
-
-    <h2 class="DDSubHeader"><%= table.DisplayName%></h2>
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -27,6 +36,8 @@
                         <asp:DynamicFilter runat="server" ID="DynamicFilter" OnFilterChanged="DynamicFilter_FilterChanged" /><br />
                     </ItemTemplate>
                 </asp:QueryableFilterRepeater>
+                <asp:Label runat="server" Text="Nombre" ID="TextBox1" />
+                <asp:TextBox runat="server" Text="" ID="NombreFilter" />
                 <br />
             </div>
 

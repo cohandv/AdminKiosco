@@ -36,12 +36,12 @@ namespace AdminKiosco.Web.Account
                 if (message != null)
                 {
                     // Strip the query string from action
-                    Form.Action = ResolveUrl("~/Account/Manage");
+                    Form.Action = ResolveUrl("~/Account/Manage.aspx");
 
                     SuccessMessage =
-                        message == "ChangePwdSuccess" ? "Your password has been changed."
-                        : message == "SetPwdSuccess" ? "Your password has been set."
-                        : message == "RemoveLoginSuccess" ? "The external login was removed."
+                        message == "ChangePwdSuccess" ? "Su password ha cambiado."
+                        : message == "SetPwdSuccess" ? "Su password ha sido cambiada exitosamente."
+                        : message == "RemoveLoginSuccess" ? "El login externo ha sido removido."
                         : String.Empty;
                     successMessage.Visible = !String.IsNullOrEmpty(SuccessMessage);
                 }
