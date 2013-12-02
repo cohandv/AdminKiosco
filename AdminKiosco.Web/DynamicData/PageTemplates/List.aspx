@@ -33,11 +33,12 @@
                 <asp:QueryableFilterRepeater runat="server" ID="FilterRepeater">
                     <ItemTemplate>
                         <asp:Label runat="server" Text='<%# Eval("DisplayName") %>' OnPreRender="Label_PreRender" />
-                        <asp:DynamicFilter runat="server" ID="DynamicFilter" OnFilterChanged="DynamicFilter_FilterChanged" /><br />
+                        <asp:DynamicFilter runat="server" ID="DynamicFilter" OnFilterChanged="DynamicFilter_FilterChanged"/><br />
                     </ItemTemplate>
                 </asp:QueryableFilterRepeater>
+                <br />
                 <asp:Label runat="server" Text="Nombre" ID="TextBox1" />
-                <asp:TextBox runat="server" Text="" ID="NombreFilter" />
+                <asp:TextBox runat="server" Text="" ID="NombreFilter"/>
                 <br />
             </div>
 
@@ -64,10 +65,13 @@
                 </EmptyDataTemplate>
             </asp:GridView>
 
-            <asp:EntityDataSource ID="GridDataSource" runat="server" EnableDelete="true" OnDeleting="GridDataSource_Deleting"  />
+            <asp:EntityDataSource ID="GridDataSource" runat="server" EnableDelete="true" OnDeleting="GridDataSource_Deleting"  AutoPage="true" />
             
             <asp:QueryExtender TargetControlID="GridDataSource" ID="GridQueryExtender" runat="server">
-                <asp:DynamicFilterExpression ControlID="FilterRepeater" />
+                <asp:DynamicFilterExpression ControlID="FilterRepeater"/>
+                <asp:SearchExpression DataFields="Nombre" SearchType="Contains">
+                    <asp:ControlParameter ControlID="NombreFilter" />
+                </asp:SearchExpression>
             </asp:QueryExtender>
 
             <br />
