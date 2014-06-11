@@ -14,6 +14,11 @@ namespace AdminKiosco.Entities
     
     public partial class Feriado
     {
+        public Feriado()
+        {
+            this.Dia = 1;
+        }
+    
         public int Id { get; set; }
         public string Nombre { get; set; }
         public Nullable<System.DateTime> Fecha { get; set; }

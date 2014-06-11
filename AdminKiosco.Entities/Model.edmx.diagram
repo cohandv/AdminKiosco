@@ -48,6 +48,9 @@
         <AssociationConnector Association="PaperModel.FK_Publicacion_TipoPublicacion" />
         <AssociationConnector Association="PaperModel.OpenAuthAccount_UserData" />
         <AssociationConnector Association="PaperModel.aspnet_UsersInRoles" />
+        <EntityTypeShape EntityType="PaperModel.KioscoUsuario" Width="1.5" PointX="15" PointY="8.25" />
+        <AssociationConnector Association="PaperModel.FK_KioscoUsuario_aspnet_Users" />
+        <AssociationConnector Association="PaperModel.FK_KioscoUsuario_Kiosco" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

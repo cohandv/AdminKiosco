@@ -48,5 +48,6 @@ namespace AdminKiosco.Entities
         public DbSet<TipoPublicacion> TipoPublicacion { get; set; }
         public DbSet<UsersOpenAuthAccounts> UsersOpenAuthAccounts { get; set; }
         public DbSet<UsersOpenAuthData> UsersOpenAuthData { get; set; }
+        public DbSet<KioscoUsuario> KioscoUsuario { get; set; }
     }
 }

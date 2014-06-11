@@ -18,6 +18,7 @@ namespace AdminKiosco.Entities
         {
             this.aspnet_PersonalizationPerUser = new HashSet<aspnet_PersonalizationPerUser>();
             this.aspnet_Roles = new HashSet<aspnet_Roles>();
+            this.KioscoUsuario = new HashSet<KioscoUsuario>();
         }
     
         public System.Guid ApplicationId { get; set; }
@@ -33,5 +34,6 @@ namespace AdminKiosco.Entities
         public virtual ICollection<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser { get; set; }
         public virtual aspnet_Profile aspnet_Profile { get; set; }
         public virtual ICollection<aspnet_Roles> aspnet_Roles { get; set; }
+        public virtual ICollection<KioscoUsuario> KioscoUsuario { get; set; }
     }
 }

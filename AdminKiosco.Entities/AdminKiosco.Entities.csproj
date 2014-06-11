@@ -89,6 +89,9 @@
     <Compile Include="Kiosco.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="KioscoUsuario.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

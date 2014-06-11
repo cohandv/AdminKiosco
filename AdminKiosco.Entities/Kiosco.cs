@@ -17,11 +17,13 @@ namespace AdminKiosco.Entities
         public Kiosco()
         {
             this.Cliente = new HashSet<Cliente>();
+            this.KioscoUsuario = new HashSet<KioscoUsuario>();
         }
     
         public int Id { get; set; }
         public string Nombre { get; set; }
     
         public virtual ICollection<Cliente> Cliente { get; set; }
+        public virtual ICollection<KioscoUsuario> KioscoUsuario { get; set; }
     }
 }

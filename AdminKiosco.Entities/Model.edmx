@@ -162,7 +162,7 @@
           <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Fecha" Type="datetime" />
           <Property Name="Mes" Type="int" />
-          <Property Name="Anio" Type="int" />
+          <Property Name="Dia" Type="int" />
           <Property Name="Repetible" Type="bit" />
         </EntityType>
         <EntityType Name="Kiosco">
@@ -171,6 +171,15 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KioscoUsuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UsuarioId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="KioscoId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Periodicidad">
           <Key>
@@ -424,6 +433,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_KioscoUsuario_aspnet_Users">
+          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+          <End Role="KioscoUsuario" Type="Self.KioscoUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="KioscoUsuario">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KioscoUsuario_Kiosco">
+          <End Role="Kiosco" Type="Self.Kiosco" Multiplicity="1" />
+          <End Role="KioscoUsuario" Type="Self.KioscoUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kiosco">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KioscoUsuario">
+              <PropertyRef Name="KioscoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Promocion_Precio">
           <End Role="Precio" Type="Self.Precio" Multiplicity="1" />
           <End Role="Promocion" Type="Self.Promocion" Multiplicity="*" />
@@ -540,6 +573,7 @@
           <EntitySet Name="Distribuidor" EntityType="Self.Distribuidor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Feriado" EntityType="Self.Feriado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kiosco" EntityType="Self.Kiosco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KioscoUsuario" EntityType="Self.KioscoUsuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Periodicidad" EntityType="Self.Periodicidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Precio" EntityType="Self.Precio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Promocion" EntityType="Self.Promocion" Schema="dbo" store:Type="Tables" />
@@ -600,6 +634,14 @@
           <AssociationSet Name="FK_Cliente_Periodicidad" Association="Self.FK_Cliente_Periodicidad">
             <End Role="Periodicidad" EntitySet="Periodicidad" />
             <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KioscoUsuario_aspnet_Users" Association="Self.FK_KioscoUsuario_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="KioscoUsuario" EntitySet="KioscoUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KioscoUsuario_Kiosco" Association="Self.FK_KioscoUsuario_Kiosco">
+            <End Role="Kiosco" EntitySet="Kiosco" />
+            <End Role="KioscoUsuario" EntitySet="KioscoUsuario" />
           </AssociationSet>
           <AssociationSet Name="FK_Promocion_Precio" Association="Self.FK_Promocion_Precio">
             <End Role="Precio" EntitySet="Precio" />
@@ -742,6 +784,15 @@
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
           </AssociationSet>
+          <EntitySet Name="KioscoUsuario" EntityType="PaperModel.KioscoUsuario" />
+          <AssociationSet Name="FK_KioscoUsuario_aspnet_Users" Association="PaperModel.FK_KioscoUsuario_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="KioscoUsuario" EntitySet="KioscoUsuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KioscoUsuario_Kiosco" Association="PaperModel.FK_KioscoUsuario_Kiosco">
+            <End Role="Kiosco" EntitySet="Kiosco" />
+            <End Role="KioscoUsuario" EntitySet="KioscoUsuario" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="aspnet_Applications">
           <Key>
@@ -865,6 +916,7 @@
           <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="PaperModel.FK__aspnet_Pe__UserI__14E61A24" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
           <NavigationProperty Name="aspnet_Profile" Relationship="PaperModel.FK__aspnet_Pr__UserI__671F4F74" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
           <NavigationProperty Name="aspnet_Roles" Relationship="PaperModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
+          <NavigationProperty Name="KioscoUsuario" Relationship="PaperModel.FK_KioscoUsuario_aspnet_Users" FromRole="aspnet_Users" ToRole="KioscoUsuario" />
         </EntityType>
         <EntityType Name="aspnet_WebEvent_Events">
           <Key>
@@ -916,7 +968,7 @@
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Fecha" Type="DateTime" Precision="3" />
           <Property Name="Mes" Type="Int32" />
-          <Property Name="Dia" Type="Int32" />
+          <Property Name="Dia" Type="Int32" DefaultValue="01" />
           <Property Name="Repetible" Type="Boolean" />
         </EntityType>
         <EntityType Name="Kiosco">
@@ -926,6 +978,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Cliente" Relationship="PaperModel.FK_Cliente_Kiosco" FromRole="Kiosco" ToRole="Cliente" />
+          <NavigationProperty Name="KioscoUsuario" Relationship="PaperModel.FK_KioscoUsuario_Kiosco" FromRole="Kiosco" ToRole="KioscoUsuario" />
         </EntityType>
         <EntityType Name="Periodicidad">
           <Key>
@@ -1274,6 +1327,41 @@
           <End Type="PaperModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
           <End Type="PaperModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
         </Association>
+        <EntityType Name="KioscoUsuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UsuarioId" Type="Guid" Nullable="false" />
+          <Property Name="KioscoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="aspnet_Users" Relationship="PaperModel.FK_KioscoUsuario_aspnet_Users" FromRole="KioscoUsuario" ToRole="aspnet_Users" />
+          <NavigationProperty Name="Kiosco" Relationship="PaperModel.FK_KioscoUsuario_Kiosco" FromRole="KioscoUsuario" ToRole="Kiosco" />
+        </EntityType>
+        <Association Name="FK_KioscoUsuario_aspnet_Users">
+          <End Type="PaperModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="PaperModel.KioscoUsuario" Role="KioscoUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="KioscoUsuario">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KioscoUsuario_Kiosco">
+          <End Type="PaperModel.Kiosco" Role="Kiosco" Multiplicity="1" />
+          <End Type="PaperModel.KioscoUsuario" Role="KioscoUsuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kiosco">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="KioscoUsuario">
+              <PropertyRef Name="KioscoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1435,8 +1523,8 @@
           <EntitySetMapping Name="Feriado">
             <EntityTypeMapping TypeName="PaperModel.Feriado">
               <MappingFragment StoreEntitySet="Feriado">
+                <ScalarProperty Name="Dia" ColumnName="Dia" />
                 <ScalarProperty Name="Repetible" ColumnName="Repetible" />
-                <ScalarProperty Name="Dia" ColumnName="Anio" />
                 <ScalarProperty Name="Mes" ColumnName="Mes" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -1562,6 +1650,16 @@
               <ScalarProperty Name="RoleId" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="KioscoUsuario">
+            <EntityTypeMapping TypeName="PaperModel.KioscoUsuario">
+              <MappingFragment StoreEntitySet="KioscoUsuario">
+                <ScalarProperty Name="KioscoId" ColumnName="KioscoId" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

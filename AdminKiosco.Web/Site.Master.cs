@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using AdminKiosco.Entities;
 
 namespace AdminKiosco.Web
 {
@@ -67,7 +68,13 @@ namespace AdminKiosco.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if ( ! string.IsNullOrEmpty(Context.User.Identity.Name))
+            {
+                using (PaperEntities pe = new PaperEntities())
+                {
+                    ViewState["Kioscos"] = pe.KioscoUsuario.Where(k => k.UsuarioId.Equals(pe.aspnet_Users.Where(u => u.LoweredUserName.Equals(Context.User.Identity.Name)).FirstOrDefault().UserId)).ToList();
+                }
+            }
         }
 
         protected void LoggingOut(object sender, LoginCancelEventArgs e)
