@@ -197,9 +197,19 @@ ul#menu {
             text-decoration: none;
         }
 
+        ul#menu #ErrorLink {
+            color: #fff;
+        }
+
+        ul#menu #ErrorLink:hover {
+            color: #999;
+            background-color:red;
+        }
+
         ul#menu li a:hover {
             color: #333;
             text-decoration: none;
+            background-color:gray;
         }
 
 

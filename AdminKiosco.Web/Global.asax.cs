@@ -52,13 +52,6 @@ namespace AdminKiosco.Web
 
         void Application_Error(object sender, EventArgs e)
         {
-            try
-            {
-                if (!EventLog.Exists("AdminKiosco"))
-                    EventLog.CreateEventSource("AdminKiosco", "AdminKiosco");
-            }
-            catch { }
-
             // Get the exception object.
             Exception exc = Server.GetLastError();
 
@@ -78,13 +71,6 @@ namespace AdminKiosco.Web
                     Server.Transfer("~/Error.aspx");
                 }
 
-                // Log the exception and notify system operators
-                //TODO IMPLEMENT SECURITY IN DATABASE!
-                EventLog.WriteEntry("Application", exc.Message + System.Environment.NewLine + exc.StackTrace);
-            }
-            else
-            {
-                EventLog.WriteEntry("Application", "Error capturado en Global.Asax sin excepcion asociada");
             }
 
             // Clear the error from the server

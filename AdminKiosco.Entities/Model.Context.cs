@@ -49,5 +49,6 @@ namespace AdminKiosco.Entities
         public DbSet<UsersOpenAuthAccounts> UsersOpenAuthAccounts { get; set; }
         public DbSet<UsersOpenAuthData> UsersOpenAuthData { get; set; }
         public DbSet<KioscoUsuario> KioscoUsuario { get; set; }
+        public DbSet<ELMAH_Error> ELMAH_Error { get; set; }
     }
 }

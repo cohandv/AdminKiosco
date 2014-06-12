@@ -82,6 +82,9 @@
     <Compile Include="Distribuidor.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ELMAH_Error.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Feriado.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

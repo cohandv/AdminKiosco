@@ -57,7 +57,7 @@ namespace AdminKiosco.Web
             HiddenTables = ConfigurationManager.AppSettings["hiddenTables"];
             
 
-
+        
             // The following statements support combined-page mode, where the List, Detail, Insert, and
             // Update tasks are performed by using the same page. To enable this mode, uncomment the
             // following routes and comment out the route definition in the separate-page mode section above.
@@ -72,7 +72,6 @@ namespace AdminKiosco.Web
             //    ViewName = "ListDetails",
             //    Model = DefaultModel
             //});
-
         }
 
         public static IEnumerable<MetaTable> VisibleTables

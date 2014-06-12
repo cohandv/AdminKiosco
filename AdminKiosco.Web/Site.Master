@@ -4,7 +4,7 @@
 <html lang="en">
 <head runat="server">
     <meta charset="utf-8" />
-    <title><%: Page.Title %> - Administracion Paradas</title>
+    <title><%: Page.Title %>- Administracion Paradas</title>
     <asp:PlaceHolder runat="server">     
           <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>  
@@ -54,7 +54,8 @@
                         <li><a runat="server" href="~/Administration.aspx">Administracion</a></li>
                         <li><a runat="server" href="~/Billing.aspx">Facturacion</a></li>
                         <li><a runat="server" href="~/About.aspx">Acerca de</a></li>
-                        <li><a runat="server" href="~/Contact.aspx">Contacto</a></li>
+                        <li><a runat="server" href="~/Contact.aspx">Contacto</a><asp:HyperLink ID="ErrorLink" runat="server" ToolTip="Mostrar pagina de errores" NavigateUrl="~/elmah.axd">?</asp:HyperLink>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -70,7 +71,7 @@
     <footer>
         <div class="content-wrapper">
             <div class="float-left">
-                <p>&copy; <%: DateTime.Now.Year %> - Sindicato de Canillitas </p>
+                <p>&copy; <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=272931&clcid=0x409 --%>- Sindicato de Canillitas </p>
             </div>
         </div>
     </footer>

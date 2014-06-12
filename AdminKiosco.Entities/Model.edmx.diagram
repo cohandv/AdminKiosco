@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="339d1fc3a2794a4daeea44236235a552" Name="Diagram1" ZoomLevel="86">
+      <Diagram DiagramId="339d1fc3a2794a4daeea44236235a552" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="PaperModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="8.75" />
         <EntityTypeShape EntityType="PaperModel.aspnet_Membership" Width="1.5" PointX="7.5" PointY="6.75" />
         <EntityTypeShape EntityType="PaperModel.aspnet_Paths" Width="1.5" PointX="3" PointY="16.5" />
@@ -51,6 +51,7 @@
         <EntityTypeShape EntityType="PaperModel.KioscoUsuario" Width="1.5" PointX="15" PointY="8.25" />
         <AssociationConnector Association="PaperModel.FK_KioscoUsuario_aspnet_Users" />
         <AssociationConnector Association="PaperModel.FK_KioscoUsuario_Kiosco" />
+        <EntityTypeShape EntityType="PaperModel.ELMAH_Error" Width="1.5" PointX="14.375" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -72,7 +72,12 @@ namespace AdminKiosco.Web
             {
                 using (PaperEntities pe = new PaperEntities())
                 {
-                    ViewState["Kioscos"] = pe.KioscoUsuario.Where(k => k.UsuarioId.Equals(pe.aspnet_Users.Where(u => u.LoweredUserName.Equals(Context.User.Identity.Name)).FirstOrDefault().UserId)).ToList();
+                    Guid UserId = pe.aspnet_Users.Where(u => u.LoweredUserName.Equals(Context.User.Identity.Name)).FirstOrDefault().UserId;
+
+                    if (UserId != null)
+                    { 
+                        ViewState["Kioscos"] = pe.KioscoUsuario.Where(k => k.UsuarioId.Equals(UserId)).ToList();
+                    }
                 }
             }
         }
