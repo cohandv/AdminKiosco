@@ -251,7 +251,7 @@
           <Property Name="Edit" Type="bit" Nullable="false" />
           <Property Name="Insert" Type="bit" Nullable="false" />
           <Property Name="Delete" Type="bit" Nullable="false" />
-          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="Subscripcion">
           <Key>
@@ -263,6 +263,16 @@
           <Property Name="PromocionId" Type="int" Nullable="false" />
           <Property Name="FechaAlta" Type="datetime" Nullable="false" />
           <Property Name="FechaBaja" Type="datetime" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="TipoPublicacion">
           <Key>
@@ -533,6 +543,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_RoleAction_aspnet_Roles">
+          <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="0..1" />
+          <End Role="RoleAction" Type="Self.RoleAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="RoleAction">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Subscripcion_Cliente">
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
           <End Role="Subscripcion" Type="Self.Subscripcion" Multiplicity="*" />
@@ -597,6 +619,7 @@
           <EntitySet Name="Publicacion" EntityType="Self.Publicacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RoleAction" EntityType="Self.RoleAction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subscripcion" EntityType="Self.Subscripcion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoPublicacion" EntityType="Self.TipoPublicacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UsersOpenAuthAccounts" EntityType="Self.UsersOpenAuthAccounts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UsersOpenAuthData" EntityType="Self.UsersOpenAuthData" Schema="dbo" store:Type="Tables" />
@@ -680,6 +703,10 @@
             <End Role="TipoPublicacion" EntitySet="TipoPublicacion" />
             <End Role="Publicacion" EntitySet="Publicacion" />
           </AssociationSet>
+          <AssociationSet Name="FK_RoleAction_aspnet_Roles" Association="Self.FK_RoleAction_aspnet_Roles">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="RoleAction" EntitySet="RoleAction" />
+          </AssociationSet>
           <AssociationSet Name="FK_Subscripcion_Cliente" Association="Self.FK_Subscripcion_Cliente">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Subscripcion" EntitySet="Subscripcion" />
@@ -704,7 +731,6 @@
           <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="PaperModel.aspnet_PersonalizationAllUsers" />
           <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="PaperModel.aspnet_PersonalizationPerUser" />
           <EntitySet Name="aspnet_Profile" EntityType="PaperModel.aspnet_Profile" />
-          <EntitySet Name="aspnet_Roles" EntityType="PaperModel.aspnet_Roles" />
           <EntitySet Name="aspnet_SchemaVersions" EntityType="PaperModel.aspnet_SchemaVersions" />
           <EntitySet Name="aspnet_Users" EntityType="PaperModel.aspnet_Users" />
           <EntitySet Name="aspnet_WebEvent_Events" EntityType="PaperModel.aspnet_WebEvent_Events" />
@@ -716,7 +742,6 @@
           <EntitySet Name="Precio" EntityType="PaperModel.Precio" />
           <EntitySet Name="Promocion" EntityType="PaperModel.Promocion" />
           <EntitySet Name="Publicacion" EntityType="PaperModel.Publicacion" />
-          <EntitySet Name="RoleAction" EntityType="PaperModel.RoleAction" />
           <EntitySet Name="Subscripcion" EntityType="PaperModel.Subscripcion" />
           <EntitySet Name="TipoPublicacion" EntityType="PaperModel.TipoPublicacion" />
           <EntitySet Name="UsersOpenAuthAccounts" EntityType="PaperModel.UsersOpenAuthAccounts" />
@@ -728,10 +753,6 @@
           <AssociationSet Name="FK__aspnet_Pa__Appli__0697FACD" Association="PaperModel.FK__aspnet_Pa__Appli__0697FACD">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
             <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Ro__Appli__719CDDE7" Association="PaperModel.FK__aspnet_Ro__Appli__719CDDE7">
-            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
-            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
           </AssociationSet>
           <AssociationSet Name="FK__aspnet_Us__Appli__3F115E1A" Association="PaperModel.FK__aspnet_Us__Appli__3F115E1A">
             <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
@@ -797,10 +818,6 @@
             <End Role="UsersOpenAuthData" EntitySet="UsersOpenAuthData" />
             <End Role="UsersOpenAuthAccounts" EntitySet="UsersOpenAuthAccounts" />
           </AssociationSet>
-          <AssociationSet Name="aspnet_UsersInRoles" Association="PaperModel.aspnet_UsersInRoles">
-            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-          </AssociationSet>
           <EntitySet Name="KioscoUsuario" EntityType="PaperModel.KioscoUsuario" />
           <AssociationSet Name="FK_KioscoUsuario_aspnet_Users" Association="PaperModel.FK_KioscoUsuario_aspnet_Users">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
@@ -811,6 +828,21 @@
             <End Role="KioscoUsuario" EntitySet="KioscoUsuario" />
           </AssociationSet>
           <EntitySet Name="ELMAH_Error" EntityType="PaperModel.ELMAH_Error" />
+          <EntitySet Name="sysdiagrams" EntityType="PaperModel.sysdiagrams" />
+          <EntitySet Name="aspnet_Roles" EntityType="PaperModel.aspnet_Roles" />
+          <AssociationSet Name="FK__aspnet_Ro__Appli__719CDDE7" Association="PaperModel.FK__aspnet_Ro__Appli__719CDDE7">
+            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+          </AssociationSet>
+          <AssociationSet Name="aspnet_UsersInRoles" Association="PaperModel.aspnet_UsersInRoles">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+          <EntitySet Name="RoleAction" EntityType="PaperModel.RoleAction" />
+          <AssociationSet Name="FK_RoleAction_aspnet_Roles" Association="PaperModel.FK_RoleAction_aspnet_Roles">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="RoleAction" EntitySet="RoleAction" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="aspnet_Applications">
           <Key>
@@ -822,8 +854,8 @@
           <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="aspnet_Membership" Relationship="PaperModel.FK__aspnet_Me__Appli__51300E55" FromRole="aspnet_Applications" ToRole="aspnet_Membership" />
           <NavigationProperty Name="aspnet_Paths" Relationship="PaperModel.FK__aspnet_Pa__Appli__0697FACD" FromRole="aspnet_Applications" ToRole="aspnet_Paths" />
-          <NavigationProperty Name="aspnet_Roles" Relationship="PaperModel.FK__aspnet_Ro__Appli__719CDDE7" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
           <NavigationProperty Name="aspnet_Users" Relationship="PaperModel.FK__aspnet_Us__Appli__3F115E1A" FromRole="aspnet_Applications" ToRole="aspnet_Users" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="PaperModel.FK__aspnet_Ro__Appli__719CDDE7" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
         </EntityType>
         <EntityType Name="aspnet_Membership">
           <Key>
@@ -897,18 +929,6 @@
           <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="aspnet_Users" Relationship="PaperModel.FK__aspnet_Pr__UserI__671F4F74" FromRole="aspnet_Profile" ToRole="aspnet_Users" />
         </EntityType>
-        <EntityType Name="aspnet_Roles">
-          <Key>
-            <PropertyRef Name="RoleId" />
-          </Key>
-          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
-          <Property Name="RoleId" Type="Guid" Nullable="false" />
-          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="LoweredRoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="aspnet_Applications" Relationship="PaperModel.FK__aspnet_Ro__Appli__719CDDE7" FromRole="aspnet_Roles" ToRole="aspnet_Applications" />
-          <NavigationProperty Name="aspnet_Users" Relationship="PaperModel.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" />
-        </EntityType>
         <EntityType Name="aspnet_SchemaVersions">
           <Key>
             <PropertyRef Name="Feature" />
@@ -933,8 +953,8 @@
           <NavigationProperty Name="aspnet_Membership" Relationship="PaperModel.FK__aspnet_Me__UserI__5224328E" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
           <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="PaperModel.FK__aspnet_Pe__UserI__14E61A24" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
           <NavigationProperty Name="aspnet_Profile" Relationship="PaperModel.FK__aspnet_Pr__UserI__671F4F74" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
-          <NavigationProperty Name="aspnet_Roles" Relationship="PaperModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
           <NavigationProperty Name="KioscoUsuario" Relationship="PaperModel.FK_KioscoUsuario_aspnet_Users" FromRole="aspnet_Users" ToRole="KioscoUsuario" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="PaperModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
         </EntityType>
         <EntityType Name="aspnet_WebEvent_Events">
           <Key>
@@ -1053,17 +1073,6 @@
           <NavigationProperty Name="Promocion" Relationship="PaperModel.FK_Promocion_Publicacion" FromRole="Publicacion" ToRole="Promocion" />
           <NavigationProperty Name="TipoPublicacion" Relationship="PaperModel.FK_Publicacion_TipoPublicacion" FromRole="Publicacion" ToRole="TipoPublicacion" />
         </EntityType>
-        <EntityType Name="RoleAction">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Table" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Edit" Type="Boolean" Nullable="false" />
-          <Property Name="Insert" Type="Boolean" Nullable="false" />
-          <Property Name="Delete" Type="Boolean" Nullable="false" />
-          <Property Name="RoleId" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="Subscripcion">
           <Key>
             <PropertyRef Name="Id" />
@@ -1129,18 +1138,6 @@
               <PropertyRef Name="ApplicationId" />
             </Principal>
             <Dependent Role="aspnet_Paths">
-              <PropertyRef Name="ApplicationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Ro__Appli__719CDDE7">
-          <End Type="PaperModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
-          <End Type="PaperModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Applications">
-              <PropertyRef Name="ApplicationId" />
-            </Principal>
-            <Dependent Role="aspnet_Roles">
               <PropertyRef Name="ApplicationId" />
             </Dependent>
           </ReferentialConstraint>
@@ -1341,10 +1338,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="aspnet_UsersInRoles">
-          <End Type="PaperModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
-          <End Type="PaperModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
-        </Association>
         <EntityType Name="KioscoUsuario">
           <Key>
             <PropertyRef Name="Id" />
@@ -1396,6 +1389,69 @@
           <Property Name="Sequence" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AllXml" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LoweredRoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="aspnet_Applications" Relationship="PaperModel.FK__aspnet_Ro__Appli__719CDDE7" FromRole="aspnet_Roles" ToRole="aspnet_Applications" />
+          <NavigationProperty Name="aspnet_Users" Relationship="PaperModel.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" />
+          <NavigationProperty Name="RoleAction" Relationship="PaperModel.FK_RoleAction_aspnet_Roles" FromRole="aspnet_Roles" ToRole="RoleAction" />
+        </EntityType>
+        <Association Name="FK__aspnet_Ro__Appli__719CDDE7">
+          <End Type="PaperModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
+          <End Type="PaperModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Applications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="aspnet_Roles">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="aspnet_UsersInRoles">
+          <End Type="PaperModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
+          <End Type="PaperModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
+        </Association>
+        <EntityType Name="RoleAction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Table" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Edit" Type="Boolean" Nullable="false" />
+          <Property Name="Insert" Type="Boolean" Nullable="false" />
+          <Property Name="Delete" Type="Boolean" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="PaperModel.FK_RoleAction_aspnet_Roles" FromRole="RoleAction" ToRole="aspnet_Roles" />
+        </EntityType>
+        <Association Name="FK_RoleAction_aspnet_Roles">
+          <End Type="PaperModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="0..1" />
+          <End Type="PaperModel.RoleAction" Role="RoleAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="RoleAction">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1477,17 +1533,6 @@
                 <ScalarProperty Name="PropertyValuesString" ColumnName="PropertyValuesString" />
                 <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Roles">
-            <EntityTypeMapping TypeName="PaperModel.aspnet_Roles">
-              <MappingFragment StoreEntitySet="aspnet_Roles">
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
-                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1623,18 +1668,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="RoleAction">
-            <EntityTypeMapping TypeName="PaperModel.RoleAction">
-              <MappingFragment StoreEntitySet="RoleAction">
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="Delete" ColumnName="Delete" />
-                <ScalarProperty Name="Insert" ColumnName="Insert" />
-                <ScalarProperty Name="Edit" ColumnName="Edit" />
-                <ScalarProperty Name="Table" ColumnName="Table" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Subscripcion">
             <EntityTypeMapping TypeName="PaperModel.Subscripcion">
               <MappingFragment StoreEntitySet="Subscripcion">
@@ -1676,14 +1709,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="aspnet_UsersInRoles" TypeName="PaperModel.aspnet_UsersInRoles" StoreEntitySet="aspnet_UsersInRoles">
-            <EndProperty Name="aspnet_Users">
-              <ScalarProperty Name="UserId" ColumnName="UserId" />
-            </EndProperty>
-            <EndProperty Name="aspnet_Roles">
-              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-            </EndProperty>
-          </AssociationSetMapping>
           <EntitySetMapping Name="KioscoUsuario">
             <EntityTypeMapping TypeName="PaperModel.KioscoUsuario">
               <MappingFragment StoreEntitySet="KioscoUsuario">
@@ -1708,6 +1733,48 @@
                 <ScalarProperty Name="Host" ColumnName="Host" />
                 <ScalarProperty Name="Application" ColumnName="Application" />
                 <ScalarProperty Name="ErrorId" ColumnName="ErrorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PaperModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Roles">
+            <EntityTypeMapping TypeName="PaperModel.aspnet_Roles">
+              <MappingFragment StoreEntitySet="aspnet_Roles">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="aspnet_UsersInRoles" TypeName="PaperModel.aspnet_UsersInRoles" StoreEntitySet="aspnet_UsersInRoles">
+            <EndProperty Name="aspnet_Users">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="aspnet_Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="RoleAction">
+            <EntityTypeMapping TypeName="PaperModel.RoleAction">
+              <MappingFragment StoreEntitySet="RoleAction">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Delete" ColumnName="Delete" />
+                <ScalarProperty Name="Insert" ColumnName="Insert" />
+                <ScalarProperty Name="Edit" ColumnName="Edit" />
+                <ScalarProperty Name="Table" ColumnName="Table" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

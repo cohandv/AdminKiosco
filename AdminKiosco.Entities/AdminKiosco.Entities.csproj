@@ -129,6 +129,9 @@
     <Compile Include="Subscripcion.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="TipoPublicacion.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

@@ -5,4 +5,3 @@ c:\PRO-D\AdminKiosco\AdminKiosco.Entities\bin\Debug\EntityFramework.dll
 c:\PRO-D\AdminKiosco\AdminKiosco.Entities\bin\Debug\EntityFramework.xml
 c:\PRO-D\AdminKiosco\AdminKiosco.Entities\obj\Debug\AdminKiosco.Entities.dll
 c:\PRO-D\AdminKiosco\AdminKiosco.Entities\obj\Debug\AdminKiosco.Entities.pdb
-c:\PRO-D\AdminKiosco\AdminKiosco.Entities\obj\Debug\AdminKiosco.Entities.csprojResolveAssemblyReference.cache

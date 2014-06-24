@@ -31,7 +31,6 @@ namespace AdminKiosco.Entities
         public DbSet<aspnet_PersonalizationAllUsers> aspnet_PersonalizationAllUsers { get; set; }
         public DbSet<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser { get; set; }
         public DbSet<aspnet_Profile> aspnet_Profile { get; set; }
-        public DbSet<aspnet_Roles> aspnet_Roles { get; set; }
         public DbSet<aspnet_SchemaVersions> aspnet_SchemaVersions { get; set; }
         public DbSet<aspnet_Users> aspnet_Users { get; set; }
         public DbSet<aspnet_WebEvent_Events> aspnet_WebEvent_Events { get; set; }
@@ -43,12 +42,14 @@ namespace AdminKiosco.Entities
         public DbSet<Precio> Precio { get; set; }
         public DbSet<Promocion> Promocion { get; set; }
         public DbSet<Publicacion> Publicacion { get; set; }
-        public DbSet<RoleAction> RoleAction { get; set; }
         public DbSet<Subscripcion> Subscripcion { get; set; }
         public DbSet<TipoPublicacion> TipoPublicacion { get; set; }
         public DbSet<UsersOpenAuthAccounts> UsersOpenAuthAccounts { get; set; }
         public DbSet<UsersOpenAuthData> UsersOpenAuthData { get; set; }
         public DbSet<KioscoUsuario> KioscoUsuario { get; set; }
         public DbSet<ELMAH_Error> ELMAH_Error { get; set; }
+        public DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public DbSet<aspnet_Roles> aspnet_Roles { get; set; }
+        public DbSet<RoleAction> RoleAction { get; set; }
     }
 }

@@ -12,15 +12,12 @@ namespace AdminKiosco.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class RoleAction
+    public partial class sysdiagrams
     {
-        public int Id { get; set; }
-        public string Table { get; set; }
-        public bool Edit { get; set; }
-        public bool Insert { get; set; }
-        public bool Delete { get; set; }
-        public Nullable<System.Guid> RoleId { get; set; }
-    
-        public virtual aspnet_Roles aspnet_Roles { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

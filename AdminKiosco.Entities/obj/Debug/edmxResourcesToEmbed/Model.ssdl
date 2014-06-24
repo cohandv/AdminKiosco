@@ -246,7 +246,7 @@
     <Property Name="Edit" Type="bit" Nullable="false" />
     <Property Name="Insert" Type="bit" Nullable="false" />
     <Property Name="Delete" Type="bit" Nullable="false" />
-    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" />
   </EntityType>
   <EntityType Name="Subscripcion">
     <Key>
@@ -258,6 +258,16 @@
     <Property Name="PromocionId" Type="int" Nullable="false" />
     <Property Name="FechaAlta" Type="datetime" Nullable="false" />
     <Property Name="FechaBaja" Type="datetime" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="TipoPublicacion">
     <Key>
@@ -528,6 +538,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_RoleAction_aspnet_Roles">
+    <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="0..1" />
+    <End Role="RoleAction" Type="Self.RoleAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="RoleAction">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Subscripcion_Cliente">
     <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
     <End Role="Subscripcion" Type="Self.Subscripcion" Multiplicity="*" />
@@ -592,6 +614,7 @@
     <EntitySet Name="Publicacion" EntityType="Self.Publicacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RoleAction" EntityType="Self.RoleAction" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Subscripcion" EntityType="Self.Subscripcion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoPublicacion" EntityType="Self.TipoPublicacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UsersOpenAuthAccounts" EntityType="Self.UsersOpenAuthAccounts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UsersOpenAuthData" EntityType="Self.UsersOpenAuthData" Schema="dbo" store:Type="Tables" />
@@ -674,6 +697,10 @@
     <AssociationSet Name="FK_Publicacion_TipoPublicacion" Association="Self.FK_Publicacion_TipoPublicacion">
       <End Role="TipoPublicacion" EntitySet="TipoPublicacion" />
       <End Role="Publicacion" EntitySet="Publicacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleAction_aspnet_Roles" Association="Self.FK_RoleAction_aspnet_Roles">
+      <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+      <End Role="RoleAction" EntitySet="RoleAction" />
     </AssociationSet>
     <AssociationSet Name="FK_Subscripcion_Cliente" Association="Self.FK_Subscripcion_Cliente">
       <End Role="Cliente" EntitySet="Cliente" />
