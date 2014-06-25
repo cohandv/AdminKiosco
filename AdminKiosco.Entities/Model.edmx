@@ -5,78 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="PaperModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="aspnet_Applications">
-          <Key>
-            <PropertyRef Name="ApplicationId" />
-          </Key>
-          <Property Name="ApplicationName" Type="nvarchar" MaxLength="256" Nullable="false" />
-          <Property Name="LoweredApplicationName" Type="nvarchar" MaxLength="256" Nullable="false" />
-          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Description" Type="nvarchar" MaxLength="256" />
-        </EntityType>
-        <EntityType Name="aspnet_Membership">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="PasswordFormat" Type="int" Nullable="false" />
-          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
-          <Property Name="Email" Type="nvarchar" MaxLength="256" />
-          <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
-          <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
-          <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
-          <Property Name="IsApproved" Type="bit" Nullable="false" />
-          <Property Name="IsLockedOut" Type="bit" Nullable="false" />
-          <Property Name="CreateDate" Type="datetime" Nullable="false" />
-          <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
-          <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
-          <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
-          <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
-          <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
-          <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
-          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
-          <Property Name="Comment" Type="ntext" />
-        </EntityType>
-        <EntityType Name="aspnet_Paths">
-          <Key>
-            <PropertyRef Name="PathId" />
-          </Key>
-          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Path" Type="nvarchar" MaxLength="256" Nullable="false" />
-          <Property Name="LoweredPath" Type="nvarchar" MaxLength="256" Nullable="false" />
-        </EntityType>
-        <EntityType Name="aspnet_PersonalizationAllUsers">
-          <Key>
-            <PropertyRef Name="PathId" />
-          </Key>
-          <Property Name="PathId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PageSettings" Type="image" Nullable="false" />
-          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="aspnet_PersonalizationPerUser">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PathId" Type="uniqueidentifier" />
-          <Property Name="UserId" Type="uniqueidentifier" />
-          <Property Name="PageSettings" Type="image" Nullable="false" />
-          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="aspnet_Profile">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PropertyNames" Type="ntext" Nullable="false" />
-          <Property Name="PropertyValuesString" Type="ntext" Nullable="false" />
-          <Property Name="PropertyValuesBinary" Type="image" Nullable="false" />
-          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
-        </EntityType>
         <EntityType Name="aspnet_Roles">
           <Key>
             <PropertyRef Name="RoleId" />
@@ -107,26 +35,6 @@
           <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
-        <EntityType Name="aspnet_WebEvent_Events">
-          <Key>
-            <PropertyRef Name="EventId" />
-          </Key>
-          <Property Name="EventId" Type="char" MaxLength="32" Nullable="false" />
-          <Property Name="EventTimeUtc" Type="datetime" Nullable="false" />
-          <Property Name="EventTime" Type="datetime" Nullable="false" />
-          <Property Name="EventType" Type="nvarchar" MaxLength="256" Nullable="false" />
-          <Property Name="EventSequence" Type="decimal" Precision="19" Scale="0" Nullable="false" />
-          <Property Name="EventOccurrence" Type="decimal" Precision="19" Scale="0" Nullable="false" />
-          <Property Name="EventCode" Type="int" Nullable="false" />
-          <Property Name="EventDetailCode" Type="int" Nullable="false" />
-          <Property Name="Message" Type="nvarchar" MaxLength="1024" />
-          <Property Name="ApplicationPath" Type="nvarchar" MaxLength="256" />
-          <Property Name="ApplicationVirtualPath" Type="nvarchar" MaxLength="256" />
-          <Property Name="MachineName" Type="nvarchar" MaxLength="256" Nullable="false" />
-          <Property Name="RequestUrl" Type="nvarchar" MaxLength="1024" />
-          <Property Name="ExceptionType" Type="nvarchar" MaxLength="256" />
-          <Property Name="Details" Type="ntext" />
-        </EntityType>
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="Id" />
@@ -136,7 +44,16 @@
           <Property Name="KioscoId" Type="int" Nullable="false" />
           <Property Name="Domicilio" Type="nvarchar" MaxLength="100" />
           <Property Name="FechaAlta" Type="datetime" Nullable="false" />
-          <Property Name="PerdiodicidadId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CostoPublicacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Costo" Type="float" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="PublicacionId" Type="int" Nullable="false" />
+          <Property Name="CostoFeriado" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Distribuidor">
           <Key>
@@ -145,21 +62,33 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="ELMAH_Error">
+        <EntityType Name="DistribuidorCuenta">
           <Key>
-            <PropertyRef Name="ErrorId" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="ErrorId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Application" Type="nvarchar" MaxLength="60" Nullable="false" />
-          <Property Name="Host" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Type" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Source" Type="nvarchar" MaxLength="60" Nullable="false" />
-          <Property Name="Message" Type="nvarchar" MaxLength="500" Nullable="false" />
-          <Property Name="User" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="StatusCode" Type="int" Nullable="false" />
-          <Property Name="TimeUtc" Type="datetime" Nullable="false" />
-          <Property Name="Sequence" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AllXml" Type="ntext" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DistribuidorId" Type="int" Nullable="false" />
+          <Property Name="CBU" Type="varchar" MaxLength="30" />
+          <Property Name="Banco" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DistribuidorKiosco">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NroClienteDistribuidor" Type="varchar" MaxLength="50" />
+          <Property Name="KioscoId" Type="int" Nullable="false" />
+          <Property Name="DistribuidorId" Type="int" Nullable="false" />
+          <Property Name="DistribuidorCuentaId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Editorial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DistribuidorId" Type="int" Nullable="false" />
+          <Property Name="EditorialPadreId" Type="int" />
         </EntityType>
         <EntityType Name="Feriado">
           <Key>
@@ -188,31 +117,25 @@
           <Property Name="UsuarioId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="KioscoId" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Periodicidad">
+        <EntityType Name="MovimientosDiarios">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Periodicidad" Type="int" Nullable="false" />
+          <Property Name="PublicacionId" Type="int" Nullable="false" />
+          <Property Name="KioscoId" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="FechaVenta" Type="date" Nullable="false" />
         </EntityType>
-        <EntityType Name="Precio">
+        <EntityType Name="PrecioVenta">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Precio" Type="float" Nullable="false" />
-          <Property Name="Desde" Type="datetime" Nullable="false" />
-          <Property Name="Hasta" Type="datetime" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Promocion">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
           <Property Name="PublicacionId" Type="int" Nullable="false" />
-          <Property Name="PrecioId" Type="int" Nullable="false" />
+          <Property Name="PrecioFeriado" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Publicacion">
           <Key>
@@ -221,17 +144,13 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DistribuidorId" Type="int" Nullable="false" />
-          <Property Name="TipoPublicacionId" Type="int" Nullable="false" />
           <Property Name="CodigoBarras" Type="nvarchar" MaxLength="100" />
-          <Property Name="Costo" Type="float" Nullable="false" />
-          <Property Name="PeriodicidadId" Type="int" Nullable="false" />
-          <Property Name="Lunes" Type="bit" />
-          <Property Name="Martes" Type="bit" />
-          <Property Name="Miercoles" Type="bit" />
-          <Property Name="Jueves" Type="bit" />
-          <Property Name="Viermes" Type="bit" />
-          <Property Name="Sabado" Type="bit" />
-          <Property Name="Domingo" Type="bit" />
+          <Property Name="EditorialId" Type="int" Nullable="false" />
+          <Property Name="TieneCupon" Type="bit" Nullable="false" />
+          <Property Name="FechaSalida" Type="datetime" Nullable="false" />
+          <Property Name="FechaUltimaSalida" Type="datetime" Nullable="false" />
+          <Property Name="FrecuenciaEnDias" Type="int" Nullable="false" />
+          <Property Name="PeriodicidadEnDias" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="RoleAction">
           <Key>
@@ -249,159 +168,11 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
           <Property Name="ClienteId" Type="int" Nullable="false" />
-          <Property Name="PromocionId" Type="int" Nullable="false" />
           <Property Name="FechaAlta" Type="datetime" Nullable="false" />
           <Property Name="FechaBaja" Type="datetime" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <EntityType Name="TipoPublicacion">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="UsersOpenAuthAccounts">
-          <Key>
-            <PropertyRef Name="ApplicationName" />
-            <PropertyRef Name="ProviderName" />
-            <PropertyRef Name="ProviderUserId" />
-          </Key>
-          <Property Name="ApplicationName" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="ProviderName" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="ProviderUserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="ProviderUserName" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="MembershipUserName" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="LastUsedUtc" Type="datetime" />
-        </EntityType>
-        <EntityType Name="UsersOpenAuthData">
-          <Key>
-            <PropertyRef Name="ApplicationName" />
-            <PropertyRef Name="MembershipUserName" />
-          </Key>
-          <Property Name="ApplicationName" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="MembershipUserName" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="HasLocalPassword" Type="bit" Nullable="false" />
-        </EntityType>
-        <Association Name="FK__aspnet_Me__Appli__51300E55">
-          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
-          <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Applications">
-              <PropertyRef Name="ApplicationId" />
-            </Principal>
-            <Dependent Role="aspnet_Membership">
-              <PropertyRef Name="ApplicationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Me__UserI__5224328E">
-          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
-          <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="aspnet_Membership">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Pa__Appli__0697FACD">
-          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
-          <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Applications">
-              <PropertyRef Name="ApplicationId" />
-            </Principal>
-            <Dependent Role="aspnet_Paths">
-              <PropertyRef Name="ApplicationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Pe__PathI__0E391C95">
-          <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="1" />
-          <End Role="aspnet_PersonalizationAllUsers" Type="Self.aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Paths">
-              <PropertyRef Name="PathId" />
-            </Principal>
-            <Dependent Role="aspnet_PersonalizationAllUsers">
-              <PropertyRef Name="PathId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Pe__PathI__13F1F5EB">
-          <End Role="aspnet_Paths" Type="Self.aspnet_Paths" Multiplicity="0..1" />
-          <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Paths">
-              <PropertyRef Name="PathId" />
-            </Principal>
-            <Dependent Role="aspnet_PersonalizationPerUser">
-              <PropertyRef Name="PathId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Pe__UserI__14E61A24">
-          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="0..1" />
-          <End Role="aspnet_PersonalizationPerUser" Type="Self.aspnet_PersonalizationPerUser" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="aspnet_PersonalizationPerUser">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Pr__UserI__671F4F74">
-          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
-          <End Role="aspnet_Profile" Type="Self.aspnet_Profile" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="aspnet_Profile">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Ro__Appli__719CDDE7">
-          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
-          <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Applications">
-              <PropertyRef Name="ApplicationId" />
-            </Principal>
-            <Dependent Role="aspnet_Roles">
-              <PropertyRef Name="ApplicationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Us__Appli__3F115E1A">
-          <End Role="aspnet_Applications" Type="Self.aspnet_Applications" Multiplicity="1" />
-          <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Applications">
-              <PropertyRef Name="ApplicationId" />
-            </Principal>
-            <Dependent Role="aspnet_Users">
-              <PropertyRef Name="ApplicationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__aspnet_Us__RoleI__7849DB76">
           <End Role="aspnet_Roles" Type="Self.aspnet_Roles" Multiplicity="1" />
           <End Role="aspnet_UsersInRoles" Type="Self.aspnet_UsersInRoles" Multiplicity="*" />
@@ -438,15 +209,87 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Cliente_Periodicidad">
-          <End Role="Periodicidad" Type="Self.Periodicidad" Multiplicity="1" />
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+        <Association Name="FK_CostoPublicacion_Publicacion">
+          <End Role="Publicacion" Type="Self.Publicacion" Multiplicity="1" />
+          <End Role="CostoPublicacion" Type="Self.CostoPublicacion" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Periodicidad">
+            <Principal Role="Publicacion">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Cliente">
-              <PropertyRef Name="PerdiodicidadId" />
+            <Dependent Role="CostoPublicacion">
+              <PropertyRef Name="PublicacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DistribuidorCuenta_Distribuidor">
+          <End Role="Distribuidor" Type="Self.Distribuidor" Multiplicity="1" />
+          <End Role="DistribuidorCuenta" Type="Self.DistribuidorCuenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distribuidor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DistribuidorCuenta">
+              <PropertyRef Name="DistribuidorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DistribuidorKiosco_Distribuidor">
+          <End Role="Distribuidor" Type="Self.Distribuidor" Multiplicity="1" />
+          <End Role="DistribuidorKiosco" Type="Self.DistribuidorKiosco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distribuidor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DistribuidorKiosco">
+              <PropertyRef Name="DistribuidorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DistribuidorKiosco_DistribuidorCuenta">
+          <End Role="DistribuidorCuenta" Type="Self.DistribuidorCuenta" Multiplicity="1" />
+          <End Role="DistribuidorKiosco" Type="Self.DistribuidorKiosco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DistribuidorCuenta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DistribuidorKiosco">
+              <PropertyRef Name="DistribuidorCuentaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DistribuidorKiosco_Kiosco">
+          <End Role="Kiosco" Type="Self.Kiosco" Multiplicity="1" />
+          <End Role="DistribuidorKiosco" Type="Self.DistribuidorKiosco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kiosco">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DistribuidorKiosco">
+              <PropertyRef Name="KioscoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Editorial_Distribuidor">
+          <End Role="Distribuidor" Type="Self.Distribuidor" Multiplicity="1" />
+          <End Role="Editorial" Type="Self.Editorial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distribuidor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Editorial">
+              <PropertyRef Name="DistribuidorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Editorial_Editorial">
+          <End Role="Editorial" Type="Self.Editorial" Multiplicity="0..1" />
+          <End Role="Editorial1" Type="Self.Editorial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Editorial">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Editorial1">
+              <PropertyRef Name="EditorialPadreId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -474,26 +317,38 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Promocion_Precio">
-          <End Role="Precio" Type="Self.Precio" Multiplicity="1" />
-          <End Role="Promocion" Type="Self.Promocion" Multiplicity="*" />
+        <Association Name="FK_MovimientosDiarios_Kiosco">
+          <End Role="Kiosco" Type="Self.Kiosco" Multiplicity="1" />
+          <End Role="MovimientosDiarios" Type="Self.MovimientosDiarios" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Precio">
+            <Principal Role="Kiosco">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Promocion">
-              <PropertyRef Name="PrecioId" />
+            <Dependent Role="MovimientosDiarios">
+              <PropertyRef Name="KioscoId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Promocion_Publicacion">
+        <Association Name="FK_MovimientosDiarios_Publicacion">
           <End Role="Publicacion" Type="Self.Publicacion" Multiplicity="1" />
-          <End Role="Promocion" Type="Self.Promocion" Multiplicity="*" />
+          <End Role="MovimientosDiarios" Type="Self.MovimientosDiarios" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Publicacion">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Promocion">
+            <Dependent Role="MovimientosDiarios">
+              <PropertyRef Name="PublicacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PrecioVenta_Publicacion">
+          <End Role="Publicacion" Type="Self.Publicacion" Multiplicity="1" />
+          <End Role="PrecioVenta" Type="Self.PrecioVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publicacion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PrecioVenta">
               <PropertyRef Name="PublicacionId" />
             </Dependent>
           </ReferentialConstraint>
@@ -510,27 +365,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Publicacion_Periodicidad">
-          <End Role="Periodicidad" Type="Self.Periodicidad" Multiplicity="1" />
+        <Association Name="FK_Publicacion_Editorial">
+          <End Role="Editorial" Type="Self.Editorial" Multiplicity="1" />
           <End Role="Publicacion" Type="Self.Publicacion" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Periodicidad">
+            <Principal Role="Editorial">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Publicacion">
-              <PropertyRef Name="PeriodicidadId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Publicacion_TipoPublicacion">
-          <End Role="TipoPublicacion" Type="Self.TipoPublicacion" Multiplicity="1" />
-          <End Role="Publicacion" Type="Self.Publicacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TipoPublicacion">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Publicacion">
-              <PropertyRef Name="TipoPublicacionId" />
+              <PropertyRef Name="EditorialId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -558,97 +401,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Subscripcion_Promocion">
-          <End Role="Promocion" Type="Self.Promocion" Multiplicity="1" />
-          <End Role="Subscripcion" Type="Self.Subscripcion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Promocion">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Subscripcion">
-              <PropertyRef Name="PromocionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="OpenAuthAccount_UserData">
-          <End Role="UsersOpenAuthData" Type="Self.UsersOpenAuthData" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="UsersOpenAuthAccounts" Type="Self.UsersOpenAuthAccounts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UsersOpenAuthData">
-              <PropertyRef Name="ApplicationName" />
-              <PropertyRef Name="MembershipUserName" />
-            </Principal>
-            <Dependent Role="UsersOpenAuthAccounts">
-              <PropertyRef Name="ApplicationName" />
-              <PropertyRef Name="MembershipUserName" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="PaperModelStoreContainer">
-          <EntitySet Name="aspnet_Applications" EntityType="Self.aspnet_Applications" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="aspnet_Paths" EntityType="Self.aspnet_Paths" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="Self.aspnet_PersonalizationAllUsers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="Self.aspnet_PersonalizationPerUser" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="aspnet_Profile" EntityType="Self.aspnet_Profile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="aspnet_Roles" EntityType="Self.aspnet_Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="aspnet_UsersInRoles" EntityType="Self.aspnet_UsersInRoles" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="aspnet_WebEvent_Events" EntityType="Self.aspnet_WebEvent_Events" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CostoPublicacion" EntityType="Self.CostoPublicacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Distribuidor" EntityType="Self.Distribuidor" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ELMAH_Error" EntityType="Self.ELMAH_Error" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DistribuidorCuenta" EntityType="Self.DistribuidorCuenta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DistribuidorKiosco" EntityType="Self.DistribuidorKiosco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Editorial" EntityType="Self.Editorial" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Feriado" EntityType="Self.Feriado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kiosco" EntityType="Self.Kiosco" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KioscoUsuario" EntityType="Self.KioscoUsuario" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Periodicidad" EntityType="Self.Periodicidad" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Precio" EntityType="Self.Precio" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Promocion" EntityType="Self.Promocion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MovimientosDiarios" EntityType="Self.MovimientosDiarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PrecioVenta" EntityType="Self.PrecioVenta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Publicacion" EntityType="Self.Publicacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RoleAction" EntityType="Self.RoleAction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subscripcion" EntityType="Self.Subscripcion" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TipoPublicacion" EntityType="Self.TipoPublicacion" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UsersOpenAuthAccounts" EntityType="Self.UsersOpenAuthAccounts" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UsersOpenAuthData" EntityType="Self.UsersOpenAuthData" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__aspnet_Me__Appli__51300E55" Association="Self.FK__aspnet_Me__Appli__51300E55">
-            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
-            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Me__UserI__5224328E" Association="Self.FK__aspnet_Me__UserI__5224328E">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pa__Appli__0697FACD" Association="Self.FK__aspnet_Pa__Appli__0697FACD">
-            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
-            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__PathI__0E391C95" Association="Self.FK__aspnet_Pe__PathI__0E391C95">
-            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
-            <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__PathI__13F1F5EB" Association="Self.FK__aspnet_Pe__PathI__13F1F5EB">
-            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
-            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__UserI__14E61A24" Association="Self.FK__aspnet_Pe__UserI__14E61A24">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pr__UserI__671F4F74" Association="Self.FK__aspnet_Pr__UserI__671F4F74">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Ro__Appli__719CDDE7" Association="Self.FK__aspnet_Ro__Appli__719CDDE7">
-            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
-            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Us__Appli__3F115E1A" Association="Self.FK__aspnet_Us__Appli__3F115E1A">
-            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-          </AssociationSet>
           <AssociationSet Name="FK__aspnet_Us__RoleI__7849DB76" Association="Self.FK__aspnet_Us__RoleI__7849DB76">
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
             <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
@@ -661,9 +431,33 @@
             <End Role="Kiosco" EntitySet="Kiosco" />
             <End Role="Cliente" EntitySet="Cliente" />
           </AssociationSet>
-          <AssociationSet Name="FK_Cliente_Periodicidad" Association="Self.FK_Cliente_Periodicidad">
-            <End Role="Periodicidad" EntitySet="Periodicidad" />
-            <End Role="Cliente" EntitySet="Cliente" />
+          <AssociationSet Name="FK_CostoPublicacion_Publicacion" Association="Self.FK_CostoPublicacion_Publicacion">
+            <End Role="Publicacion" EntitySet="Publicacion" />
+            <End Role="CostoPublicacion" EntitySet="CostoPublicacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DistribuidorCuenta_Distribuidor" Association="Self.FK_DistribuidorCuenta_Distribuidor">
+            <End Role="Distribuidor" EntitySet="Distribuidor" />
+            <End Role="DistribuidorCuenta" EntitySet="DistribuidorCuenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DistribuidorKiosco_Distribuidor" Association="Self.FK_DistribuidorKiosco_Distribuidor">
+            <End Role="Distribuidor" EntitySet="Distribuidor" />
+            <End Role="DistribuidorKiosco" EntitySet="DistribuidorKiosco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DistribuidorKiosco_DistribuidorCuenta" Association="Self.FK_DistribuidorKiosco_DistribuidorCuenta">
+            <End Role="DistribuidorCuenta" EntitySet="DistribuidorCuenta" />
+            <End Role="DistribuidorKiosco" EntitySet="DistribuidorKiosco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DistribuidorKiosco_Kiosco" Association="Self.FK_DistribuidorKiosco_Kiosco">
+            <End Role="Kiosco" EntitySet="Kiosco" />
+            <End Role="DistribuidorKiosco" EntitySet="DistribuidorKiosco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Editorial_Distribuidor" Association="Self.FK_Editorial_Distribuidor">
+            <End Role="Distribuidor" EntitySet="Distribuidor" />
+            <End Role="Editorial" EntitySet="Editorial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Editorial_Editorial" Association="Self.FK_Editorial_Editorial">
+            <End Role="Editorial" EntitySet="Editorial" />
+            <End Role="Editorial1" EntitySet="Editorial" />
           </AssociationSet>
           <AssociationSet Name="FK_KioscoUsuario_aspnet_Users" Association="Self.FK_KioscoUsuario_aspnet_Users">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
@@ -673,24 +467,24 @@
             <End Role="Kiosco" EntitySet="Kiosco" />
             <End Role="KioscoUsuario" EntitySet="KioscoUsuario" />
           </AssociationSet>
-          <AssociationSet Name="FK_Promocion_Precio" Association="Self.FK_Promocion_Precio">
-            <End Role="Precio" EntitySet="Precio" />
-            <End Role="Promocion" EntitySet="Promocion" />
+          <AssociationSet Name="FK_MovimientosDiarios_Kiosco" Association="Self.FK_MovimientosDiarios_Kiosco">
+            <End Role="Kiosco" EntitySet="Kiosco" />
+            <End Role="MovimientosDiarios" EntitySet="MovimientosDiarios" />
           </AssociationSet>
-          <AssociationSet Name="FK_Promocion_Publicacion" Association="Self.FK_Promocion_Publicacion">
+          <AssociationSet Name="FK_MovimientosDiarios_Publicacion" Association="Self.FK_MovimientosDiarios_Publicacion">
             <End Role="Publicacion" EntitySet="Publicacion" />
-            <End Role="Promocion" EntitySet="Promocion" />
+            <End Role="MovimientosDiarios" EntitySet="MovimientosDiarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrecioVenta_Publicacion" Association="Self.FK_PrecioVenta_Publicacion">
+            <End Role="Publicacion" EntitySet="Publicacion" />
+            <End Role="PrecioVenta" EntitySet="PrecioVenta" />
           </AssociationSet>
           <AssociationSet Name="FK_Publicacion_Distribuidor" Association="Self.FK_Publicacion_Distribuidor">
             <End Role="Distribuidor" EntitySet="Distribuidor" />
             <End Role="Publicacion" EntitySet="Publicacion" />
           </AssociationSet>
-          <AssociationSet Name="FK_Publicacion_Periodicidad" Association="Self.FK_Publicacion_Periodicidad">
-            <End Role="Periodicidad" EntitySet="Periodicidad" />
-            <End Role="Publicacion" EntitySet="Publicacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Publicacion_TipoPublicacion" Association="Self.FK_Publicacion_TipoPublicacion">
-            <End Role="TipoPublicacion" EntitySet="TipoPublicacion" />
+          <AssociationSet Name="FK_Publicacion_Editorial" Association="Self.FK_Publicacion_Editorial">
+            <End Role="Editorial" EntitySet="Editorial" />
             <End Role="Publicacion" EntitySet="Publicacion" />
           </AssociationSet>
           <AssociationSet Name="FK_RoleAction_aspnet_Roles" Association="Self.FK_RoleAction_aspnet_Roles">
@@ -701,222 +495,112 @@
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Subscripcion" EntitySet="Subscripcion" />
           </AssociationSet>
-          <AssociationSet Name="FK_Subscripcion_Promocion" Association="Self.FK_Subscripcion_Promocion">
-            <End Role="Promocion" EntitySet="Promocion" />
-            <End Role="Subscripcion" EntitySet="Subscripcion" />
-          </AssociationSet>
-          <AssociationSet Name="OpenAuthAccount_UserData" Association="Self.OpenAuthAccount_UserData">
-            <End Role="UsersOpenAuthData" EntitySet="UsersOpenAuthData" />
-            <End Role="UsersOpenAuthAccounts" EntitySet="UsersOpenAuthAccounts" />
-          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PaperModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="PaperEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="aspnet_Applications" EntityType="PaperModel.aspnet_Applications" />
-          <EntitySet Name="aspnet_Membership" EntityType="PaperModel.aspnet_Membership" />
-          <EntitySet Name="aspnet_Paths" EntityType="PaperModel.aspnet_Paths" />
-          <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="PaperModel.aspnet_PersonalizationAllUsers" />
-          <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="PaperModel.aspnet_PersonalizationPerUser" />
-          <EntitySet Name="aspnet_Profile" EntityType="PaperModel.aspnet_Profile" />
+          <EntitySet Name="aspnet_Roles" EntityType="PaperModel.aspnet_Roles" />
           <EntitySet Name="aspnet_Users" EntityType="PaperModel.aspnet_Users" />
-          <EntitySet Name="aspnet_WebEvent_Events" EntityType="PaperModel.aspnet_WebEvent_Events" />
           <EntitySet Name="Cliente" EntityType="PaperModel.Cliente" />
+          <EntitySet Name="CostoPublicacion" EntityType="PaperModel.CostoPublicacion" />
           <EntitySet Name="Distribuidor" EntityType="PaperModel.Distribuidor" />
+          <EntitySet Name="DistribuidorCuenta" EntityType="PaperModel.DistribuidorCuenta" />
+          <EntitySet Name="DistribuidorKiosco" EntityType="PaperModel.DistribuidorKiosco" />
+          <EntitySet Name="Editorial" EntityType="PaperModel.Editorial" />
           <EntitySet Name="Feriado" EntityType="PaperModel.Feriado" />
           <EntitySet Name="Kiosco" EntityType="PaperModel.Kiosco" />
-          <EntitySet Name="Periodicidad" EntityType="PaperModel.Periodicidad" />
-          <EntitySet Name="Precio" EntityType="PaperModel.Precio" />
-          <EntitySet Name="Promocion" EntityType="PaperModel.Promocion" />
+          <EntitySet Name="KioscoUsuario" EntityType="PaperModel.KioscoUsuario" />
+          <EntitySet Name="MovimientosDiarios" EntityType="PaperModel.MovimientosDiarios" />
+          <EntitySet Name="PrecioVenta" EntityType="PaperModel.PrecioVenta" />
           <EntitySet Name="Publicacion" EntityType="PaperModel.Publicacion" />
+          <EntitySet Name="RoleAction" EntityType="PaperModel.RoleAction" />
           <EntitySet Name="Subscripcion" EntityType="PaperModel.Subscripcion" />
-          <EntitySet Name="TipoPublicacion" EntityType="PaperModel.TipoPublicacion" />
-          <EntitySet Name="UsersOpenAuthAccounts" EntityType="PaperModel.UsersOpenAuthAccounts" />
-          <EntitySet Name="UsersOpenAuthData" EntityType="PaperModel.UsersOpenAuthData" />
-          <AssociationSet Name="FK__aspnet_Me__Appli__51300E55" Association="PaperModel.FK__aspnet_Me__Appli__51300E55">
-            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
-            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          <AssociationSet Name="FK_RoleAction_aspnet_Roles" Association="PaperModel.FK_RoleAction_aspnet_Roles">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="RoleAction" EntitySet="RoleAction" />
           </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pa__Appli__0697FACD" Association="PaperModel.FK__aspnet_Pa__Appli__0697FACD">
-            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
-            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Us__Appli__3F115E1A" Association="PaperModel.FK__aspnet_Us__Appli__3F115E1A">
-            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
+          <AssociationSet Name="FK_KioscoUsuario_aspnet_Users" Association="PaperModel.FK_KioscoUsuario_aspnet_Users">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Me__UserI__5224328E" Association="PaperModel.FK__aspnet_Me__UserI__5224328E">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__PathI__0E391C95" Association="PaperModel.FK__aspnet_Pe__PathI__0E391C95">
-            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
-            <End Role="aspnet_PersonalizationAllUsers" EntitySet="aspnet_PersonalizationAllUsers" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__PathI__13F1F5EB" Association="PaperModel.FK__aspnet_Pe__PathI__13F1F5EB">
-            <End Role="aspnet_Paths" EntitySet="aspnet_Paths" />
-            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pe__UserI__14E61A24" Association="PaperModel.FK__aspnet_Pe__UserI__14E61A24">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="aspnet_PersonalizationPerUser" EntitySet="aspnet_PersonalizationPerUser" />
-          </AssociationSet>
-          <AssociationSet Name="FK__aspnet_Pr__UserI__671F4F74" Association="PaperModel.FK__aspnet_Pr__UserI__671F4F74">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="aspnet_Profile" EntitySet="aspnet_Profile" />
+            <End Role="KioscoUsuario" EntitySet="KioscoUsuario" />
           </AssociationSet>
           <AssociationSet Name="FK_Cliente_Kiosco" Association="PaperModel.FK_Cliente_Kiosco">
             <End Role="Kiosco" EntitySet="Kiosco" />
-            <End Role="Cliente" EntitySet="Cliente" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Cliente_Periodicidad" Association="PaperModel.FK_Cliente_Periodicidad">
-            <End Role="Periodicidad" EntitySet="Periodicidad" />
             <End Role="Cliente" EntitySet="Cliente" />
           </AssociationSet>
           <AssociationSet Name="FK_Subscripcion_Cliente" Association="PaperModel.FK_Subscripcion_Cliente">
             <End Role="Cliente" EntitySet="Cliente" />
             <End Role="Subscripcion" EntitySet="Subscripcion" />
           </AssociationSet>
+          <AssociationSet Name="FK_CostoPublicacion_Publicacion" Association="PaperModel.FK_CostoPublicacion_Publicacion">
+            <End Role="Publicacion" EntitySet="Publicacion" />
+            <End Role="CostoPublicacion" EntitySet="CostoPublicacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DistribuidorCuenta_Distribuidor" Association="PaperModel.FK_DistribuidorCuenta_Distribuidor">
+            <End Role="Distribuidor" EntitySet="Distribuidor" />
+            <End Role="DistribuidorCuenta" EntitySet="DistribuidorCuenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DistribuidorKiosco_Distribuidor" Association="PaperModel.FK_DistribuidorKiosco_Distribuidor">
+            <End Role="Distribuidor" EntitySet="Distribuidor" />
+            <End Role="DistribuidorKiosco" EntitySet="DistribuidorKiosco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Editorial_Distribuidor" Association="PaperModel.FK_Editorial_Distribuidor">
+            <End Role="Distribuidor" EntitySet="Distribuidor" />
+            <End Role="Editorial" EntitySet="Editorial" />
+          </AssociationSet>
           <AssociationSet Name="FK_Publicacion_Distribuidor" Association="PaperModel.FK_Publicacion_Distribuidor">
             <End Role="Distribuidor" EntitySet="Distribuidor" />
             <End Role="Publicacion" EntitySet="Publicacion" />
           </AssociationSet>
-          <AssociationSet Name="FK_Publicacion_Periodicidad" Association="PaperModel.FK_Publicacion_Periodicidad">
-            <End Role="Periodicidad" EntitySet="Periodicidad" />
+          <AssociationSet Name="FK_DistribuidorKiosco_DistribuidorCuenta" Association="PaperModel.FK_DistribuidorKiosco_DistribuidorCuenta">
+            <End Role="DistribuidorCuenta" EntitySet="DistribuidorCuenta" />
+            <End Role="DistribuidorKiosco" EntitySet="DistribuidorKiosco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DistribuidorKiosco_Kiosco" Association="PaperModel.FK_DistribuidorKiosco_Kiosco">
+            <End Role="Kiosco" EntitySet="Kiosco" />
+            <End Role="DistribuidorKiosco" EntitySet="DistribuidorKiosco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Editorial_Editorial" Association="PaperModel.FK_Editorial_Editorial">
+            <End Role="Editorial" EntitySet="Editorial" />
+            <End Role="Editorial1" EntitySet="Editorial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Publicacion_Editorial" Association="PaperModel.FK_Publicacion_Editorial">
+            <End Role="Editorial" EntitySet="Editorial" />
             <End Role="Publicacion" EntitySet="Publicacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Promocion_Precio" Association="PaperModel.FK_Promocion_Precio">
-            <End Role="Precio" EntitySet="Precio" />
-            <End Role="Promocion" EntitySet="Promocion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Promocion_Publicacion" Association="PaperModel.FK_Promocion_Publicacion">
-            <End Role="Publicacion" EntitySet="Publicacion" />
-            <End Role="Promocion" EntitySet="Promocion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Subscripcion_Promocion" Association="PaperModel.FK_Subscripcion_Promocion">
-            <End Role="Promocion" EntitySet="Promocion" />
-            <End Role="Subscripcion" EntitySet="Subscripcion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Publicacion_TipoPublicacion" Association="PaperModel.FK_Publicacion_TipoPublicacion">
-            <End Role="TipoPublicacion" EntitySet="TipoPublicacion" />
-            <End Role="Publicacion" EntitySet="Publicacion" />
-          </AssociationSet>
-          <AssociationSet Name="OpenAuthAccount_UserData" Association="PaperModel.OpenAuthAccount_UserData">
-            <End Role="UsersOpenAuthData" EntitySet="UsersOpenAuthData" />
-            <End Role="UsersOpenAuthAccounts" EntitySet="UsersOpenAuthAccounts" />
-          </AssociationSet>
-          <EntitySet Name="KioscoUsuario" EntityType="PaperModel.KioscoUsuario" />
-          <AssociationSet Name="FK_KioscoUsuario_aspnet_Users" Association="PaperModel.FK_KioscoUsuario_aspnet_Users">
-            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
-            <End Role="KioscoUsuario" EntitySet="KioscoUsuario" />
           </AssociationSet>
           <AssociationSet Name="FK_KioscoUsuario_Kiosco" Association="PaperModel.FK_KioscoUsuario_Kiosco">
             <End Role="Kiosco" EntitySet="Kiosco" />
             <End Role="KioscoUsuario" EntitySet="KioscoUsuario" />
           </AssociationSet>
-          <EntitySet Name="ELMAH_Error" EntityType="PaperModel.ELMAH_Error" />
-          <EntitySet Name="sysdiagrams" EntityType="PaperModel.sysdiagrams" />
-          <EntitySet Name="aspnet_Roles" EntityType="PaperModel.aspnet_Roles" />
-          <AssociationSet Name="FK__aspnet_Ro__Appli__719CDDE7" Association="PaperModel.FK__aspnet_Ro__Appli__719CDDE7">
-            <End Role="aspnet_Applications" EntitySet="aspnet_Applications" />
-            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+          <AssociationSet Name="FK_MovimientosDiarios_Kiosco" Association="PaperModel.FK_MovimientosDiarios_Kiosco">
+            <End Role="Kiosco" EntitySet="Kiosco" />
+            <End Role="MovimientosDiarios" EntitySet="MovimientosDiarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MovimientosDiarios_Publicacion" Association="PaperModel.FK_MovimientosDiarios_Publicacion">
+            <End Role="Publicacion" EntitySet="Publicacion" />
+            <End Role="MovimientosDiarios" EntitySet="MovimientosDiarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrecioVenta_Publicacion" Association="PaperModel.FK_PrecioVenta_Publicacion">
+            <End Role="Publicacion" EntitySet="Publicacion" />
+            <End Role="PrecioVenta" EntitySet="PrecioVenta" />
           </AssociationSet>
           <AssociationSet Name="aspnet_UsersInRoles" Association="PaperModel.aspnet_UsersInRoles">
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
           </AssociationSet>
-          <EntitySet Name="RoleAction" EntityType="PaperModel.RoleAction" />
-          <AssociationSet Name="FK_RoleAction_aspnet_Roles" Association="PaperModel.FK_RoleAction_aspnet_Roles">
-            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
-            <End Role="RoleAction" EntitySet="RoleAction" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="aspnet_Applications">
+        <EntityType Name="aspnet_Roles">
           <Key>
-            <PropertyRef Name="ApplicationId" />
+            <PropertyRef Name="RoleId" />
           </Key>
-          <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="LoweredApplicationName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" Nullable="false" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LoweredRoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="aspnet_Membership" Relationship="PaperModel.FK__aspnet_Me__Appli__51300E55" FromRole="aspnet_Applications" ToRole="aspnet_Membership" />
-          <NavigationProperty Name="aspnet_Paths" Relationship="PaperModel.FK__aspnet_Pa__Appli__0697FACD" FromRole="aspnet_Applications" ToRole="aspnet_Paths" />
-          <NavigationProperty Name="aspnet_Users" Relationship="PaperModel.FK__aspnet_Us__Appli__3F115E1A" FromRole="aspnet_Applications" ToRole="aspnet_Users" />
-          <NavigationProperty Name="aspnet_Roles" Relationship="PaperModel.FK__aspnet_Ro__Appli__719CDDE7" FromRole="aspnet_Applications" ToRole="aspnet_Roles" />
-        </EntityType>
-        <EntityType Name="aspnet_Membership">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
-          <Property Name="UserId" Type="Guid" Nullable="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="PasswordFormat" Type="Int32" Nullable="false" />
-          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="MobilePIN" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="LoweredEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="PasswordQuestion" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="PasswordAnswer" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
-          <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
-          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="LastLoginDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="LastPasswordChangedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="LastLockoutDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="FailedPasswordAttemptCount" Type="Int32" Nullable="false" />
-          <Property Name="FailedPasswordAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" />
-          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="aspnet_Applications" Relationship="PaperModel.FK__aspnet_Me__Appli__51300E55" FromRole="aspnet_Membership" ToRole="aspnet_Applications" />
-          <NavigationProperty Name="aspnet_Users" Relationship="PaperModel.FK__aspnet_Me__UserI__5224328E" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
-        </EntityType>
-        <EntityType Name="aspnet_Paths">
-          <Key>
-            <PropertyRef Name="PathId" />
-          </Key>
-          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
-          <Property Name="PathId" Type="Guid" Nullable="false" />
-          <Property Name="Path" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="LoweredPath" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="aspnet_Applications" Relationship="PaperModel.FK__aspnet_Pa__Appli__0697FACD" FromRole="aspnet_Paths" ToRole="aspnet_Applications" />
-          <NavigationProperty Name="aspnet_PersonalizationAllUsers" Relationship="PaperModel.FK__aspnet_Pe__PathI__0E391C95" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationAllUsers" />
-          <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="PaperModel.FK__aspnet_Pe__PathI__13F1F5EB" FromRole="aspnet_Paths" ToRole="aspnet_PersonalizationPerUser" />
-        </EntityType>
-        <EntityType Name="aspnet_PersonalizationAllUsers">
-          <Key>
-            <PropertyRef Name="PathId" />
-          </Key>
-          <Property Name="PathId" Type="Guid" Nullable="false" />
-          <Property Name="PageSettings" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="aspnet_Paths" Relationship="PaperModel.FK__aspnet_Pe__PathI__0E391C95" FromRole="aspnet_PersonalizationAllUsers" ToRole="aspnet_Paths" />
-        </EntityType>
-        <EntityType Name="aspnet_PersonalizationPerUser">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="PathId" Type="Guid" />
-          <Property Name="UserId" Type="Guid" />
-          <Property Name="PageSettings" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="aspnet_Paths" Relationship="PaperModel.FK__aspnet_Pe__PathI__13F1F5EB" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Paths" />
-          <NavigationProperty Name="aspnet_Users" Relationship="PaperModel.FK__aspnet_Pe__UserI__14E61A24" FromRole="aspnet_PersonalizationPerUser" ToRole="aspnet_Users" />
-        </EntityType>
-        <EntityType Name="aspnet_Profile">
-          <Key>
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="UserId" Type="Guid" Nullable="false" />
-          <Property Name="PropertyNames" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PropertyValuesString" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PropertyValuesBinary" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="aspnet_Users" Relationship="PaperModel.FK__aspnet_Pr__UserI__671F4F74" FromRole="aspnet_Profile" ToRole="aspnet_Users" />
+          <NavigationProperty Name="RoleAction" Relationship="PaperModel.FK_RoleAction_aspnet_Roles" FromRole="aspnet_Roles" ToRole="RoleAction" />
+          <NavigationProperty Name="aspnet_Users" Relationship="PaperModel.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" />
         </EntityType>
         <EntityType Name="aspnet_Users">
           <Key>
@@ -929,32 +613,8 @@
           <Property Name="MobileAlias" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
           <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
           <Property Name="LastActivityDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="aspnet_Applications" Relationship="PaperModel.FK__aspnet_Us__Appli__3F115E1A" FromRole="aspnet_Users" ToRole="aspnet_Applications" />
-          <NavigationProperty Name="aspnet_Membership" Relationship="PaperModel.FK__aspnet_Me__UserI__5224328E" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
-          <NavigationProperty Name="aspnet_PersonalizationPerUser" Relationship="PaperModel.FK__aspnet_Pe__UserI__14E61A24" FromRole="aspnet_Users" ToRole="aspnet_PersonalizationPerUser" />
-          <NavigationProperty Name="aspnet_Profile" Relationship="PaperModel.FK__aspnet_Pr__UserI__671F4F74" FromRole="aspnet_Users" ToRole="aspnet_Profile" />
           <NavigationProperty Name="KioscoUsuario" Relationship="PaperModel.FK_KioscoUsuario_aspnet_Users" FromRole="aspnet_Users" ToRole="KioscoUsuario" />
           <NavigationProperty Name="aspnet_Roles" Relationship="PaperModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
-        </EntityType>
-        <EntityType Name="aspnet_WebEvent_Events">
-          <Key>
-            <PropertyRef Name="EventId" />
-          </Key>
-          <Property Name="EventId" Type="String" Nullable="false" MaxLength="32" FixedLength="true" Unicode="false" />
-          <Property Name="EventTimeUtc" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="EventTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="EventType" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="EventSequence" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
-          <Property Name="EventOccurrence" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
-          <Property Name="EventCode" Type="Int32" Nullable="false" />
-          <Property Name="EventDetailCode" Type="Int32" Nullable="false" />
-          <Property Name="Message" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
-          <Property Name="ApplicationPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="ApplicationVirtualPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="MachineName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="RequestUrl" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
-          <Property Name="ExceptionType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Cliente">
           <Key>
@@ -965,10 +625,19 @@
           <Property Name="KioscoId" Type="Int32" Nullable="false" />
           <Property Name="Domicilio" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="FechaAlta" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="PerdiodicidadId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Kiosco" Relationship="PaperModel.FK_Cliente_Kiosco" FromRole="Cliente" ToRole="Kiosco" />
-          <NavigationProperty Name="Periodicidad" Relationship="PaperModel.FK_Cliente_Periodicidad" FromRole="Cliente" ToRole="Periodicidad" />
           <NavigationProperty Name="Subscripcion" Relationship="PaperModel.FK_Subscripcion_Cliente" FromRole="Cliente" ToRole="Subscripcion" />
+        </EntityType>
+        <EntityType Name="CostoPublicacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Costo" Type="Double" Nullable="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PublicacionId" Type="Int32" Nullable="false" />
+          <Property Name="CostoFeriado" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Publicacion" Relationship="PaperModel.FK_CostoPublicacion_Publicacion" FromRole="CostoPublicacion" ToRole="Publicacion" />
         </EntityType>
         <EntityType Name="Distribuidor">
           <Key>
@@ -976,7 +645,47 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DistribuidorCuenta" Relationship="PaperModel.FK_DistribuidorCuenta_Distribuidor" FromRole="Distribuidor" ToRole="DistribuidorCuenta" />
+          <NavigationProperty Name="DistribuidorKiosco" Relationship="PaperModel.FK_DistribuidorKiosco_Distribuidor" FromRole="Distribuidor" ToRole="DistribuidorKiosco" />
+          <NavigationProperty Name="Editorial" Relationship="PaperModel.FK_Editorial_Distribuidor" FromRole="Distribuidor" ToRole="Editorial" />
           <NavigationProperty Name="Publicacion" Relationship="PaperModel.FK_Publicacion_Distribuidor" FromRole="Distribuidor" ToRole="Publicacion" />
+        </EntityType>
+        <EntityType Name="DistribuidorCuenta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DistribuidorId" Type="Int32" Nullable="false" />
+          <Property Name="CBU" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Banco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Distribuidor" Relationship="PaperModel.FK_DistribuidorCuenta_Distribuidor" FromRole="DistribuidorCuenta" ToRole="Distribuidor" />
+          <NavigationProperty Name="DistribuidorKiosco" Relationship="PaperModel.FK_DistribuidorKiosco_DistribuidorCuenta" FromRole="DistribuidorCuenta" ToRole="DistribuidorKiosco" />
+        </EntityType>
+        <EntityType Name="DistribuidorKiosco">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NroClienteDistribuidor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KioscoId" Type="Int32" Nullable="false" />
+          <Property Name="DistribuidorId" Type="Int32" Nullable="false" />
+          <Property Name="DistribuidorCuentaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Distribuidor" Relationship="PaperModel.FK_DistribuidorKiosco_Distribuidor" FromRole="DistribuidorKiosco" ToRole="Distribuidor" />
+          <NavigationProperty Name="DistribuidorCuenta" Relationship="PaperModel.FK_DistribuidorKiosco_DistribuidorCuenta" FromRole="DistribuidorKiosco" ToRole="DistribuidorCuenta" />
+          <NavigationProperty Name="Kiosco" Relationship="PaperModel.FK_DistribuidorKiosco_Kiosco" FromRole="DistribuidorKiosco" ToRole="Kiosco" />
+        </EntityType>
+        <EntityType Name="Editorial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DistribuidorId" Type="Int32" Nullable="false" />
+          <Property Name="EditorialPadreId" Type="Int32" />
+          <NavigationProperty Name="Distribuidor" Relationship="PaperModel.FK_Editorial_Distribuidor" FromRole="Editorial" ToRole="Distribuidor" />
+          <NavigationProperty Name="Editorial1" Relationship="PaperModel.FK_Editorial_Editorial" FromRole="Editorial" ToRole="Editorial1" />
+          <NavigationProperty Name="Editorial2" Relationship="PaperModel.FK_Editorial_Editorial" FromRole="Editorial1" ToRole="Editorial" />
+          <NavigationProperty Name="Publicacion" Relationship="PaperModel.FK_Publicacion_Editorial" FromRole="Editorial" ToRole="Publicacion" />
         </EntityType>
         <EntityType Name="Feriado">
           <Key>
@@ -986,7 +695,7 @@
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Fecha" Type="DateTime" Precision="3" />
           <Property Name="Mes" Type="Int32" />
-          <Property Name="Dia" Type="Int32" DefaultValue="01" />
+          <Property Name="Dia" Type="Int32" />
           <Property Name="Repetible" Type="Boolean" />
         </EntityType>
         <EntityType Name="Kiosco">
@@ -996,39 +705,43 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Cliente" Relationship="PaperModel.FK_Cliente_Kiosco" FromRole="Kiosco" ToRole="Cliente" />
+          <NavigationProperty Name="DistribuidorKiosco" Relationship="PaperModel.FK_DistribuidorKiosco_Kiosco" FromRole="Kiosco" ToRole="DistribuidorKiosco" />
           <NavigationProperty Name="KioscoUsuario" Relationship="PaperModel.FK_KioscoUsuario_Kiosco" FromRole="Kiosco" ToRole="KioscoUsuario" />
+          <NavigationProperty Name="MovimientosDiarios" Relationship="PaperModel.FK_MovimientosDiarios_Kiosco" FromRole="Kiosco" ToRole="MovimientosDiarios" />
         </EntityType>
-        <EntityType Name="Periodicidad">
+        <EntityType Name="KioscoUsuario">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Dias" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cliente" Relationship="PaperModel.FK_Cliente_Periodicidad" FromRole="Periodicidad" ToRole="Cliente" />
-          <NavigationProperty Name="Publicacion" Relationship="PaperModel.FK_Publicacion_Periodicidad" FromRole="Periodicidad" ToRole="Publicacion" />
+          <Property Name="UsuarioId" Type="Guid" Nullable="false" />
+          <Property Name="KioscoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="aspnet_Users" Relationship="PaperModel.FK_KioscoUsuario_aspnet_Users" FromRole="KioscoUsuario" ToRole="aspnet_Users" />
+          <NavigationProperty Name="Kiosco" Relationship="PaperModel.FK_KioscoUsuario_Kiosco" FromRole="KioscoUsuario" ToRole="Kiosco" />
         </EntityType>
-        <EntityType Name="Precio">
+        <EntityType Name="MovimientosDiarios">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Precio1" Type="Double" Nullable="false" />
-          <Property Name="Desde" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Hasta" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Promocion" Relationship="PaperModel.FK_Promocion_Precio" FromRole="Precio" ToRole="Promocion" />
-        </EntityType>
-        <EntityType Name="Promocion">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PublicacionId" Type="Int32" Nullable="false" />
-          <Property Name="PrecioId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Precio" Relationship="PaperModel.FK_Promocion_Precio" FromRole="Promocion" ToRole="Precio" />
-          <NavigationProperty Name="Publicacion" Relationship="PaperModel.FK_Promocion_Publicacion" FromRole="Promocion" ToRole="Publicacion" />
-          <NavigationProperty Name="Subscripcion" Relationship="PaperModel.FK_Subscripcion_Promocion" FromRole="Promocion" ToRole="Subscripcion" />
+          <Property Name="KioscoId" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="FechaVenta" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Kiosco" Relationship="PaperModel.FK_MovimientosDiarios_Kiosco" FromRole="MovimientosDiarios" ToRole="Kiosco" />
+          <NavigationProperty Name="Publicacion" Relationship="PaperModel.FK_MovimientosDiarios_Publicacion" FromRole="MovimientosDiarios" ToRole="Publicacion" />
+        </EntityType>
+        <EntityType Name="PrecioVenta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Precio" Type="Double" Nullable="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PublicacionId" Type="Int32" Nullable="false" />
+          <Property Name="PrecioFeriado" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Publicacion" Relationship="PaperModel.FK_PrecioVenta_Publicacion" FromRole="PrecioVenta" ToRole="Publicacion" />
         </EntityType>
         <EntityType Name="Publicacion">
           <Key>
@@ -1037,160 +750,63 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DistribuidorId" Type="Int32" Nullable="false" />
-          <Property Name="TipoPublicacionId" Type="Int32" Nullable="false" />
           <Property Name="CodigoBarras" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Costo" Type="Double" Nullable="false" />
-          <Property Name="PeriodicidadId" Type="Int32" Nullable="false" />
-          <Property Name="Lunes" Type="Boolean" />
-          <Property Name="Martes" Type="Boolean" />
-          <Property Name="Miercoles" Type="Boolean" />
-          <Property Name="Jueves" Type="Boolean" />
-          <Property Name="Viermes" Type="Boolean" />
-          <Property Name="Sabado" Type="Boolean" />
-          <Property Name="Domingo" Type="Boolean" />
+          <Property Name="EditorialId" Type="Int32" Nullable="false" />
+          <Property Name="TieneCupon" Type="Boolean" Nullable="false" />
+          <Property Name="FechaSalida" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaUltimaSalida" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FrecuenciaEnDias" Type="Int32" Nullable="false" />
+          <Property Name="PeriodicidadEnDias" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CostoPublicacion" Relationship="PaperModel.FK_CostoPublicacion_Publicacion" FromRole="Publicacion" ToRole="CostoPublicacion" />
           <NavigationProperty Name="Distribuidor" Relationship="PaperModel.FK_Publicacion_Distribuidor" FromRole="Publicacion" ToRole="Distribuidor" />
-          <NavigationProperty Name="Periodicidad" Relationship="PaperModel.FK_Publicacion_Periodicidad" FromRole="Publicacion" ToRole="Periodicidad" />
-          <NavigationProperty Name="Promocion" Relationship="PaperModel.FK_Promocion_Publicacion" FromRole="Publicacion" ToRole="Promocion" />
-          <NavigationProperty Name="TipoPublicacion" Relationship="PaperModel.FK_Publicacion_TipoPublicacion" FromRole="Publicacion" ToRole="TipoPublicacion" />
+          <NavigationProperty Name="Editorial" Relationship="PaperModel.FK_Publicacion_Editorial" FromRole="Publicacion" ToRole="Editorial" />
+          <NavigationProperty Name="MovimientosDiarios" Relationship="PaperModel.FK_MovimientosDiarios_Publicacion" FromRole="Publicacion" ToRole="MovimientosDiarios" />
+          <NavigationProperty Name="PrecioVenta" Relationship="PaperModel.FK_PrecioVenta_Publicacion" FromRole="Publicacion" ToRole="PrecioVenta" />
+        </EntityType>
+        <EntityType Name="RoleAction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Table" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Edit" Type="Boolean" Nullable="false" />
+          <Property Name="Insert" Type="Boolean" Nullable="false" />
+          <Property Name="Delete" Type="Boolean" Nullable="false" />
+          <Property Name="RoleId" Type="Guid" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="PaperModel.FK_RoleAction_aspnet_Roles" FromRole="RoleAction" ToRole="aspnet_Roles" />
         </EntityType>
         <EntityType Name="Subscripcion">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ClienteId" Type="Int32" Nullable="false" />
-          <Property Name="PromocionId" Type="Int32" Nullable="false" />
           <Property Name="FechaAlta" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="FechaBaja" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Cliente" Relationship="PaperModel.FK_Subscripcion_Cliente" FromRole="Subscripcion" ToRole="Cliente" />
-          <NavigationProperty Name="Promocion" Relationship="PaperModel.FK_Subscripcion_Promocion" FromRole="Subscripcion" ToRole="Promocion" />
         </EntityType>
-        <EntityType Name="TipoPublicacion">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Publicacion" Relationship="PaperModel.FK_Publicacion_TipoPublicacion" FromRole="TipoPublicacion" ToRole="Publicacion" />
-        </EntityType>
-        <EntityType Name="UsersOpenAuthAccounts">
-          <Key>
-            <PropertyRef Name="ApplicationName" />
-            <PropertyRef Name="ProviderName" />
-            <PropertyRef Name="ProviderUserId" />
-          </Key>
-          <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="ProviderName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="ProviderUserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="ProviderUserName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="MembershipUserName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="LastUsedUtc" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="UsersOpenAuthData" Relationship="PaperModel.OpenAuthAccount_UserData" FromRole="UsersOpenAuthAccounts" ToRole="UsersOpenAuthData" />
-        </EntityType>
-        <EntityType Name="UsersOpenAuthData">
-          <Key>
-            <PropertyRef Name="ApplicationName" />
-            <PropertyRef Name="MembershipUserName" />
-          </Key>
-          <Property Name="ApplicationName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="MembershipUserName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="HasLocalPassword" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="UsersOpenAuthAccounts" Relationship="PaperModel.OpenAuthAccount_UserData" FromRole="UsersOpenAuthData" ToRole="UsersOpenAuthAccounts" />
-        </EntityType>
-        <Association Name="FK__aspnet_Me__Appli__51300E55">
-          <End Type="PaperModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
-          <End Type="PaperModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="*" />
+        <Association Name="FK_RoleAction_aspnet_Roles">
+          <End Type="PaperModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="0..1" />
+          <End Type="PaperModel.RoleAction" Role="RoleAction" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="aspnet_Applications">
-              <PropertyRef Name="ApplicationId" />
+            <Principal Role="aspnet_Roles">
+              <PropertyRef Name="RoleId" />
             </Principal>
-            <Dependent Role="aspnet_Membership">
-              <PropertyRef Name="ApplicationId" />
+            <Dependent Role="RoleAction">
+              <PropertyRef Name="RoleId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__aspnet_Pa__Appli__0697FACD">
-          <End Type="PaperModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
-          <End Type="PaperModel.aspnet_Paths" Role="aspnet_Paths" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Applications">
-              <PropertyRef Name="ApplicationId" />
-            </Principal>
-            <Dependent Role="aspnet_Paths">
-              <PropertyRef Name="ApplicationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Us__Appli__3F115E1A">
-          <End Type="PaperModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
-          <End Type="PaperModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Applications">
-              <PropertyRef Name="ApplicationId" />
-            </Principal>
-            <Dependent Role="aspnet_Users">
-              <PropertyRef Name="ApplicationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Me__UserI__5224328E">
+        <Association Name="FK_KioscoUsuario_aspnet_Users">
           <End Type="PaperModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
-          <End Type="PaperModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="0..1" />
+          <End Type="PaperModel.KioscoUsuario" Role="KioscoUsuario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="aspnet_Users">
               <PropertyRef Name="UserId" />
             </Principal>
-            <Dependent Role="aspnet_Membership">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Pe__PathI__0E391C95">
-          <End Type="PaperModel.aspnet_Paths" Role="aspnet_Paths" Multiplicity="1" />
-          <End Type="PaperModel.aspnet_PersonalizationAllUsers" Role="aspnet_PersonalizationAllUsers" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Paths">
-              <PropertyRef Name="PathId" />
-            </Principal>
-            <Dependent Role="aspnet_PersonalizationAllUsers">
-              <PropertyRef Name="PathId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Pe__PathI__13F1F5EB">
-          <End Type="PaperModel.aspnet_Paths" Role="aspnet_Paths" Multiplicity="0..1" />
-          <End Type="PaperModel.aspnet_PersonalizationPerUser" Role="aspnet_PersonalizationPerUser" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Paths">
-              <PropertyRef Name="PathId" />
-            </Principal>
-            <Dependent Role="aspnet_PersonalizationPerUser">
-              <PropertyRef Name="PathId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Pe__UserI__14E61A24">
-          <End Type="PaperModel.aspnet_Users" Role="aspnet_Users" Multiplicity="0..1" />
-          <End Type="PaperModel.aspnet_PersonalizationPerUser" Role="aspnet_PersonalizationPerUser" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="aspnet_PersonalizationPerUser">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__aspnet_Pr__UserI__671F4F74">
-          <End Type="PaperModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
-          <End Type="PaperModel.aspnet_Profile" Role="aspnet_Profile" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="aspnet_Profile">
-              <PropertyRef Name="UserId" />
+            <Dependent Role="KioscoUsuario">
+              <PropertyRef Name="UsuarioId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1206,18 +822,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Cliente_Periodicidad">
-          <End Type="PaperModel.Periodicidad" Role="Periodicidad" Multiplicity="1" />
-          <End Type="PaperModel.Cliente" Role="Cliente" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Periodicidad">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Cliente">
-              <PropertyRef Name="PerdiodicidadId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Subscripcion_Cliente">
           <End Type="PaperModel.Cliente" Role="Cliente" Multiplicity="1" />
           <End Type="PaperModel.Subscripcion" Role="Subscripcion" Multiplicity="*" />
@@ -1227,6 +831,54 @@
             </Principal>
             <Dependent Role="Subscripcion">
               <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CostoPublicacion_Publicacion">
+          <End Type="PaperModel.Publicacion" Role="Publicacion" Multiplicity="1" />
+          <End Type="PaperModel.CostoPublicacion" Role="CostoPublicacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publicacion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CostoPublicacion">
+              <PropertyRef Name="PublicacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DistribuidorCuenta_Distribuidor">
+          <End Type="PaperModel.Distribuidor" Role="Distribuidor" Multiplicity="1" />
+          <End Type="PaperModel.DistribuidorCuenta" Role="DistribuidorCuenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distribuidor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DistribuidorCuenta">
+              <PropertyRef Name="DistribuidorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DistribuidorKiosco_Distribuidor">
+          <End Type="PaperModel.Distribuidor" Role="Distribuidor" Multiplicity="1" />
+          <End Type="PaperModel.DistribuidorKiosco" Role="DistribuidorKiosco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distribuidor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DistribuidorKiosco">
+              <PropertyRef Name="DistribuidorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Editorial_Distribuidor">
+          <End Type="PaperModel.Distribuidor" Role="Distribuidor" Multiplicity="1" />
+          <End Type="PaperModel.Editorial" Role="Editorial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distribuidor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Editorial">
+              <PropertyRef Name="DistribuidorId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1242,102 +894,51 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Publicacion_Periodicidad">
-          <End Type="PaperModel.Periodicidad" Role="Periodicidad" Multiplicity="1" />
+        <Association Name="FK_DistribuidorKiosco_DistribuidorCuenta">
+          <End Type="PaperModel.DistribuidorCuenta" Role="DistribuidorCuenta" Multiplicity="1" />
+          <End Type="PaperModel.DistribuidorKiosco" Role="DistribuidorKiosco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DistribuidorCuenta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DistribuidorKiosco">
+              <PropertyRef Name="DistribuidorCuentaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DistribuidorKiosco_Kiosco">
+          <End Type="PaperModel.Kiosco" Role="Kiosco" Multiplicity="1" />
+          <End Type="PaperModel.DistribuidorKiosco" Role="DistribuidorKiosco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kiosco">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DistribuidorKiosco">
+              <PropertyRef Name="KioscoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Editorial_Editorial">
+          <End Type="PaperModel.Editorial" Role="Editorial" Multiplicity="0..1" />
+          <End Type="PaperModel.Editorial" Role="Editorial1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Editorial">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Editorial1">
+              <PropertyRef Name="EditorialPadreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Publicacion_Editorial">
+          <End Type="PaperModel.Editorial" Role="Editorial" Multiplicity="1" />
           <End Type="PaperModel.Publicacion" Role="Publicacion" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Periodicidad">
+            <Principal Role="Editorial">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Publicacion">
-              <PropertyRef Name="PeriodicidadId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Promocion_Precio">
-          <End Type="PaperModel.Precio" Role="Precio" Multiplicity="1" />
-          <End Type="PaperModel.Promocion" Role="Promocion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Precio">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Promocion">
-              <PropertyRef Name="PrecioId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Promocion_Publicacion">
-          <End Type="PaperModel.Publicacion" Role="Publicacion" Multiplicity="1" />
-          <End Type="PaperModel.Promocion" Role="Promocion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Publicacion">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Promocion">
-              <PropertyRef Name="PublicacionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Subscripcion_Promocion">
-          <End Type="PaperModel.Promocion" Role="Promocion" Multiplicity="1" />
-          <End Type="PaperModel.Subscripcion" Role="Subscripcion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Promocion">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Subscripcion">
-              <PropertyRef Name="PromocionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Publicacion_TipoPublicacion">
-          <End Type="PaperModel.TipoPublicacion" Role="TipoPublicacion" Multiplicity="1" />
-          <End Type="PaperModel.Publicacion" Role="Publicacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TipoPublicacion">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Publicacion">
-              <PropertyRef Name="TipoPublicacionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="OpenAuthAccount_UserData">
-          <End Type="PaperModel.UsersOpenAuthData" Role="UsersOpenAuthData" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="PaperModel.UsersOpenAuthAccounts" Role="UsersOpenAuthAccounts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UsersOpenAuthData">
-              <PropertyRef Name="ApplicationName" />
-              <PropertyRef Name="MembershipUserName" />
-            </Principal>
-            <Dependent Role="UsersOpenAuthAccounts">
-              <PropertyRef Name="ApplicationName" />
-              <PropertyRef Name="MembershipUserName" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="KioscoUsuario">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UsuarioId" Type="Guid" Nullable="false" />
-          <Property Name="KioscoId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="aspnet_Users" Relationship="PaperModel.FK_KioscoUsuario_aspnet_Users" FromRole="KioscoUsuario" ToRole="aspnet_Users" />
-          <NavigationProperty Name="Kiosco" Relationship="PaperModel.FK_KioscoUsuario_Kiosco" FromRole="KioscoUsuario" ToRole="Kiosco" />
-        </EntityType>
-        <Association Name="FK_KioscoUsuario_aspnet_Users">
-          <End Type="PaperModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
-          <End Type="PaperModel.KioscoUsuario" Role="KioscoUsuario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="KioscoUsuario">
-              <PropertyRef Name="UsuarioId" />
+              <PropertyRef Name="EditorialId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1353,54 +954,39 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="ELMAH_Error">
-          <Key>
-            <PropertyRef Name="ErrorId" />
-          </Key>
-          <Property Name="ErrorId" Type="Guid" Nullable="false" />
-          <Property Name="Application" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
-          <Property Name="Host" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Type" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Source" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
-          <Property Name="Message" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="User" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="StatusCode" Type="Int32" Nullable="false" />
-          <Property Name="TimeUtc" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Sequence" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AllXml" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="aspnet_Roles">
-          <Key>
-            <PropertyRef Name="RoleId" />
-          </Key>
-          <Property Name="ApplicationId" Type="Guid" Nullable="false" />
-          <Property Name="RoleId" Type="Guid" Nullable="false" />
-          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="LoweredRoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="aspnet_Applications" Relationship="PaperModel.FK__aspnet_Ro__Appli__719CDDE7" FromRole="aspnet_Roles" ToRole="aspnet_Applications" />
-          <NavigationProperty Name="aspnet_Users" Relationship="PaperModel.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" />
-          <NavigationProperty Name="RoleAction" Relationship="PaperModel.FK_RoleAction_aspnet_Roles" FromRole="aspnet_Roles" ToRole="RoleAction" />
-        </EntityType>
-        <Association Name="FK__aspnet_Ro__Appli__719CDDE7">
-          <End Type="PaperModel.aspnet_Applications" Role="aspnet_Applications" Multiplicity="1" />
-          <End Type="PaperModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
+        <Association Name="FK_MovimientosDiarios_Kiosco">
+          <End Type="PaperModel.Kiosco" Role="Kiosco" Multiplicity="1" />
+          <End Type="PaperModel.MovimientosDiarios" Role="MovimientosDiarios" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="aspnet_Applications">
-              <PropertyRef Name="ApplicationId" />
+            <Principal Role="Kiosco">
+              <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="aspnet_Roles">
-              <PropertyRef Name="ApplicationId" />
+            <Dependent Role="MovimientosDiarios">
+              <PropertyRef Name="KioscoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MovimientosDiarios_Publicacion">
+          <End Type="PaperModel.Publicacion" Role="Publicacion" Multiplicity="1" />
+          <End Type="PaperModel.MovimientosDiarios" Role="MovimientosDiarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publicacion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MovimientosDiarios">
+              <PropertyRef Name="PublicacionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PrecioVenta_Publicacion">
+          <End Type="PaperModel.Publicacion" Role="Publicacion" Multiplicity="1" />
+          <End Type="PaperModel.PrecioVenta" Role="PrecioVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publicacion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PrecioVenta">
+              <PropertyRef Name="PublicacionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1408,111 +994,20 @@
           <End Type="PaperModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
           <End Type="PaperModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
         </Association>
-        <EntityType Name="RoleAction">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Table" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Edit" Type="Boolean" Nullable="false" />
-          <Property Name="Insert" Type="Boolean" Nullable="false" />
-          <Property Name="Delete" Type="Boolean" Nullable="false" />
-          <Property Name="RoleId" Type="Guid" />
-          <NavigationProperty Name="aspnet_Roles" Relationship="PaperModel.FK_RoleAction_aspnet_Roles" FromRole="RoleAction" ToRole="aspnet_Roles" />
-        </EntityType>
-        <Association Name="FK_RoleAction_aspnet_Roles">
-          <End Type="PaperModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="0..1" />
-          <End Type="PaperModel.RoleAction" Role="RoleAction" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Roles">
-              <PropertyRef Name="RoleId" />
-            </Principal>
-            <Dependent Role="RoleAction">
-              <PropertyRef Name="RoleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="PaperModelStoreContainer" CdmEntityContainer="PaperEntities">
-          <EntitySetMapping Name="aspnet_Applications">
-            <EntityTypeMapping TypeName="PaperModel.aspnet_Applications">
-              <MappingFragment StoreEntitySet="aspnet_Applications">
+          <EntitySetMapping Name="aspnet_Roles">
+            <EntityTypeMapping TypeName="PaperModel.aspnet_Roles">
+              <MappingFragment StoreEntitySet="aspnet_Roles">
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-                <ScalarProperty Name="LoweredApplicationName" ColumnName="LoweredApplicationName" />
-                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Membership">
-            <EntityTypeMapping TypeName="PaperModel.aspnet_Membership">
-              <MappingFragment StoreEntitySet="aspnet_Membership">
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
-                <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
-                <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
-                <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
-                <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
-                <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
-                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
-                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
-                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
-                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
-                <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
-                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
-                <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Paths">
-            <EntityTypeMapping TypeName="PaperModel.aspnet_Paths">
-              <MappingFragment StoreEntitySet="aspnet_Paths">
-                <ScalarProperty Name="LoweredPath" ColumnName="LoweredPath" />
-                <ScalarProperty Name="Path" ColumnName="Path" />
-                <ScalarProperty Name="PathId" ColumnName="PathId" />
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_PersonalizationAllUsers">
-            <EntityTypeMapping TypeName="PaperModel.aspnet_PersonalizationAllUsers">
-              <MappingFragment StoreEntitySet="aspnet_PersonalizationAllUsers">
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
-                <ScalarProperty Name="PathId" ColumnName="PathId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_PersonalizationPerUser">
-            <EntityTypeMapping TypeName="PaperModel.aspnet_PersonalizationPerUser">
-              <MappingFragment StoreEntitySet="aspnet_PersonalizationPerUser">
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="PageSettings" ColumnName="PageSettings" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="PathId" ColumnName="PathId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Profile">
-            <EntityTypeMapping TypeName="PaperModel.aspnet_Profile">
-              <MappingFragment StoreEntitySet="aspnet_Profile">
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="PropertyValuesBinary" ColumnName="PropertyValuesBinary" />
-                <ScalarProperty Name="PropertyValuesString" ColumnName="PropertyValuesString" />
-                <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1529,35 +1024,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_WebEvent_Events">
-            <EntityTypeMapping TypeName="PaperModel.aspnet_WebEvent_Events">
-              <MappingFragment StoreEntitySet="aspnet_WebEvent_Events">
-                <ScalarProperty Name="Details" ColumnName="Details" />
-                <ScalarProperty Name="ExceptionType" ColumnName="ExceptionType" />
-                <ScalarProperty Name="RequestUrl" ColumnName="RequestUrl" />
-                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
-                <ScalarProperty Name="ApplicationVirtualPath" ColumnName="ApplicationVirtualPath" />
-                <ScalarProperty Name="ApplicationPath" ColumnName="ApplicationPath" />
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="EventDetailCode" ColumnName="EventDetailCode" />
-                <ScalarProperty Name="EventCode" ColumnName="EventCode" />
-                <ScalarProperty Name="EventOccurrence" ColumnName="EventOccurrence" />
-                <ScalarProperty Name="EventSequence" ColumnName="EventSequence" />
-                <ScalarProperty Name="EventType" ColumnName="EventType" />
-                <ScalarProperty Name="EventTime" ColumnName="EventTime" />
-                <ScalarProperty Name="EventTimeUtc" ColumnName="EventTimeUtc" />
-                <ScalarProperty Name="EventId" ColumnName="EventId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Cliente">
             <EntityTypeMapping TypeName="PaperModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
-                <ScalarProperty Name="PerdiodicidadId" ColumnName="PerdiodicidadId" />
                 <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
                 <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
                 <ScalarProperty Name="KioscoId" ColumnName="KioscoId" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CostoPublicacion">
+            <EntityTypeMapping TypeName="PaperModel.CostoPublicacion">
+              <MappingFragment StoreEntitySet="CostoPublicacion">
+                <ScalarProperty Name="CostoFeriado" ColumnName="CostoFeriado" />
+                <ScalarProperty Name="PublicacionId" ColumnName="PublicacionId" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1570,11 +1054,42 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="DistribuidorCuenta">
+            <EntityTypeMapping TypeName="PaperModel.DistribuidorCuenta">
+              <MappingFragment StoreEntitySet="DistribuidorCuenta">
+                <ScalarProperty Name="Banco" ColumnName="Banco" />
+                <ScalarProperty Name="CBU" ColumnName="CBU" />
+                <ScalarProperty Name="DistribuidorId" ColumnName="DistribuidorId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DistribuidorKiosco">
+            <EntityTypeMapping TypeName="PaperModel.DistribuidorKiosco">
+              <MappingFragment StoreEntitySet="DistribuidorKiosco">
+                <ScalarProperty Name="DistribuidorCuentaId" ColumnName="DistribuidorCuentaId" />
+                <ScalarProperty Name="DistribuidorId" ColumnName="DistribuidorId" />
+                <ScalarProperty Name="KioscoId" ColumnName="KioscoId" />
+                <ScalarProperty Name="NroClienteDistribuidor" ColumnName="NroClienteDistribuidor" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Editorial">
+            <EntityTypeMapping TypeName="PaperModel.Editorial">
+              <MappingFragment StoreEntitySet="Editorial">
+                <ScalarProperty Name="EditorialPadreId" ColumnName="EditorialPadreId" />
+                <ScalarProperty Name="DistribuidorId" ColumnName="DistribuidorId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Feriado">
             <EntityTypeMapping TypeName="PaperModel.Feriado">
               <MappingFragment StoreEntitySet="Feriado">
-                <ScalarProperty Name="Dia" ColumnName="Dia" />
                 <ScalarProperty Name="Repetible" ColumnName="Repetible" />
+                <ScalarProperty Name="Dia" ColumnName="Dia" />
                 <ScalarProperty Name="Mes" ColumnName="Mes" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -1590,96 +1105,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Periodicidad">
-            <EntityTypeMapping TypeName="PaperModel.Periodicidad">
-              <MappingFragment StoreEntitySet="Periodicidad">
-                <ScalarProperty Name="Dias" ColumnName="Periodicidad" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Precio">
-            <EntityTypeMapping TypeName="PaperModel.Precio">
-              <MappingFragment StoreEntitySet="Precio">
-                <ScalarProperty Name="Hasta" ColumnName="Hasta" />
-                <ScalarProperty Name="Desde" ColumnName="Desde" />
-                <ScalarProperty Name="Precio1" ColumnName="Precio" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Promocion">
-            <EntityTypeMapping TypeName="PaperModel.Promocion">
-              <MappingFragment StoreEntitySet="Promocion">
-                <ScalarProperty Name="PrecioId" ColumnName="PrecioId" />
-                <ScalarProperty Name="PublicacionId" ColumnName="PublicacionId" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Publicacion">
-            <EntityTypeMapping TypeName="PaperModel.Publicacion">
-              <MappingFragment StoreEntitySet="Publicacion">
-                <ScalarProperty Name="Domingo" ColumnName="Domingo" />
-                <ScalarProperty Name="Sabado" ColumnName="Sabado" />
-                <ScalarProperty Name="Viermes" ColumnName="Viermes" />
-                <ScalarProperty Name="Jueves" ColumnName="Jueves" />
-                <ScalarProperty Name="Miercoles" ColumnName="Miercoles" />
-                <ScalarProperty Name="Martes" ColumnName="Martes" />
-                <ScalarProperty Name="Lunes" ColumnName="Lunes" />
-                <ScalarProperty Name="PeriodicidadId" ColumnName="PeriodicidadId" />
-                <ScalarProperty Name="Costo" ColumnName="Costo" />
-                <ScalarProperty Name="CodigoBarras" ColumnName="CodigoBarras" />
-                <ScalarProperty Name="TipoPublicacionId" ColumnName="TipoPublicacionId" />
-                <ScalarProperty Name="DistribuidorId" ColumnName="DistribuidorId" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Subscripcion">
-            <EntityTypeMapping TypeName="PaperModel.Subscripcion">
-              <MappingFragment StoreEntitySet="Subscripcion">
-                <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
-                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
-                <ScalarProperty Name="PromocionId" ColumnName="PromocionId" />
-                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TipoPublicacion">
-            <EntityTypeMapping TypeName="PaperModel.TipoPublicacion">
-              <MappingFragment StoreEntitySet="TipoPublicacion">
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UsersOpenAuthAccounts">
-            <EntityTypeMapping TypeName="PaperModel.UsersOpenAuthAccounts">
-              <MappingFragment StoreEntitySet="UsersOpenAuthAccounts">
-                <ScalarProperty Name="LastUsedUtc" ColumnName="LastUsedUtc" />
-                <ScalarProperty Name="MembershipUserName" ColumnName="MembershipUserName" />
-                <ScalarProperty Name="ProviderUserName" ColumnName="ProviderUserName" />
-                <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
-                <ScalarProperty Name="ProviderName" ColumnName="ProviderName" />
-                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UsersOpenAuthData">
-            <EntityTypeMapping TypeName="PaperModel.UsersOpenAuthData">
-              <MappingFragment StoreEntitySet="UsersOpenAuthData">
-                <ScalarProperty Name="HasLocalPassword" ColumnName="HasLocalPassword" />
-                <ScalarProperty Name="MembershipUserName" ColumnName="MembershipUserName" />
-                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="KioscoUsuario">
             <EntityTypeMapping TypeName="PaperModel.KioscoUsuario">
               <MappingFragment StoreEntitySet="KioscoUsuario">
@@ -1690,53 +1115,44 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ELMAH_Error">
-            <EntityTypeMapping TypeName="PaperModel.ELMAH_Error">
-              <MappingFragment StoreEntitySet="ELMAH_Error">
-                <ScalarProperty Name="AllXml" ColumnName="AllXml" />
-                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
-                <ScalarProperty Name="TimeUtc" ColumnName="TimeUtc" />
-                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
-                <ScalarProperty Name="User" ColumnName="User" />
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="Source" ColumnName="Source" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Host" ColumnName="Host" />
-                <ScalarProperty Name="Application" ColumnName="Application" />
-                <ScalarProperty Name="ErrorId" ColumnName="ErrorId" />
+          <EntitySetMapping Name="MovimientosDiarios">
+            <EntityTypeMapping TypeName="PaperModel.MovimientosDiarios">
+              <MappingFragment StoreEntitySet="MovimientosDiarios">
+                <ScalarProperty Name="FechaVenta" ColumnName="FechaVenta" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="KioscoId" ColumnName="KioscoId" />
+                <ScalarProperty Name="PublicacionId" ColumnName="PublicacionId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="PaperModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
+          <EntitySetMapping Name="PrecioVenta">
+            <EntityTypeMapping TypeName="PaperModel.PrecioVenta">
+              <MappingFragment StoreEntitySet="PrecioVenta">
+                <ScalarProperty Name="PrecioFeriado" ColumnName="PrecioFeriado" />
+                <ScalarProperty Name="PublicacionId" ColumnName="PublicacionId" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="aspnet_Roles">
-            <EntityTypeMapping TypeName="PaperModel.aspnet_Roles">
-              <MappingFragment StoreEntitySet="aspnet_Roles">
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
-                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <EntitySetMapping Name="Publicacion">
+            <EntityTypeMapping TypeName="PaperModel.Publicacion">
+              <MappingFragment StoreEntitySet="Publicacion">
+                <ScalarProperty Name="PeriodicidadEnDias" ColumnName="PeriodicidadEnDias" />
+                <ScalarProperty Name="FrecuenciaEnDias" ColumnName="FrecuenciaEnDias" />
+                <ScalarProperty Name="FechaUltimaSalida" ColumnName="FechaUltimaSalida" />
+                <ScalarProperty Name="FechaSalida" ColumnName="FechaSalida" />
+                <ScalarProperty Name="TieneCupon" ColumnName="TieneCupon" />
+                <ScalarProperty Name="EditorialId" ColumnName="EditorialId" />
+                <ScalarProperty Name="CodigoBarras" ColumnName="CodigoBarras" />
+                <ScalarProperty Name="DistribuidorId" ColumnName="DistribuidorId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="aspnet_UsersInRoles" TypeName="PaperModel.aspnet_UsersInRoles" StoreEntitySet="aspnet_UsersInRoles">
-            <EndProperty Name="aspnet_Users">
-              <ScalarProperty Name="UserId" ColumnName="UserId" />
-            </EndProperty>
-            <EndProperty Name="aspnet_Roles">
-              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-            </EndProperty>
-          </AssociationSetMapping>
           <EntitySetMapping Name="RoleAction">
             <EntityTypeMapping TypeName="PaperModel.RoleAction">
               <MappingFragment StoreEntitySet="RoleAction">
@@ -1749,6 +1165,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Subscripcion">
+            <EntityTypeMapping TypeName="PaperModel.Subscripcion">
+              <MappingFragment StoreEntitySet="Subscripcion">
+                <ScalarProperty Name="FechaBaja" ColumnName="FechaBaja" />
+                <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+                <ScalarProperty Name="ClienteId" ColumnName="ClienteId" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="aspnet_UsersInRoles" TypeName="PaperModel.aspnet_UsersInRoles" StoreEntitySet="aspnet_UsersInRoles">
+            <EndProperty Name="aspnet_Users">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="aspnet_Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

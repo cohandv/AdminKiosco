@@ -19,18 +19,18 @@ namespace AdminKiosco.Entities
                 return hayCliente != null;
             }
 
-            if ((entity as Precio) != null)
+            if ((entity as PrecioVenta) != null)
             {
-                Precio deleteItem = entity as Precio;
-                var hayPromocion = entities.Promocion.Where(e => e.PrecioId.Equals(deleteItem.Id)).FirstOrDefault();
-                return hayPromocion != null;
+                PrecioVenta deleteItem = entity as PrecioVenta;
+                var hayPublicacion = entities.Publicacion.Where(e => e.PrecioVenta.Equals(deleteItem.Id)).FirstOrDefault();
+                return hayPublicacion != null;
             }
 
             if ((entity as Publicacion) != null)
             {
                 Publicacion deleteItem = entity as Publicacion;
-                var hayPromocion = entities.Promocion.Where(e => e.PublicacionId.Equals(deleteItem.Id)).FirstOrDefault();
-                return hayPromocion != null;
+                //var hayPromocion = entities.Promocion.Where(e => e.PublicacionId.Equals(deleteItem.Id)).FirstOrDefault();
+                //return hayPromocion != null;
             }
 
             if ((entity as Distribuidor) != null)
@@ -40,33 +40,11 @@ namespace AdminKiosco.Entities
                 return haypublicacion != null;
             }
 
-            if ((entity as TipoPublicacion) != null)
-            {
-                TipoPublicacion deleteItem = entity as TipoPublicacion;
-                var haypublicacion = entities.Publicacion.Where(e => e.TipoPublicacionId.Equals(deleteItem.Id)).FirstOrDefault();
-                return haypublicacion != null;
-            }
-
             if ((entity as Cliente) != null)
             {
                 Cliente deleteItem = entity as Cliente;
                 var haySuscripcion = entities.Subscripcion.Where(e => e.ClienteId.Equals(deleteItem.Id)).FirstOrDefault();
                 return haySuscripcion != null;
-            }
-
-            if ((entity as Promocion) != null)
-            {
-                Promocion deleteItem = entity as Promocion;
-                var haySuscripcion = entities.Subscripcion.Where(e => e.PromocionId.Equals(deleteItem.Id)).FirstOrDefault();
-                return haySuscripcion != null;
-            }
-
-            if ((entity as Periodicidad) != null)
-            {
-                Periodicidad deleteItem = entity as Periodicidad;
-                var hayCliente = entities.Cliente.Where(e => e.PerdiodicidadId.Equals(deleteItem.Id)).FirstOrDefault();
-                var hayPublicacion = entities.Publicacion.Where(e => e.PeriodicidadId.Equals(deleteItem.Id)).FirstOrDefault();
-                return hayCliente != null || hayPublicacion != null;
             }
 
             //Default => try to delete item

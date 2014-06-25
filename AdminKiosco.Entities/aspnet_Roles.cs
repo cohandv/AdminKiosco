@@ -16,8 +16,8 @@ namespace AdminKiosco.Entities
     {
         public aspnet_Roles()
         {
-            this.aspnet_Users = new HashSet<aspnet_Users>();
             this.RoleAction = new HashSet<RoleAction>();
+            this.aspnet_Users = new HashSet<aspnet_Users>();
         }
     
         public System.Guid ApplicationId { get; set; }
@@ -26,8 +26,7 @@ namespace AdminKiosco.Entities
         public string LoweredRoleName { get; set; }
         public string Description { get; set; }
     
-        public virtual aspnet_Applications aspnet_Applications { get; set; }
-        public virtual ICollection<aspnet_Users> aspnet_Users { get; set; }
         public virtual ICollection<RoleAction> RoleAction { get; set; }
+        public virtual ICollection<aspnet_Users> aspnet_Users { get; set; }
     }
 }

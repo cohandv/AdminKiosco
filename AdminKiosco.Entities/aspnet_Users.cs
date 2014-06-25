@@ -16,7 +16,6 @@ namespace AdminKiosco.Entities
     {
         public aspnet_Users()
         {
-            this.aspnet_PersonalizationPerUser = new HashSet<aspnet_PersonalizationPerUser>();
             this.KioscoUsuario = new HashSet<KioscoUsuario>();
             this.aspnet_Roles = new HashSet<aspnet_Roles>();
         }
@@ -29,10 +28,6 @@ namespace AdminKiosco.Entities
         public bool IsAnonymous { get; set; }
         public System.DateTime LastActivityDate { get; set; }
     
-        public virtual aspnet_Applications aspnet_Applications { get; set; }
-        public virtual aspnet_Membership aspnet_Membership { get; set; }
-        public virtual ICollection<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser { get; set; }
-        public virtual aspnet_Profile aspnet_Profile { get; set; }
         public virtual ICollection<KioscoUsuario> KioscoUsuario { get; set; }
         public virtual ICollection<aspnet_Roles> aspnet_Roles { get; set; }
     }

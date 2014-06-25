@@ -1,5 +1,6 @@
 C:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\es\Microsoft.Data.OData.resources.dll
-c:\PRO-D\AdminKiosco\AdminKiosco.Web\obj\Debug\AdminKiosco.Web.csprojResolveAssemblyReference.cache
+c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\Microsoft.Data.OData.xml
+c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\ru\Microsoft.Data.OData.resources.dll
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\AdminKiosco.Web.dll.config
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\AdminKiosco.Web.dll
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\AdminKiosco.Web.pdb
@@ -33,7 +34,6 @@ c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\WebGrease.dll
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\AdminKiosco.Common.pdb
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\AdminKiosco.Entities.pdb
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\Microsoft.Data.Edm.xml
-c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\Microsoft.Data.OData.xml
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\Microsoft.Data.Services.xml
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\Microsoft.Data.Services.Client.xml
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\System.Spatial.xml
@@ -60,7 +60,6 @@ c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\fr\Microsoft.Data.OData.resources.dll
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\it\Microsoft.Data.OData.resources.dll
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\ja\Microsoft.Data.OData.resources.dll
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\ko\Microsoft.Data.OData.resources.dll
-c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\ru\Microsoft.Data.OData.resources.dll
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\zh-Hans\Microsoft.Data.OData.resources.dll
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\zh-Hant\Microsoft.Data.OData.resources.dll
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\de\Microsoft.Data.Services.resources.dll
@@ -90,5 +89,6 @@ c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\ko\System.Spatial.resources.dll
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\ru\System.Spatial.resources.dll
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\zh-Hans\System.Spatial.resources.dll
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\bin\zh-Hant\System.Spatial.resources.dll
+c:\PRO-D\AdminKiosco\AdminKiosco.Web\obj\Debug\AdminKiosco.Web.csprojResolveAssemblyReference.cache
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\obj\Debug\AdminKiosco.Web.dll
 c:\PRO-D\AdminKiosco\AdminKiosco.Web\obj\Debug\AdminKiosco.Web.pdb

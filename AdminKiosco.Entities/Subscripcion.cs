@@ -15,13 +15,11 @@ namespace AdminKiosco.Entities
     public partial class Subscripcion
     {
         public int Id { get; set; }
-        public System.DateTime Fecha { get; set; }
+        public System.DateTime FechaCreacion { get; set; }
         public int ClienteId { get; set; }
-        public int PromocionId { get; set; }
         public System.DateTime FechaAlta { get; set; }
         public Nullable<System.DateTime> FechaBaja { get; set; }
     
         public virtual Cliente Cliente { get; set; }
-        public virtual Promocion Promocion { get; set; }
     }
 }
