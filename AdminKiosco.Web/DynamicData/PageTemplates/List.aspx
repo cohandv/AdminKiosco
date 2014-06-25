@@ -3,6 +3,66 @@
 <%@ Register src="~/DynamicData/Content/GridViewPager.ascx" tagname="GridViewPager" tagprefix="asp" %>
 
 <asp:Content ID="headContent" ContentPlaceHolderID="HeadContent" Runat="Server">
+    <script type="text/javascript" src="../Scripts/jquery-1.8.2.min.js"></script>  
+    <script type="text/javascript">
+        function getCookie(c_name) {
+            if (document.cookie.length > 0) {
+                c_start = document.cookie.indexOf(c_name + "=");
+                if (c_start != -1) {
+                    c_start = c_start + c_name.length + 1;
+                    c_end = document.cookie.indexOf(";", c_start);
+                    if (c_end == -1) {
+                        c_end = document.cookie.length;
+                    }
+                    return unescape(document.cookie.substring(c_start, c_end));
+                }
+            }
+            return "";
+        }
+
+        function EnableAction(action, link) {
+            var tableName = document.getElementsByTagName("h2")[0].innerHTML;
+            var RoleId = 'david';
+
+            if (!window.Permissions) {
+                $.ajax({
+                    url: '../Services/CRUDServices.svc/RoleAction?$format=json&Table=' + tableName + '&RoleId='+RoleId,
+                    success: function (data) {
+                        var response = data.value;
+
+                        if (data.value) {
+
+                            if (action == 'delete') {
+                                link.hidden = response.Delete;
+                            }
+                        }
+                        else {
+                            link.hidden = false;
+                        }
+                    }
+                });
+            }
+        }
+
+        $(document).ready(function () {
+
+            console.log(getCookie('Paper.Roles'));
+            
+            
+            //element ids
+            var rows = document.getElementById('MainContent_GridView1').getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+
+            for (index = 1; index < rows.length; index++) {
+                   
+                console.log(index);
+                var deleteItem = document.getElementById('MainContent_GridView1_DeleteLink_' + index);
+                EnableAction('delete', deleteItem);
+
+                var editItem = document.getElementById('MainContent_GridView1_EditLink_' + index);
+                EnableAction('edit', editItem);
+            }
+        });
+    </script>   
 </asp:Content>
 
 <asp:Content runat="server" ID="FeaturedContent" ContentPlaceHolderID="FeaturedContent">
@@ -48,8 +108,8 @@
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:DynamicHyperLink runat="server" Action="Edit" Text="Editar" OnInit="lnkEditBtn_Init" 
-                            />&nbsp;<asp:LinkButton runat="server" CommandName="Delete" Text="Borrar"  OnInit="lnkDeleteBtn_Init" 
+                            <asp:DynamicHyperLink runat="server" Action="Edit" Text="Editar" ID="EditLink" 
+                            />&nbsp;<asp:LinkButton ID="DeleteLink" runat="server" CommandName="Delete" Text="Borrar" 
                                 OnClientClick='return confirm("Esta seguro de borrar el elemento?");' 
                             />&nbsp;<asp:DynamicHyperLink runat="server" Text="Detalles" />
                         </ItemTemplate>

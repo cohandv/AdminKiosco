@@ -67,9 +67,6 @@
     <Compile Include="aspnet_Roles.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="aspnet_SchemaVersions.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="aspnet_Users.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

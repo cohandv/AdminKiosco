@@ -59,16 +59,6 @@ namespace AdminKiosco.Web
             GridView1.PageIndex = 0;
         }
 
-        protected void lnkEditBtn_Init(object sender, EventArgs e)
-        {
-            ((DynamicHyperLink)sender).Enabled = AdminKiosco.Web.Account.RoleHelper.CanEdit(table.DisplayName);
-        }
-
-        protected void lnkDeleteBtn_Init(object sender, EventArgs e)
-        {
-            ((LinkButton)sender).Enabled = AdminKiosco.Web.Account.RoleHelper.CanDelete(table.DisplayName);
-        }
-
         protected void GridDataSource_Deleting(object sender, EntityDataSourceChangingEventArgs e)
         {
             e.Cancel = ForeignKeyValidation.Validate(e.Entity);

@@ -7,7 +7,7 @@
     </hgroup>
     <section id="loginForm">
         <h2>Use una cuenta local para entrar.</h2>
-        <asp:Login runat="server" ViewStateMode="Disabled" RenderOuterTable="false">
+        <asp:Login runat="server" ViewStateMode="Disabled" RenderOuterTable="false" OnLoggedIn="LoggedIn">
             <LayoutTemplate>
                 <p class="validation-summary-errors">
                     <asp:Literal runat="server" ID="FailureText" />
@@ -30,7 +30,7 @@
                             <asp:Label runat="server" AssociatedControlID="RememberMe" CssClass="checkbox">Recordar?</asp:Label>
                         </li>
                     </ol>
-                    <asp:Button runat="server" CommandName="Login" Text="Entrar" />
+                    <asp:Button runat="server" CommandName="Login" Text="Entrar"/>
                 </fieldset>
             </LayoutTemplate>
         </asp:Login>

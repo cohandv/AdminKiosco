@@ -87,6 +87,11 @@ namespace AdminKiosco.Web.Account
             // Check if user is already registered locally
             if (OpenAuth.Login(authResult.Provider, authResult.ProviderUserId, createPersistentCookie: false))
             {
+
+                //Roles cookie
+                HttpCookie cookie = new HttpCookie("Paper.Roles", AuthorizationConfig.GetRoles(authResult.UserName));
+                Page.Response.Cookies.Add(cookie);
+
                 RedirectToReturnUrl();
             }
 
@@ -100,6 +105,10 @@ namespace AdminKiosco.Web.Account
 
             if (User.Identity.IsAuthenticated)
             {
+                //Roles cookie
+                HttpCookie cookie = new HttpCookie("Paper.Roles", AuthorizationConfig.GetRoles(User.Identity.Name));
+                Page.Response.Cookies.Add(cookie);
+
                 // User is already authenticated, add the external login and redirect to return url
                 OpenAuth.AddAccountToExistingUser(ProviderName, ProviderUserId, ProviderUserName, User.Identity.Name);
                 RedirectToReturnUrl();
@@ -130,6 +139,10 @@ namespace AdminKiosco.Web.Account
                 // User created & associated OK
                 if (OpenAuth.Login(ProviderName, ProviderUserId, createPersistentCookie: false))
                 {
+                    //Roles cookie
+                    HttpCookie cookie = new HttpCookie("Paper.Roles", AuthorizationConfig.GetRoles(User.Identity.Name));
+                    Page.Response.Cookies.Add(cookie);
+
                     RedirectToReturnUrl();
                 }
             }

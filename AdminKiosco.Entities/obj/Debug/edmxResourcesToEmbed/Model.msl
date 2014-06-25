@@ -79,15 +79,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="aspnet_SchemaVersions">
-      <EntityTypeMapping TypeName="PaperModel.aspnet_SchemaVersions">
-        <MappingFragment StoreEntitySet="aspnet_SchemaVersions">
-          <ScalarProperty Name="IsCurrentVersion" ColumnName="IsCurrentVersion" />
-          <ScalarProperty Name="CompatibleSchemaVersion" ColumnName="CompatibleSchemaVersion" />
-          <ScalarProperty Name="Feature" ColumnName="Feature" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="aspnet_Users">
       <EntityTypeMapping TypeName="PaperModel.aspnet_Users">
         <MappingFragment StoreEntitySet="aspnet_Users">

@@ -11,7 +11,6 @@
         <EntityTypeShape EntityType="PaperModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="20" />
         <EntityTypeShape EntityType="PaperModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="7.5" PointY="13" />
         <EntityTypeShape EntityType="PaperModel.aspnet_Profile" Width="1.5" PointX="7.5" PointY="3.125" />
-        <EntityTypeShape EntityType="PaperModel.aspnet_SchemaVersions" Width="1.5" PointX="9.75" PointY="11.5" />
         <EntityTypeShape EntityType="PaperModel.aspnet_Users" Width="1.5" PointX="5.25" PointY="7.625" />
         <EntityTypeShape EntityType="PaperModel.aspnet_WebEvent_Events" Width="1.5" PointX="11.75" PointY="12.5" />
         <EntityTypeShape EntityType="PaperModel.Cliente" Width="1.5" PointX="15" PointY="4.625" />

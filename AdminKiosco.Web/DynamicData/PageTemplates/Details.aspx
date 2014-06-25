@@ -34,9 +34,9 @@
                         <asp:DynamicEntity runat="server" />
                         <tr class="td">
                             <td colspan="2">
-                                <asp:DynamicHyperLink runat="server" Action="Edit" Text="Editar" ID="lnkEditBtn" OnInit="lnkEditBtn_Init"  />
+                                <asp:DynamicHyperLink runat="server" Action="Edit" Text="Editar" ID="lnkEditBtn"  />
                                 <asp:LinkButton runat="server" CommandName="Delete" Text="Borrar"
-                                    OnClientClick='return confirm("Esta seguro de borrar este elemento?");' OnInit="lnkDeleteBtn_Init" />
+                                    OnClientClick='return confirm("Esta seguro de borrar este elemento?");' />
                             </td>
                         </tr>
                     </table>

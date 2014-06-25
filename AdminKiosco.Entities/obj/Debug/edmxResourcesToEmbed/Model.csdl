@@ -7,7 +7,6 @@
     <EntitySet Name="aspnet_PersonalizationAllUsers" EntityType="PaperModel.aspnet_PersonalizationAllUsers" />
     <EntitySet Name="aspnet_PersonalizationPerUser" EntityType="PaperModel.aspnet_PersonalizationPerUser" />
     <EntitySet Name="aspnet_Profile" EntityType="PaperModel.aspnet_Profile" />
-    <EntitySet Name="aspnet_SchemaVersions" EntityType="PaperModel.aspnet_SchemaVersions" />
     <EntitySet Name="aspnet_Users" EntityType="PaperModel.aspnet_Users" />
     <EntitySet Name="aspnet_WebEvent_Events" EntityType="PaperModel.aspnet_WebEvent_Events" />
     <EntitySet Name="Cliente" EntityType="PaperModel.Cliente" />
@@ -204,15 +203,6 @@
     <Property Name="PropertyValuesBinary" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
     <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="aspnet_Users" Relationship="PaperModel.FK__aspnet_Pr__UserI__671F4F74" FromRole="aspnet_Profile" ToRole="aspnet_Users" />
-  </EntityType>
-  <EntityType Name="aspnet_SchemaVersions">
-    <Key>
-      <PropertyRef Name="Feature" />
-      <PropertyRef Name="CompatibleSchemaVersion" />
-    </Key>
-    <Property Name="Feature" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="CompatibleSchemaVersion" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="IsCurrentVersion" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="aspnet_Users">
     <Key>

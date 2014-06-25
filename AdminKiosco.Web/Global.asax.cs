@@ -42,6 +42,9 @@ namespace AdminKiosco.Web
             AuthConfig.RegisterOpenAuth();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             RegisterScripts();
+            AuthorizationConfig.Register();
+
+            //Load
         }
 
         void Application_End(object sender, EventArgs e)
@@ -66,9 +69,6 @@ namespace AdminKiosco.Web
                     // if a global.asax handler were not implemented.
                     if (exc.Message.Contains("NoCatch") || exc.Message.Contains("maxUrlLength"))
                         return;
-
-                    //Redirect HTTP errors to HttpError page
-                    Server.Transfer("~/Error.aspx");
                 }
 
             }

@@ -12,6 +12,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
     <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+    
 </head>
 <body>
     <form runat="server">
@@ -53,7 +54,6 @@
                         <li><a runat="server" href="~/Default.aspx">Home</a></li>
                         <li><a runat="server" href="~/Administration.aspx">Administracion</a></li>
                         <li><a runat="server" href="~/Billing.aspx">Facturacion</a></li>
-                        <li><a runat="server" href="~/About.aspx">Acerca de</a></li>
                         <li><a runat="server" href="~/Contact.aspx">Contacto</a><asp:HyperLink ID="ErrorLink" runat="server" ToolTip="Mostrar pagina de errores" NavigateUrl="~/elmah.axd">?</asp:HyperLink>
                         </li>
                     </ul>
