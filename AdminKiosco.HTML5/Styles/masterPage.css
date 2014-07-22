@@ -1,0 +1,91 @@
+#MainHeader {
+	height:90px;
+	width: 100%;
+	color: white;
+	text-shadow: 3px 2px 3px #333333;
+	background: #4c4c4c; /* Old browsers */
+	background: -moz-linear-gradient(top, #4c4c4c 0%, #666666 90%, #111111 98%, #111111 99%, #111111 100%, #111111 100%, #474747 100%, #474747 100%, #2c2c2c 100%, #1c1c1c 100%, #131313 100%, #000000 100%, #000000 100%, #2c2c2c 101%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4c4c4c), color-stop(90%,#666666), color-stop(98%,#111111), color-stop(99%,#111111), color-stop(100%,#111111), color-stop(100%,#111111), color-stop(100%,#474747), color-stop(100%,#474747), color-stop(100%,#2c2c2c), color-stop(100%,#1c1c1c), color-stop(100%,#131313), color-stop(100%,#000000), color-stop(100%,#000000), color-stop(101%,#2c2c2c)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #4c4c4c 0%,#666666 90%,#111111 98%,#111111 99%,#111111 100%,#111111 100%,#474747 100%,#474747 100%,#2c2c2c 100%,#1c1c1c 100%,#131313 100%,#000000 100%,#000000 100%,#2c2c2c 101%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #4c4c4c 0%,#666666 90%,#111111 98%,#111111 99%,#111111 100%,#111111 100%,#474747 100%,#474747 100%,#2c2c2c 100%,#1c1c1c 100%,#131313 100%,#000000 100%,#000000 100%,#2c2c2c 101%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #4c4c4c 0%,#666666 90%,#111111 98%,#111111 99%,#111111 100%,#111111 100%,#474747 100%,#474747 100%,#2c2c2c 100%,#1c1c1c 100%,#131313 100%,#000000 100%,#000000 100%,#2c2c2c 101%); /* IE10+ */
+	background: linear-gradient(to bottom, #4c4c4c 0%,#666666 90%,#111111 98%,#111111 99%,#111111 100%,#111111 100%,#474747 100%,#474747 100%,#2c2c2c 100%,#1c1c1c 100%,#131313 100%,#000000 100%,#000000 100%,#2c2c2c 101%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#2c2c2c',GradientType=0 ); /* IE6-9 */
+}
+
+#MainFooter {
+	height:70px;
+	width: 100%;
+	color: white;
+	background: #4c4c4c; /* Old browsers */
+	background: -moz-linear-gradient(top, #4c4c4c 0%, #666666 90%, #111111 98%, #111111 99%, #111111 100%, #111111 100%, #474747 100%, #474747 100%, #2c2c2c 100%, #1c1c1c 100%, #131313 100%, #000000 100%, #000000 100%, #2c2c2c 101%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4c4c4c), color-stop(90%,#666666), color-stop(98%,#111111), color-stop(99%,#111111), color-stop(100%,#111111), color-stop(100%,#111111), color-stop(100%,#474747), color-stop(100%,#474747), color-stop(100%,#2c2c2c), color-stop(100%,#1c1c1c), color-stop(100%,#131313), color-stop(100%,#000000), color-stop(100%,#000000), color-stop(101%,#2c2c2c)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #4c4c4c 0%,#666666 90%,#111111 98%,#111111 99%,#111111 100%,#111111 100%,#474747 100%,#474747 100%,#2c2c2c 100%,#1c1c1c 100%,#131313 100%,#000000 100%,#000000 100%,#2c2c2c 101%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #4c4c4c 0%,#666666 90%,#111111 98%,#111111 99%,#111111 100%,#111111 100%,#474747 100%,#474747 100%,#2c2c2c 100%,#1c1c1c 100%,#131313 100%,#000000 100%,#000000 100%,#2c2c2c 101%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #4c4c4c 0%,#666666 90%,#111111 98%,#111111 99%,#111111 100%,#111111 100%,#474747 100%,#474747 100%,#2c2c2c 100%,#1c1c1c 100%,#131313 100%,#000000 100%,#000000 100%,#2c2c2c 101%); /* IE10+ */
+	background: linear-gradient(to bottom, #4c4c4c 0%,#666666 90%,#111111 98%,#111111 99%,#111111 100%,#111111 100%,#474747 100%,#474747 100%,#2c2c2c 100%,#1c1c1c 100%,#131313 100%,#000000 100%,#000000 100%,#2c2c2c 101%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#2c2c2c',GradientType=0 ); /* IE6-9 */
+}
+
+#menu {
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 3px 2px 3px #333333;
+    border-radius: 8px;
+}
+
+#menu ul {
+    height: auto;
+    margin: 0px;
+}
+
+#menu li { 
+	display: inline; 
+	padding: 20px; 
+}
+
+#menu a {
+    text-decoration: none;
+    color: White;
+}
+
+#menu a:hover {
+	color: Black;
+}
+
+.control-row.theme-row-header /*This will put the menu on top of everything*/
+{
+    z-index: 20;
+}
+
+#menu li {     
+	list-style: none;     
+	margin: 0;     
+	float: left; 
+}
+
+/*This tells the subnavigation pages not to show*/
+#menu ul li  ul  {     
+	display: none;     
+	margin: 0;     
+	padding: 0; 
+}
+
+/*This tells the subnavigation pages to show when you hover */
+#menu li:hover > ul
+{     
+	display: block; 
+	background-color: #4c4c4c;
+}
+
+#title {
+    font-family: Arial;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: left;
+    text-shadow: 3px 2px 3px #333333;
+    border-radius: 8px;
+    padding: 10px 10px 0px 10px;
+}
