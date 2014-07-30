@@ -1,4 +1,6 @@
 #MainHeader {
+    position: fixed; 
+    top: 0;
 	height:90px;
 	width: 100%;
 	color: white;
@@ -168,7 +170,9 @@
 #cssmenu .has-sub ul li:hover a {
   background: #0c7fb0;
 }
-
+#cssmenu ul ul li:hover > a {
+  color: #ffffff;
+}
 #cssmenu .has-sub .has-sub:hover > ul {
   display: block;
 }
