@@ -13,12 +13,13 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AdminKiosco.HTML5</RootNamespace>
     <AssemblyName>AdminKiosco.HTML5</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,6 +59,7 @@
     <Reference Include="Microsoft.Data.Services.Client, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
@@ -70,16 +72,14 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Readme\Elmah.txt" />
@@ -88,7 +88,8 @@
     <Content Include="errors.html" />
     <Content Include="Kiosco.html" />
     <Content Include="index.html" />
-    <Content Include="ODataService.svc" />
+    <Content Include="Scripts\service.js" />
+    <Content Include="Services\ODataService.svc" />
     <Content Include="Scripts\datajs-1.1.2.min.js" />
     <Content Include="Scripts\jquery-1.11.1.min.js" />
     <Content Include="Scripts\knockout-3.1.0.js" />
@@ -98,7 +99,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ODataService.svc.cs">
+    <Compile Include="Services\ODataService.svc.cs">
       <DependentUpon>ODataService.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,6 +114,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AdminKiosco.Common\AdminKiosco.Common.csproj">
+      <Project>{e9d80af0-fcc6-490e-82eb-666f200fa014}</Project>
+      <Name>AdminKiosco.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AdminKiosco.Entities\AdminKiosco.Entities.csproj">
       <Project>{2a137b18-7785-4476-9de5-a5123f89ecca}</Project>
       <Name>AdminKiosco.Entities</Name>

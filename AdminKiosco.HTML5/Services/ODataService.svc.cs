@@ -10,9 +10,11 @@ using System.Data.Services.Common;
 using System.Linq;
 using System.ServiceModel.Web;
 using System.Web;
+using AdminKiosco.Common;
 
 namespace AdminKiosco.HTML5
 {
+    [JSONPSupportBehavior]
     public class ODataService : DataService<AdminKiosco.Entities.PaperEntities>
     {
         // This method is called only once to initialize service-wide policies.
