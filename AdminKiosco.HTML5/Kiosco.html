@@ -17,40 +17,52 @@
 	  
 		});
 
+		ko.bindingHandlers.sort = {
+		    init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+		        var asc = false;
+		        element.style.cursor = 'pointer';
+
+		        element.onclick = function () {
+		            var value = valueAccessor();
+		            var prop = value.prop;
+		            var data = value.arr;
+
+		            asc = !asc;
+
+		            data.sort(function (left, right) {
+		                var rec1 = left;
+		                var rec2 = right;
+
+		                if (!asc) {
+		                    rec1 = right;
+		                    rec2 = left;
+		                }
+
+		                var props = prop.split('.');
+		                for (var i in props) {
+		                    var propName = props[i];
+		                    var parenIndex = propName.indexOf('()');
+		                    if (parenIndex > 0) {
+		                        propName = propName.substring(0, parenIndex);
+		                        rec1 = rec1[propName]();
+		                        rec2 = rec2[propName]();
+		                    } else {
+		                        rec1 = rec1[propName];
+		                        rec2 = rec2[propName];
+		                    }
+		                }
+
+		                return rec1 == rec2 ? 0 : rec1 < rec2 ? -1 : 1;
+		            });
+		        };
+		    }
+		};
+
+
 		// This is what our view model looks like.
 		var KioscoViewModelFn = function (kioscos) {
 		    var that = this;
-
-		    self.kiosco = ko.observableArray(kioscos);
-
-		    // A flag indicating whether we are communicating with the server.
-		    this.communicating = ko.observable(false);
-
-		    // Adds the newIdea placeholder to the list and saves to the server.
-		    self.headers = [
-                { title:'Accion'},
-                { title: 'Id', sortKey: 'Id' },
-                { title: 'Nombre', sortKey: 'Nombre' },
-		    ];
-
-		    self.sort = function (header, event) {
-		        alert('joda');
-		        var sortKey = header.sortKey;
-		        switch (sortKey) {
-		            case 'Nombre':
-		                self.kiosco.sort(function (a, b) {
-		                    return a.Nombre < b.Nombre ? -1 : a.Nombre > b.Nombre ? 1 : a.Nombre == b.Nombre ? 0 : 0;
-		                });
-		                break;
-		            case 'Id':
-		                self.kiosco.sort(function (a, b) {
-		                    return a.Id < b.Id ? -1 : a.Id > b.Id ? 1 : a.Id == b.Id ? 0 : 0;
-		                });
-		                break;
-		        }
-		    };
-
-
+		    self.Records = ko.observableArray(kioscos);
 		};
 
 
@@ -104,20 +116,26 @@
         <div id="mainContent">
             <table class="formatHTML5">
                 <thead>
-                    <tr data-bind="foreach: headers">
-                        <td data-bind="click: $parent.sort, text: title"></td>
+                    <tr>
+                        <th style="width:35px;"></th>
+                        <th data-bind="sort: { arr: Records, prop: 'Id' }">Id</th>
+                        <th data-bind="sort: { arr: Records, prop: 'Nombre' }">Nombre</th>
                     </tr>
                 </thead>
-                <tbody data-bind="foreach: kiosco">
+                <tbody data-bind="foreach: Records">
                     <tr>
                         <td>
-                            <a href="services.html">Crear</a>
-                            <a href="services.html">Borrar</a>
+                            <a onclick="alert('new item')">
+                                <img src="Styles//Images/Button-Add-icon.png" height="15" width="15">
+                            </a>
+                            <a onclick="alert('delete item')">
+                                <img src="Styles//Images/DeleteRed.png" height="15" width="15">
+                            </a>
                         </td>
                         <td data-bind="text: Id"></td>
                         <td data-bind="text: Nombre"></td>
                     </tr>
-            </table>
+</table>
 
         </div>
 	</div>
