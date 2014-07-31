@@ -19,8 +19,7 @@ body {
 	cursor: pointer;
 	border-top: 1px solid #fff;
 	box-shadow: 0 1px 4px rgba(40,20,0,.4);
-	font-weight: bold;
-	width:150px;
+	width:550px;
 }
 
 #leftMenu {
@@ -88,3 +87,4 @@ font: normal bold 11px Calibri;
 color: #000000;
 text-transform: uppercase;
 }
+
