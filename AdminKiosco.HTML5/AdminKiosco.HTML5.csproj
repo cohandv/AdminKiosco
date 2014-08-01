@@ -96,6 +96,7 @@
     <Content Include="Styles\Images\header.jpg" />
     <Content Include="Styles\masterPage.css" />
     <Content Include="Styles\style.css" />
+    <Content Include="Styles\tablestyle.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

@@ -88,3 +88,7 @@ color: #000000;
 text-transform: uppercase;
 }
 
+#search {
+    float: left;
+    border-radius: .60em;
+}
