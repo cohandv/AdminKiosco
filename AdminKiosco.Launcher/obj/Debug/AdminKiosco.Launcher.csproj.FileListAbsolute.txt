@@ -1,0 +1,17 @@
+C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\bin\Debug\AdminKiosco.Launcher.exe.config
+C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\bin\Debug\AdminKiosco.Launcher.exe
+C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\bin\Debug\AdminKiosco.Launcher.pdb
+C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\bin\Debug\CefSharp.Core.dll
+C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\bin\Debug\CefSharp.dll
+C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\bin\Debug\CefSharp.Example.dll
+C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\bin\Debug\CefSharp.WinForms.dll
+C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\bin\Debug\nunit.framework.dll
+C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\bin\Debug\CefSharp.pdb
+C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\bin\Debug\CefSharp.Core.pdb
+C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\bin\Debug\CefSharp.Core.xml
+C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\bin\Debug\CefSharp.Example.pdb
+C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\obj\Debug\AdminKiosco.Launcher.MainForm.resources
+C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\obj\Debug\AdminKiosco.Launcher.Properties.Resources.resources
+C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\obj\Debug\AdminKiosco.Launcher.csproj.GenerateResource.Cache
+C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\obj\Debug\AdminKiosco.Launcher.exe
+C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\obj\Debug\AdminKiosco.Launcher.pdb

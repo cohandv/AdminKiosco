@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminKiosco.Common", "Admin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminKiosco.HTML5", "AdminKiosco.HTML5\AdminKiosco.HTML5.csproj", "{C3021302-CECA-4820-985F-0410C7E69433}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminKiosco.Launcher", "AdminKiosco.Launcher\AdminKiosco.Launcher.csproj", "{0823107F-36D1-40A3-AECD-E93186595659}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C3021302-CECA-4820-985F-0410C7E69433}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3021302-CECA-4820-985F-0410C7E69433}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3021302-CECA-4820-985F-0410C7E69433}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0823107F-36D1-40A3-AECD-E93186595659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0823107F-36D1-40A3-AECD-E93186595659}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0823107F-36D1-40A3-AECD-E93186595659}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0823107F-36D1-40A3-AECD-E93186595659}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
