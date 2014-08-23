@@ -15,3 +15,5 @@ C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\obj\Debug\AdminKiosco.Launcher.Propert
 C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\obj\Debug\AdminKiosco.Launcher.csproj.GenerateResource.Cache
 C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\obj\Debug\AdminKiosco.Launcher.exe
 C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\obj\Debug\AdminKiosco.Launcher.pdb
+C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\bin\Debug\CefSharp.WinForms.pdb
+C:\PRO-D\AdminKiosco\AdminKiosco.Launcher\obj\Debug\AdminKiosco.Launcher.csprojResolveAssemblyReference.cache

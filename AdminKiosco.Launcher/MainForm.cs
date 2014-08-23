@@ -254,5 +254,12 @@ namespace AdminKiosco.Launcher
             },
             TaskScheduler.FromCurrentSynchronizationContext());
         }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _server.Stop();
+            _browser.Dispose();
+            Cef.Shutdown();
+        }
     }
 }
