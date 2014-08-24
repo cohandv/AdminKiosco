@@ -1,8 +1,0 @@
-C:\PRO-D\AdminKiosco\AdminKiosco.Entities\bin\Debug\AdminKiosco.Entities.dll.config
-C:\PRO-D\AdminKiosco\AdminKiosco.Entities\bin\Debug\AdminKiosco.Entities.dll
-C:\PRO-D\AdminKiosco\AdminKiosco.Entities\bin\Debug\AdminKiosco.Entities.pdb
-C:\PRO-D\AdminKiosco\AdminKiosco.Entities\bin\Debug\EntityFramework.dll
-C:\PRO-D\AdminKiosco\AdminKiosco.Entities\bin\Debug\EntityFramework.xml
-C:\PRO-D\AdminKiosco\AdminKiosco.Entities\obj\Debug\AdminKiosco.Entities.csprojResolveAssemblyReference.cache
-C:\PRO-D\AdminKiosco\AdminKiosco.Entities\obj\Debug\AdminKiosco.Entities.dll
-C:\PRO-D\AdminKiosco\AdminKiosco.Entities\obj\Debug\AdminKiosco.Entities.pdb
