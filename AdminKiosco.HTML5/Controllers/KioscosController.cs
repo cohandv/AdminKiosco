@@ -8,45 +8,31 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
-using System.Web.Http.OData;
-using System.Web.Http.OData.Routing;
-using AdminKiosco.Entities;
+using System.Web.OData;
+using AdminKiosco.HTML5.Model;
 
 namespace AdminKiosco.HTML5.Controllers
 {
-    /*
-    The WebApiConfig class may require additional changes to add a route for this controller. Merge these statements into the Register method of the WebApiConfig class as applicable. Note that OData URLs are case sensitive.
 
-    using System.Web.Http.OData.Builder;
-    using System.Web.Http.OData.Extensions;
-    using AdminKiosco.Entities;
-    ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
-    builder.EntitySet<Kiosco>("Kiosco");
-    builder.EntitySet<Cliente>("Cliente"); 
-    builder.EntitySet<DistribuidorKiosco>("DistribuidorKiosco"); 
-    builder.EntitySet<KioscoUsuario>("KioscoUsuario"); 
-    builder.EntitySet<MovimientosDiarios>("MovimientosDiarios"); 
-    config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
-    */
-    public class KioscoController : ODataController
+    public class KioscosController : ODataController
     {
-        private PaperEntities db = new PaperEntities();
+        private Entities db = new Entities();
 
-        // GET: odata/Kiosco
-        [EnableQuery(PageSize=15)]
-        public IQueryable<Kiosco> GetKiosco()
+        // GET: odata/Kioscos
+        [EnableQuery(PageSize = 10)]
+        public IQueryable<Kiosco> GetKioscos()
         {
-            return db.Kiosco;
+            return db.Kioscos;
         }
 
-        // GET: odata/Kiosco(5)
+        // GET: odata/Kioscos(5)
         [EnableQuery]
         public SingleResult<Kiosco> GetKiosco([FromODataUri] int key)
         {
-            return SingleResult.Create(db.Kiosco.Where(kiosco => kiosco.Id == key));
+            return SingleResult.Create(db.Kioscos.Where(kiosco => kiosco.Id == key));
         }
 
-        // PUT: odata/Kiosco(5)
+        // PUT: odata/Kioscos(5)
         public IHttpActionResult Put([FromODataUri] int key, Delta<Kiosco> patch)
         {
             Validate(patch.GetEntity());
@@ -56,7 +42,7 @@ namespace AdminKiosco.HTML5.Controllers
                 return BadRequest(ModelState);
             }
 
-            Kiosco kiosco = db.Kiosco.Find(key);
+            Kiosco kiosco = db.Kioscos.Find(key);
             if (kiosco == null)
             {
                 return NotFound();
@@ -83,7 +69,7 @@ namespace AdminKiosco.HTML5.Controllers
             return Updated(kiosco);
         }
 
-        // POST: odata/Kiosco
+        // POST: odata/Kioscos
         public IHttpActionResult Post(Kiosco kiosco)
         {
             if (!ModelState.IsValid)
@@ -91,13 +77,13 @@ namespace AdminKiosco.HTML5.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Kiosco.Add(kiosco);
+            db.Kioscos.Add(kiosco);
             db.SaveChanges();
 
             return Created(kiosco);
         }
 
-        // PATCH: odata/Kiosco(5)
+        // PATCH: odata/Kioscos(5)
         [AcceptVerbs("PATCH", "MERGE")]
         public IHttpActionResult Patch([FromODataUri] int key, Delta<Kiosco> patch)
         {
@@ -108,7 +94,7 @@ namespace AdminKiosco.HTML5.Controllers
                 return BadRequest(ModelState);
             }
 
-            Kiosco kiosco = db.Kiosco.Find(key);
+            Kiosco kiosco = db.Kioscos.Find(key);
             if (kiosco == null)
             {
                 return NotFound();
@@ -135,47 +121,19 @@ namespace AdminKiosco.HTML5.Controllers
             return Updated(kiosco);
         }
 
-        // DELETE: odata/Kiosco(5)
+        // DELETE: odata/Kioscos(5)
         public IHttpActionResult Delete([FromODataUri] int key)
         {
-            Kiosco kiosco = db.Kiosco.Find(key);
+            Kiosco kiosco = db.Kioscos.Find(key);
             if (kiosco == null)
             {
                 return NotFound();
             }
 
-            db.Kiosco.Remove(kiosco);
+            db.Kioscos.Remove(kiosco);
             db.SaveChanges();
 
             return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // GET: odata/Kiosco(5)/Cliente
-        [EnableQuery]
-        public IQueryable<Cliente> GetCliente([FromODataUri] int key)
-        {
-            return db.Kiosco.Where(m => m.Id == key).SelectMany(m => m.Cliente);
-        }
-
-        // GET: odata/Kiosco(5)/DistribuidorKiosco
-        [EnableQuery]
-        public IQueryable<DistribuidorKiosco> GetDistribuidorKiosco([FromODataUri] int key)
-        {
-            return db.Kiosco.Where(m => m.Id == key).SelectMany(m => m.DistribuidorKiosco);
-        }
-
-        // GET: odata/Kiosco(5)/KioscoUsuario
-        [EnableQuery]
-        public IQueryable<KioscoUsuario> GetKioscoUsuario([FromODataUri] int key)
-        {
-            return db.Kiosco.Where(m => m.Id == key).SelectMany(m => m.KioscoUsuario);
-        }
-
-        // GET: odata/Kiosco(5)/MovimientosDiarios
-        [EnableQuery]
-        public IQueryable<MovimientosDiarios> GetMovimientosDiarios([FromODataUri] int key)
-        {
-            return db.Kiosco.Where(m => m.Id == key).SelectMany(m => m.MovimientosDiarios);
         }
 
         protected override void Dispose(bool disposing)
@@ -189,7 +147,7 @@ namespace AdminKiosco.HTML5.Controllers
 
         private bool KioscoExists(int key)
         {
-            return db.Kiosco.Count(e => e.Id == key) > 0;
+            return db.Kioscos.Count(e => e.Id == key) > 0;
         }
     }
 }

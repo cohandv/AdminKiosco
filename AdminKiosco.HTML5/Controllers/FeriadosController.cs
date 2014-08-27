@@ -11,7 +11,7 @@ using System.Web.Http.ModelBinding;
 using System.Web.OData;
 using AdminKiosco.HTML5.Model;
 
-namespace AdminFeriado.HTML5.Controllers
+namespace AdminKiosco.HTML5.Controllers
 {
     public class FeriadosController : ODataController
     {

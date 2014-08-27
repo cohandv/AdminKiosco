@@ -26,5 +26,6 @@ namespace AdminKiosco.HTML5.Model
         }
     
         public virtual DbSet<Feriado> Feriados { get; set; }
+        public virtual DbSet<Kiosco> Kioscos { get; set; }
     }
 }

@@ -17,6 +17,7 @@ namespace AdminKiosco.HTML5
         {
             ODataConventionModelBuilder modelBuilder = new ODataConventionModelBuilder();
             modelBuilder.EntitySet<Feriado>("Feriados");
+            modelBuilder.EntitySet<Kiosco>("Kioscos");
 
 
             return modelBuilder.GetEdmModel();
