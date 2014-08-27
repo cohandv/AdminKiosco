@@ -6,27 +6,27 @@ using System.Web.OData.Builder;
 using Microsoft.OData.Edm;
 using System.Web.OData.Extensions;
 using System.Web.OData.Routing;
+using System.Web.Http;
+using AdminKiosco.HTML5.Model;
 
 namespace AdminKiosco.HTML5
 {
-    public class WebApiConfig
+    public static class WebApiConfig
     {
         public static IEdmModel GetModel()
         {
-            ODataModelBuilder builder = new ODataConventionModelBuilder();
+            ODataConventionModelBuilder modelBuilder = new ODataConventionModelBuilder();
+            modelBuilder.EntitySet<Feriado>("Feriados");
 
-            builder.EntitySet<AdminKiosco.Entities.aspnet_Roles>("aspnet_Roles");
-            builder.EntitySet<AdminKiosco.Entities.aspnet_Users>("aspnet_Users");
-            builder.EntitySet<AdminKiosco.Entities.KioscoUsuario>("KioscoUsuario");
-            builder.EntitySet<AdminKiosco.Entities.Kiosco>("Kiosco");
 
-            return builder.GetEdmModel();
+            return modelBuilder.GetEdmModel();
         }
 
-        public static void Register()
+        public static void Register(HttpConfiguration config)
         {
-            ODataRoute route = config.Routes.MapODataServiceRoute("odata", "odata", GetModel());
-            route.MapODataRouteAttributes(config);
+            GlobalConfiguration.Configuration.MapODataServiceRoute(routeName: "OData", routePrefix: "api", model: GetModel());
+            GlobalConfiguration.Configuration.EnsureInitialized();
+            return;
         }
     }
 }
